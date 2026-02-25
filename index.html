@@ -3,282 +3,498 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>iUMA Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>iUMA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #08090d;
-      --surface: rgba(255,255,255,0.028);
-      --surface-hover: rgba(255,255,255,0.055);
-      --border: rgba(255,255,255,0.07);
-      --border-hover: rgba(255,255,255,0.15);
-      --text: #e8ecf4;
-      --muted: #6b7a90;
-      --dim: #3d4a5c;
+      --bg: #050507;
+      --surface: rgba(255,255,255,0.035);
+      --surface-hover: rgba(255,255,255,0.065);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.18);
+      --text: #f5f5f7;
+      --text-secondary: #a1a1aa;
+      --muted: #71717a;
+      --dim: #3f3f46;
+      --gold: #e2c882;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'DM Sans', 'Noto Sans JP', system-ui, sans-serif;
+      font-family: 'Outfit', 'Noto Sans JP', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 15% -5%, rgba(56, 189, 248, 0.06), transparent),
-        radial-gradient(ellipse 60% 50% at 85% 10%, rgba(167, 139, 250, 0.04), transparent),
-        radial-gradient(ellipse 50% 40% at 50% 90%, rgba(251, 146, 60, 0.03), transparent);
-      pointer-events: none; z-index: 0;
+    /* === Atmospheric canvas === */
+    .atmosphere {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
     }
 
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.3;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0;
+    .atm-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0;
+      animation: orbPulse 8s ease-in-out infinite;
     }
 
-    .page { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-    header {
-      padding: 56px 0 0;
-      opacity: 0; animation: fadeUp 0.6s ease forwards;
+    .atm-orb:nth-child(1) {
+      width: 600px; height: 600px;
+      top: -15%; left: -10%;
+      background: radial-gradient(circle, rgba(59,158,255,0.12), transparent 70%);
+      animation-delay: 0s;
     }
 
-    .brand { display: flex; align-items: center; gap: 14px; }
+    .atm-orb:nth-child(2) {
+      width: 500px; height: 500px;
+      top: 20%; right: -15%;
+      background: radial-gradient(circle, rgba(139,92,246,0.08), transparent 70%);
+      animation-delay: 3s;
+    }
 
-    .brand-icon {
-      width: 40px; height: 40px; border-radius: 12px;
-      background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(167,139,250,0.15));
-      border: 1px solid rgba(255,255,255,0.08);
+    .atm-orb:nth-child(3) {
+      width: 400px; height: 400px;
+      bottom: -10%; left: 30%;
+      background: radial-gradient(circle, rgba(255,107,53,0.06), transparent 70%);
+      animation-delay: 5s;
+    }
+
+    @keyframes orbPulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    /* === Grain === */
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    }
+
+    /* === Layout === */
+    .page {
+      position: relative; z-index: 2;
+      max-width: 960px; margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* === Navigation === */
+    nav {
+      padding: 40px 0 0;
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0; animation: reveal 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .nav-mark {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #3b9eff 0%, #8b5cf6 100%);
       display: grid; place-items: center;
       font-family: 'JetBrains Mono', monospace;
-      font-weight: 500; font-size: 15px;
-      color: rgba(255,255,255,0.7); letter-spacing: -0.5px;
+      font-weight: 600; font-size: 13px;
+      color: #fff; letter-spacing: -0.5px;
     }
 
-    .brand-text { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; color: var(--text); }
-    .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-weight: 400; }
+    .nav-name {
+      font-weight: 600; font-size: 14px;
+      letter-spacing: 0.04em; color: var(--text);
+    }
 
+    .nav-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      color: var(--muted);
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* === Hero === */
     .hero {
-      margin-top: 64px;
-      opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      opacity: 0; animation: reveal 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
     }
 
     .hero h1 {
-      font-size: clamp(36px, 5.5vw, 56px);
-      font-weight: 900; line-height: 1.05; letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #e8ecf4 30%, #6b7a90 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(52px, 7vw, 80px);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--text);
     }
 
-    .hero p {
-      margin-top: 16px; font-size: 15px; color: var(--muted);
-      max-width: 480px; line-height: 1.7;
+    .hero-accent {
+      font-style: italic;
+      color: var(--gold);
     }
 
-    .section { margin-top: 56px; }
-
-    .section-header {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    .hero-aside {
+      padding-bottom: 8px;
     }
 
-    .section-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent); box-shadow: 0 0 12px var(--accent);
+    .hero-aside p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 320px;
     }
 
-    .section-label {
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    .hero-line {
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin-bottom: 16px;
     }
 
-    .section-count {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px; color: var(--dim); margin-left: auto;
+    /* === Divider === */
+    .divider {
+      margin: 64px 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      opacity: 0; animation: reveal 0.8s ease 0.3s forwards;
     }
 
-    .card-grid {
+    /* === Categories === */
+    .categories {
+      margin-top: 0;
+    }
+
+    .cat-item {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .cat-item:hover {
+      padding-left: 12px;
+    }
+
+    .cat-item::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -1px;
+      width: 0; height: 1px;
+      background: var(--cat-accent);
+      transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .cat-item:hover::after {
+      width: 100%;
+    }
+
+    .cat-row {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: 60px 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .cat-ordinal {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      line-height: 1;
+      color: var(--dim);
+      transition: color 0.35s;
+      padding-top: 2px;
+    }
+
+    .cat-item:hover .cat-ordinal {
+      color: var(--cat-accent);
+    }
+
+    .cat-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cat-header {
+      display: flex;
+      align-items: center;
       gap: 12px;
     }
 
-    .card {
-      position: relative; display: block; padding: 28px;
-      border-radius: 16px; background: var(--surface);
-      border: 1px solid var(--border);
-      text-decoration: none; color: var(--text);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
+    .cat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cat-accent);
     }
 
-    .card:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    .cat-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 4px;
     }
 
-    .card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity 0.25s;
+    .cat-badge-live {
+      background: rgba(16,185,129,0.12);
+      color: #34d399;
+      border: 1px solid rgba(16,185,129,0.2);
     }
 
-    .card:hover::before { opacity: 1; }
-
-    .card-top {
-      display: flex; align-items: center;
-      justify-content: space-between; margin-bottom: 16px;
+    .cat-badge-soon {
+      background: rgba(250,204,21,0.08);
+      color: #facc15;
+      border: 1px solid rgba(250,204,21,0.15);
     }
 
-    .card-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: grid; place-items: center; font-size: 20px;
+    .cat-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      transition: color 0.3s;
+    }
+
+    .cat-item:hover .cat-title {
+      color: var(--cat-accent);
+    }
+
+    .cat-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 440px;
+    }
+
+    .cat-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .cat-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--text-secondary);
+      transition: all 0.25s;
     }
 
-    .card-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; font-weight: 500;
-      padding: 3px 8px; border-radius: 6px; letter-spacing: 0.03em;
+    .cat-item:hover .cat-tag {
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
     }
 
-    .badge-live {
-      background: rgba(52,211,153,0.1); color: #34d399;
-      border: 1px solid rgba(52,211,153,0.15);
+    .cat-arrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      align-self: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+      white-space: nowrap;
     }
 
-    .badge-soon {
-      background: rgba(251,191,36,0.08); color: #fbbf24;
-      border: 1px solid rgba(251,191,36,0.12);
+    .cat-arrow-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: grid; place-items: center;
+      font-size: 16px;
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .card-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
-    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-    .card-meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
-
-    .meta-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; padding: 3px 8px; border-radius: 6px;
-      background: rgba(255,255,255,0.035); color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.05);
+    .cat-item:hover .cat-arrow {
+      color: var(--cat-accent);
     }
 
-    .card-action {
-      margin-top: 20px; display: inline-flex; align-items: center;
-      gap: 6px; font-size: 12px; font-weight: 600;
-      color: var(--accent); opacity: 0.7; transition: all 0.2s;
+    .cat-item:hover .cat-arrow-icon {
+      background: var(--cat-accent);
+      border-color: var(--cat-accent);
+      color: var(--bg);
+      transform: translateX(4px);
     }
 
-    .card:hover .card-action { opacity: 1; }
-    .card-action .arrow { transition: transform 0.2s; }
-    .card:hover .card-action .arrow { transform: translateX(4px); }
+    /* === Coming soon === */
+    .cat-item.soon {
+      cursor: default;
+    }
 
-    .card.coming-soon .card-title,
-    .card.coming-soon .card-desc { opacity: 0.45; }
-    .card.coming-soon:hover { transform: none; cursor: default; box-shadow: none; }
-    .card.coming-soon::before { display: none; }
-    .card.coming-soon .card-action { display: none; }
+    .cat-item.soon .cat-title,
+    .cat-item.soon .cat-desc { opacity: 0.4; }
+    .cat-item.soon:hover { padding-left: 0; }
+    .cat-item.soon:hover::after { width: 0; }
+    .cat-item.soon:hover .cat-ordinal { color: var(--dim); }
+    .cat-item.soon:hover .cat-title { color: var(--text); opacity: 0.4; }
+    .cat-item.soon .cat-arrow { display: none; }
 
-    /* === Staggered fade-in for JS-rendered elements === */
-    .fade-in {
+    /* === Fade-in === */
+    .fi {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.7s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .fade-in.visible {
+    .fi.v {
       opacity: 1;
       transform: translateY(0);
     }
 
+    /* === Footer === */
     footer {
-      margin-top: 80px; padding-bottom: 48px;
-      display: flex; align-items: center; justify-content: space-between;
-      opacity: 0; animation: fadeUp 0.6s ease 0.5s forwards;
+      margin-top: 80px;
+      padding: 32px 0 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0; animation: reveal 0.8s ease 0.6s forwards;
     }
 
-    .footer-text {
-      font-size: 11px; color: var(--dim);
+    .foot-left {
       font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 0.05em;
     }
 
-    .footer-dots { display: flex; gap: 4px; }
-    .footer-dots span { width: 4px; height: 4px; border-radius: 50%; background: var(--dim); }
+    .foot-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+    .foot-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .foot-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    /* === Animations === */
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
-      .card-grid { grid-template-columns: 1fr; }
-      header { padding: 36px 0 0; }
-      .hero { margin-top: 40px; }
-      .section { margin-top: 40px; }
-      footer { flex-direction: column; gap: 12px; }
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      .page { padding: 0 20px; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 56px;
+      }
+      .hero h1 { font-size: clamp(40px, 10vw, 56px); }
+      .hero-aside { padding-bottom: 0; }
+      .cat-row {
+        grid-template-columns: 40px 1fr;
+        gap: 16px;
+      }
+      .cat-ordinal { font-size: 28px; }
+      .cat-title { font-size: 22px; }
+      .cat-arrow { display: none; }
+      .cat-item { padding: 28px 0; }
+      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .cat-row { grid-template-columns: 1fr; }
+      .cat-ordinal { font-size: 20px; }
     }
   </style>
 </head>
 <body>
+
+  <div class="atmosphere">
+    <div class="atm-orb"></div>
+    <div class="atm-orb"></div>
+    <div class="atm-orb"></div>
+  </div>
+  <div class="grain"></div>
+
   <div class="page">
 
-    <header>
-      <div class="brand">
-        <div class="brand-icon">iU</div>
-        <div>
-          <div class="brand-text">iUMA Dashboard</div>
-          <div class="brand-sub">Intelligence &amp; Analytics Platform</div>
-        </div>
+    <nav>
+      <div class="nav-brand">
+        <div class="nav-mark">iU</div>
+        <div class="nav-name">iUMA</div>
       </div>
-    </header>
+      <div class="nav-tag">v2.0</div>
+    </nav>
 
     <div class="hero">
-      <h1>Data-Driven<br>Decisions.</h1>
-      <p>不動産・旅行・投資の分析レポートを一元管理。<br>自動収集 → スコアリング → レポート生成。</p>
+      <h1>Intelligent<br><span class="hero-accent">Analytics.</span></h1>
+      <div class="hero-aside">
+        <div class="hero-line"></div>
+        <p>不動産・旅行・投資の分析レポートを一元管理。<br>自動収集からスコアリング、レポート生成まで。</p>
+      </div>
     </div>
 
-    <div id="sections"></div>
+    <div class="divider"></div>
+
+    <div class="categories" id="categories"></div>
 
     <footer>
-      <div class="footer-text">iUMA Property Management — 2026</div>
-      <div class="footer-dots"><span></span><span></span><span></span></div>
-      <div class="footer-text">Unified Dashboard</div>
+      <div class="foot-left">iUMA PROPERTY MANAGEMENT &mdash; 2026</div>
+      <div class="foot-right">
+        <div class="foot-dot"></div>
+        <div class="foot-text">UNIFIED DASHBOARD</div>
+      </div>
     </footer>
 
   </div>
 
   <script>
     /**
-     * iUMA Dashboard — Data-driven category renderer
+     * iUMA Dashboard v2 — Data-driven editorial layout
      *
-     * SSF Design:
-     *   Scalable   — 新カテゴリ追加 = CATEGORIES配列に1オブジェクト追加するだけ
-     *   Sustainable — 各プロジェクトは独立デプロイ。このページはリンクハブのみ
-     *   Flexible   — status: "live"/"soon" で表示自動切替。tags/urlは自由構成
+     * SSF:
+     *   Scalable   — CATEGORIES配列に1オブジェクト追加 = 新カテゴリ
+     *   Sustainable — 各プロジェクト独立デプロイ。リンクハブのみ
+     *   Flexible   — status "live"/"soon"、tags/url自由構成
      */
-    const CATEGORIES = [
+    var CATEGORIES = [
       {
         id: "real-estate",
         label: "Real Estate",
-        accent: "#38bdf8",
+        accent: "#3b9eff",
         cards: [
           {
-            icon: "🏢",
             status: "live",
             title: "民泊物件検索",
             desc: "3都市の中古マンション候補をスコアリング。毎日自動巡回・更新。",
@@ -291,14 +507,13 @@
       {
         id: "travel",
         label: "Travel",
-        accent: "#f97316",
+        accent: "#ff6b35",
         cards: [
           {
-            icon: "✈️",
             status: "live",
             title: "旅行プランナー",
             desc: "目的地別の最適プラン。フライト・宿泊・アクティビティを自動最適化。",
-            tags: ["London 3/27–4/5", "Macau 3/5–10"],
+            tags: ["London 3/27\u20134/5", "Macau 3/5\u201310"],
             url: "https://ymatz28-beep.github.io/trip-planner/",
             action: "プランを見る"
           }
@@ -307,13 +522,12 @@
       {
         id: "stocks",
         label: "Stocks",
-        accent: "#a78bfa",
+        accent: "#8b5cf6",
         cards: [
           {
-            icon: "📊",
             status: "live",
             title: "ポートフォリオ分析",
-            desc: "保有銘柄のファンダメンタルズ × テクニカル分析。パフォーマンスレポート。",
+            desc: "保有銘柄のファンダメンタルズ \u00d7 テクニカル分析。パフォーマンスレポート。",
             tags: ["Portfolio"],
             url: "https://ymatz28-beep.github.io/report-dashboard/stock/portfolio.html",
             action: "分析を見る"
@@ -322,84 +536,64 @@
       }
     ];
 
-    function renderDashboard() {
-      const container = document.getElementById("sections");
-      const fadeElements = [];
-      let delayMs = 200;
+    function pad(n) { return n < 10 ? "0" + n : "" + n; }
 
-      CATEGORIES.forEach((cat) => {
-        const liveCount = cat.cards.filter(c => c.status === "live").length;
-        const countText = liveCount > 0
-          ? liveCount + " report" + (liveCount > 1 ? "s" : "")
-          : "\u2014";
+    function renderCategories() {
+      var container = document.getElementById("categories");
+      var items = [];
 
-        const section = document.createElement("div");
-        section.className = "section";
-        section.style.setProperty("--accent", cat.accent);
-
-        // Section header
-        const header = document.createElement("div");
-        header.className = "section-header fade-in";
-        header.innerHTML =
-          '<div class="section-dot"></div>' +
-          '<div class="section-label">' + cat.label + '</div>' +
-          '<div class="section-count">' + countText + '</div>';
-        fadeElements.push({ el: header, delay: delayMs });
-        delayMs += 80;
-        section.appendChild(header);
-
-        // Card grid
-        const grid = document.createElement("div");
-        grid.className = "card-grid";
-
+      CATEGORIES.forEach(function(cat, catIdx) {
         cat.cards.forEach(function(card) {
           var isLive = card.status === "live";
           var el = document.createElement(isLive ? "a" : "div");
           if (isLive && card.url) el.href = card.url;
-          el.className = "card fade-in" + (isLive ? "" : " coming-soon");
-          el.style.setProperty("--accent", cat.accent);
+          el.className = "cat-item fi" + (isLive ? "" : " soon");
+          el.style.setProperty("--cat-accent", cat.accent);
+
+          var badgeClass = isLive ? "cat-badge-live" : "cat-badge-soon";
+          var badgeText = isLive ? "LIVE" : "COMING SOON";
 
           var tagsHtml = (card.tags || []).map(function(t) {
-            return '<span class="meta-tag">' + t + '</span>';
+            return '<span class="cat-tag">' + t + '</span>';
           }).join("");
 
-          var actionHtml = isLive && card.action
-            ? '<div class="card-action">' + card.action + ' <span class="arrow">\u2192</span></div>'
-            : "";
+          var arrowHtml = isLive
+            ? '<div class="cat-arrow"><div class="cat-arrow-icon">\u2192</div></div>'
+            : '';
 
           el.innerHTML =
-            '<div class="card-top">' +
-              '<div class="card-icon">' + card.icon + '</div>' +
-              '<div class="card-badge ' + (isLive ? 'badge-live' : 'badge-soon') + '">' +
-                (isLive ? 'LIVE' : 'SOON') +
+            '<div class="cat-row">' +
+              '<div class="cat-ordinal">' + pad(catIdx + 1) + '</div>' +
+              '<div class="cat-body">' +
+                '<div class="cat-header">' +
+                  '<span class="cat-label">' + cat.label + '</span>' +
+                  '<span class="cat-badge ' + badgeClass + '">' + badgeText + '</span>' +
+                '</div>' +
+                '<div class="cat-title">' + card.title + '</div>' +
+                '<div class="cat-desc">' + card.desc + '</div>' +
+                (tagsHtml ? '<div class="cat-tags">' + tagsHtml + '</div>' : '') +
               '</div>' +
-            '</div>' +
-            '<div class="card-title">' + card.title + '</div>' +
-            '<div class="card-desc">' + card.desc + '</div>' +
-            (tagsHtml ? '<div class="card-meta">' + tagsHtml + '</div>' : '') +
-            actionHtml;
+              arrowHtml +
+            '</div>';
 
-          fadeElements.push({ el: el, delay: delayMs });
-          delayMs += 100;
-          grid.appendChild(el);
+          items.push(el);
+          container.appendChild(el);
         });
-
-        section.appendChild(grid);
-        container.appendChild(section);
-        delayMs += 50;
       });
 
-      // Staggered reveal after DOM insertion
+      // Staggered reveal
       requestAnimationFrame(function() {
-        fadeElements.forEach(function(item) {
-          setTimeout(function() {
-            item.el.classList.add("visible");
-          }, item.delay);
+        requestAnimationFrame(function() {
+          items.forEach(function(el, i) {
+            setTimeout(function() {
+              el.classList.add("v");
+            }, 400 + i * 120);
+          });
         });
       });
     }
 
-    renderDashboard();
+    renderCategories();
   </script>
 </body>
 </html>
