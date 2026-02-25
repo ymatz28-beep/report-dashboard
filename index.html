@@ -35,8 +35,7 @@
         radial-gradient(ellipse 80% 60% at 15% -5%, rgba(56, 189, 248, 0.06), transparent),
         radial-gradient(ellipse 60% 50% at 85% 10%, rgba(167, 139, 250, 0.04), transparent),
         radial-gradient(ellipse 50% 40% at 50% 90%, rgba(251, 146, 60, 0.03), transparent);
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
     body::after {
@@ -45,8 +44,7 @@
       inset: 0;
       opacity: 0.3;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
     .page { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -59,15 +57,13 @@
     .brand { display: flex; align-items: center; gap: 14px; }
 
     .brand-icon {
-      width: 40px; height: 40px;
-      border-radius: 12px;
+      width: 40px; height: 40px; border-radius: 12px;
       background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(167,139,250,0.15));
       border: 1px solid rgba(255,255,255,0.08);
       display: grid; place-items: center;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 500; font-size: 15px;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: -0.5px;
+      color: rgba(255,255,255,0.7); letter-spacing: -0.5px;
     }
 
     .brand-text { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; color: var(--text); }
@@ -93,21 +89,17 @@
     .section { margin-top: 56px; }
 
     .section-header {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 20px;
-      opacity: 0; animation: fadeUp 0.6s ease forwards;
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
     }
 
     .section-dot {
       width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
+      background: var(--accent); box-shadow: 0 0 12px var(--accent);
     }
 
     .section-label {
       font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
     }
 
     .section-count {
@@ -128,7 +120,6 @@
       text-decoration: none; color: var(--text);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
-      opacity: 0; animation: fadeUp 0.5s ease forwards;
     }
 
     .card:hover {
@@ -178,9 +169,7 @@
     .card-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
     .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-    .card-meta {
-      margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px;
-    }
+    .card-meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
 
     .meta-tag {
       font-family: 'JetBrains Mono', monospace;
@@ -205,10 +194,22 @@
     .card.coming-soon::before { display: none; }
     .card.coming-soon .card-action { display: none; }
 
+    /* === Staggered fade-in for JS-rendered elements === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     footer {
       margin-top: 80px; padding-bottom: 48px;
       display: flex; align-items: center; justify-content: space-between;
-      opacity: 0; animation: fadeUp 0.6s ease 0.6s forwards;
+      opacity: 0; animation: fadeUp 0.6s ease 0.5s forwards;
     }
 
     .footer-text {
@@ -268,7 +269,7 @@
      * SSF Design:
      *   Scalable   — 新カテゴリ追加 = CATEGORIES配列に1オブジェクト追加するだけ
      *   Sustainable — 各プロジェクトは独立デプロイ。このページはリンクハブのみ
-     *   Flexible   — status: "live"/"soon" でカード表示を自動切替。tags/urlは自由構成
+     *   Flexible   — status: "live"/"soon" で表示自動切替。tags/urlは自由構成
      */
     const CATEGORIES = [
       {
@@ -323,63 +324,78 @@
 
     function renderDashboard() {
       const container = document.getElementById("sections");
-      let baseDelay = 0.2;
+      const fadeElements = [];
+      let delayMs = 200;
 
       CATEGORIES.forEach((cat) => {
         const liveCount = cat.cards.filter(c => c.status === "live").length;
         const countText = liveCount > 0
-          ? `${liveCount} report${liveCount > 1 ? "s" : ""}`
-          : "—";
+          ? liveCount + " report" + (liveCount > 1 ? "s" : "")
+          : "\u2014";
 
         const section = document.createElement("div");
         section.className = "section";
         section.style.setProperty("--accent", cat.accent);
 
-        const headerDelay = baseDelay;
-        let headerHtml = `
-          <div class="section-header" style="animation-delay:${headerDelay}s">
-            <div class="section-dot"></div>
-            <div class="section-label">${cat.label}</div>
-            <div class="section-count">${countText}</div>
-          </div>
-        `;
+        // Section header
+        const header = document.createElement("div");
+        header.className = "section-header fade-in";
+        header.innerHTML =
+          '<div class="section-dot"></div>' +
+          '<div class="section-label">' + cat.label + '</div>' +
+          '<div class="section-count">' + countText + '</div>';
+        fadeElements.push({ el: header, delay: delayMs });
+        delayMs += 80;
+        section.appendChild(header);
 
-        let cardsHtml = '<div class="card-grid">';
-        cat.cards.forEach((card, ci) => {
-          const cardDelay = baseDelay + 0.05 * (ci + 1);
-          const isLive = card.status === "live";
-          const tag = isLive ? "a" : "div";
-          const hrefAttr = isLive && card.url ? ` href="${card.url}"` : "";
-          const soonClass = !isLive ? " coming-soon" : "";
-          const badgeClass = isLive ? "badge-live" : "badge-soon";
-          const badgeText = isLive ? "LIVE" : "SOON";
+        // Card grid
+        const grid = document.createElement("div");
+        grid.className = "card-grid";
 
-          const tagsHtml = (card.tags || []).map(
-            t => `<span class="meta-tag">${t}</span>`
-          ).join("");
+        cat.cards.forEach(function(card) {
+          var isLive = card.status === "live";
+          var el = document.createElement(isLive ? "a" : "div");
+          if (isLive && card.url) el.href = card.url;
+          el.className = "card fade-in" + (isLive ? "" : " coming-soon");
+          el.style.setProperty("--accent", cat.accent);
 
-          const actionHtml = isLive && card.action
-            ? `<div class="card-action">${card.action} <span class="arrow">→</span></div>`
+          var tagsHtml = (card.tags || []).map(function(t) {
+            return '<span class="meta-tag">' + t + '</span>';
+          }).join("");
+
+          var actionHtml = isLive && card.action
+            ? '<div class="card-action">' + card.action + ' <span class="arrow">\u2192</span></div>'
             : "";
 
-          cardsHtml += `
-            <${tag}${hrefAttr} class="card${soonClass}" style="--accent:${cat.accent}; animation-delay:${cardDelay}s">
-              <div class="card-top">
-                <div class="card-icon">${card.icon}</div>
-                <div class="card-badge ${badgeClass}">${badgeText}</div>
-              </div>
-              <div class="card-title">${card.title}</div>
-              <div class="card-desc">${card.desc}</div>
-              ${tagsHtml ? `<div class="card-meta">${tagsHtml}</div>` : ""}
-              ${actionHtml}
-            </${tag}>
-          `;
-        });
-        cardsHtml += "</div>";
+          el.innerHTML =
+            '<div class="card-top">' +
+              '<div class="card-icon">' + card.icon + '</div>' +
+              '<div class="card-badge ' + (isLive ? 'badge-live' : 'badge-soon') + '">' +
+                (isLive ? 'LIVE' : 'SOON') +
+              '</div>' +
+            '</div>' +
+            '<div class="card-title">' + card.title + '</div>' +
+            '<div class="card-desc">' + card.desc + '</div>' +
+            (tagsHtml ? '<div class="card-meta">' + tagsHtml + '</div>' : '') +
+            actionHtml;
 
-        section.innerHTML = headerHtml + cardsHtml;
+          fadeElements.push({ el: el, delay: delayMs });
+          delayMs += 100;
+          grid.appendChild(el);
+        });
+
+        section.appendChild(grid);
         container.appendChild(section);
-        baseDelay += 0.15;
+        delayMs += 50;
+      });
+
+      // Staggered reveal after DOM insertion
+      requestAnimationFrame(function() {
+        fadeElements.forEach(function(item) {
+          setTimeout(function() {
+            item.el.classList.add("visible");
+          }, item.delay);
+        });
       });
     }
 
