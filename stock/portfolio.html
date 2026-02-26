@@ -22,6 +22,7 @@
   --blue: #3b82f6;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 56px; }
 body {
   font-family: 'Inter', 'Noto Sans JP', sans-serif;
   background: var(--bg);
@@ -116,12 +117,27 @@ tr:hover { background: var(--surface2); }
 .risk-stat { background: var(--surface2); border-radius: 10px; padding: 16px; text-align: center; }
 .risk-stat .rs-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
 .risk-stat .rs-value { font-size: 22px; font-weight: 700; }
+.nav-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(15,17,23,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0; margin-bottom: 24px;
+  display: flex; gap: 4px; flex-wrap: wrap; justify-content: center;
+}
+.nav-bar a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 12px; font-weight: 600;
+  padding: 6px 14px; border-radius: 6px;
+  transition: all 0.2s;
+}
+.nav-bar a:hover { color: var(--text); background: var(--surface2); }
 @media (max-width: 768px) {
   .chart-row { grid-template-columns: 1fr; }
   .grid { grid-template-columns: 1fr; }
   .hero .stats { gap: 16px; }
   .hero { padding: 24px; }
   .risk-grid { grid-template-columns: 1fr 1fr; }
+  .nav-bar a { font-size: 11px; padding: 5px 10px; }
 }
 </style>
 </head>
@@ -131,12 +147,12 @@ tr:hover { background: var(--surface2); }
 <!-- Hero -->
 <div class="hero">
   <h1>ポートフォリオ分析レポート</h1>
-  <div class="subtitle">骨太投資術 × Porter競争戦略 | 39銘柄 | 2026-02-26 21:19</div>
+  <div class="subtitle">骨太投資術 × Porter競争戦略 | 39銘柄 | 2026-02-26 21:22</div>
   <div class="stats">
     
     <div class="stat-card">
       <div class="label">総評価額</div>
-      <div class="value ">¥8,397,197</div>
+      <div class="value ">¥8,397,207</div>
     </div>
     
     <div class="stat-card">
@@ -157,12 +173,21 @@ tr:hover { background: var(--surface2); }
   </div>
 </div>
 
+<!-- Navigation -->
+<div class="nav-bar">
+  <a href="#allocation">配分</a>
+  <a href="#stocks">銘柄分析</a>
+  <a href="#ranking">ランキング</a>
+  <a href="#strategy">戦略</a>
+  <a href="#returns">リターン一覧</a>
+</div>
+
 
 
 <!-- Allocation Charts (top visual) -->
 
 <div class="section">
-  <div class="section-title">ポートフォリオ配分</div>
+  <div class="section-title" id="allocation">ポートフォリオ配分</div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
     <div class="chart-container"><canvas id="typeAllocation"></canvas></div>
     <div class="chart-container"><canvas id="brokerAllocation"></canvas></div>
@@ -188,9 +213,9 @@ tr:hover { background: var(--surface2); }
         <tr>
           <td><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#3b82f6;margin-right:6px;vertical-align:middle;"></span><strong>米国株式/ETF</strong></td>
           <td style="text-align:right">3</td>
-          <td style="text-align:right">¥1,299,288</td>
-          <td style="text-align:right">¥1,460,341</td>
-          <td style="text-align:right" class="pnl-positive">¥161,053</td>
+          <td style="text-align:right">¥1,299,296</td>
+          <td style="text-align:right">¥1,460,350</td>
+          <td style="text-align:right" class="pnl-positive">¥161,054</td>
           <td style="text-align:right" class="pnl-positive"><strong>+12.4%</strong></td>
           <td style="text-align:right"><strong>17.4%</strong></td>
         </tr>
@@ -225,7 +250,7 @@ tr:hover { background: var(--surface2); }
 
 <!-- Stock Cards -->
 <div class="section">
-  <div class="section-title">銘柄分析</div>
+  <div class="section-title" id="stocks">銘柄分析</div>
   <div class="grid">
     
     <div class="card" style="border-left: 3px solid #6366f1;">
@@ -1439,7 +1464,7 @@ tr:hover { background: var(--surface2); }
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
         <div class="ret-value pnl-positive">+20.9%</div>
-        <div class="ret-sub">$154.68 / 評価額 ¥139,363</div>
+        <div class="ret-sub">$154.68 / 評価額 ¥139,364</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>6株</span>
@@ -2599,7 +2624,7 @@ tr:hover { background: var(--surface2); }
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
         <div class="ret-value pnl-positive">+2.6%</div>
-        <div class="ret-sub">$101.00 / 評価額 ¥624,164</div>
+        <div class="ret-sub">$101.00 / 評価額 ¥624,168</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>100株</span>
@@ -2684,7 +2709,7 @@ tr:hover { background: var(--surface2); }
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
         <div class="ret-value pnl-positive">+21.0%</div>
-        <div class="ret-sub">$776.70 / 評価額 ¥696,814</div>
+        <div class="ret-sub">$776.70 / 評価額 ¥696,819</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>30株</span>
@@ -3428,7 +3453,7 @@ tr:hover { background: var(--surface2); }
 
 <!-- Ranking Table -->
 <div class="section">
-  <div class="section-title">ランキング</div>
+  <div class="section-title" id="ranking">ランキング</div>
   <div class="card" style="padding: 0; overflow: hidden;">
     <table>
       <thead>
@@ -3922,7 +3947,7 @@ tr:hover { background: var(--surface2); }
 <!-- Strategy & Optimization -->
 
 <div class="section">
-  <div class="section-title">戦略 & 最適化</div>
+  <div class="section-title" id="strategy">戦略 & 最適化</div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;">
     <!-- Strategy card -->
     <div class="card">
@@ -3981,7 +4006,7 @@ tr:hover { background: var(--surface2); }
           <strong>JP株全般</strong>
           <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">JPが目標比+22.6%超過</div>
         </div>
-        <span style="font-weight:700;white-space:nowrap;">¥1,898,538</span>
+        <span style="font-weight:700;white-space:nowrap;">¥1,898,532</span>
       </div>
       
       <div class="suggestion-row">
@@ -3990,7 +4015,7 @@ tr:hover { background: var(--surface2); }
           <strong>US株全般</strong>
           <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">USが目標比-22.6%不足</div>
         </div>
-        <span style="font-weight:700;white-space:nowrap;">¥1,898,538</span>
+        <span style="font-weight:700;white-space:nowrap;">¥1,898,532</span>
       </div>
       
       
@@ -4012,7 +4037,7 @@ tr:hover { background: var(--surface2); }
 <!-- Detailed Returns Table -->
 
 <div class="section">
-  <div class="section-title">全銘柄リターン一覧</div>
+  <div class="section-title" id="returns">全銘柄リターン一覧</div>
   <div class="card" style="padding: 0; overflow-x: auto;">
     <table>
       <thead>
@@ -4121,9 +4146,9 @@ tr:hover { background: var(--surface2); }
           <td><strong>iシェアーズ MSCI 韓国 ETF</strong><br><span style="color:var(--text-muted);font-size:11px;">EWY</span></td>
           <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
           <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥575,647</td>
-          <td style="text-align:right">¥696,814</td>
-          <td style="text-align:right" class="pnl-positive">¥121,167</td>
+          <td style="text-align:right">¥575,651</td>
+          <td style="text-align:right">¥696,819</td>
+          <td style="text-align:right" class="pnl-positive">¥121,168</td>
           <td style="text-align:right" class="pnl-positive"><strong>+21.1%</strong></td>
           <td style="text-align:right">8.3%</td>
         </tr>
@@ -4132,9 +4157,9 @@ tr:hover { background: var(--surface2); }
           <td><strong>iシェアーズ MSCI 韓国 ETF</strong><br><span style="color:var(--text-muted);font-size:11px;">EWY</span></td>
           <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
           <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥115,232</td>
-          <td style="text-align:right">¥139,363</td>
-          <td style="text-align:right" class="pnl-positive">¥24,130</td>
+          <td style="text-align:right">¥115,233</td>
+          <td style="text-align:right">¥139,364</td>
+          <td style="text-align:right" class="pnl-positive">¥24,131</td>
           <td style="text-align:right" class="pnl-positive"><strong>+20.9%</strong></td>
           <td style="text-align:right">1.7%</td>
         </tr>
@@ -4330,8 +4355,8 @@ tr:hover { background: var(--surface2); }
           <td><strong>コンパニア・デ・ミナス・ブエナベントゥラ</strong><br><span style="color:var(--text-muted);font-size:11px;">BVN</span></td>
           <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
           <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥608,408</td>
-          <td style="text-align:right">¥624,164</td>
+          <td style="text-align:right">¥608,412</td>
+          <td style="text-align:right">¥624,168</td>
           <td style="text-align:right" class="pnl-positive">¥15,756</td>
           <td style="text-align:right" class="pnl-positive"><strong>+2.6%</strong></td>
           <td style="text-align:right">7.4%</td>
@@ -4466,7 +4491,7 @@ tr:hover { background: var(--surface2); }
 
 <div class="footer">
   stock-analyzer v0.3 — 骨太投資術 × Porter競争戦略 MECE 4軸分析 + リスク&最適化<br>
-  Generated at 2026-02-26 21:19
+  Generated at 2026-02-26 21:22
 </div>
 
 </div>
