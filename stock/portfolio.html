@@ -131,12 +131,12 @@ tr:hover { background: var(--surface2); }
 <!-- Hero -->
 <div class="hero">
   <h1>ポートフォリオ分析レポート</h1>
-  <div class="subtitle">骨太投資術 × Porter競争戦略 | 39銘柄 | 2026-02-26 20:59</div>
+  <div class="subtitle">骨太投資術 × Porter競争戦略 | 39銘柄 | 2026-02-26 21:06</div>
   <div class="stats">
     
     <div class="stat-card">
       <div class="label">総評価額</div>
-      <div class="value ">¥8,363,661</div>
+      <div class="value ">¥8,397,881</div>
     </div>
     
     <div class="stat-card">
@@ -146,12 +146,12 @@ tr:hover { background: var(--surface2); }
     
     <div class="stat-card">
       <div class="label">USD/JPY</div>
-      <div class="value ">156.06</div>
+      <div class="value ">156.07</div>
     </div>
     
     <div class="stat-card">
       <div class="label">含み損益</div>
-      <div class="value pnl-positive">+12.3%</div>
+      <div class="value pnl-positive">+12.7%</div>
     </div>
     
   </div>
@@ -159,508 +159,15 @@ tr:hover { background: var(--surface2); }
 
 
 
-<!-- Returns & Risk Summary -->
+<!-- Allocation Charts (top visual) -->
 
 <div class="section">
-  <div class="section-title">運用成績 & リスク指標</div>
-
-  <!-- Key metrics grid -->
-  <div class="risk-grid" style="margin-bottom: 16px;">
-    <div class="risk-stat">
-      <div class="rs-label">投資元本</div>
-      <div class="rs-value">¥7,449,157</div>
-    </div>
-    <div class="risk-stat">
-      <div class="rs-label">評価額</div>
-      <div class="rs-value">¥8,363,661</div>
-    </div>
-    <div class="risk-stat">
-      <div class="rs-label">含み損益</div>
-      <div class="rs-value pnl-positive">¥914,504</div>
-    </div>
-    <div class="risk-stat">
-      <div class="rs-label">トータルリターン</div>
-      <div class="rs-value pnl-positive">+12.3%</div>
-    </div>
-    <div class="risk-stat">
-      <div class="rs-label">Top5 集中度</div>
-      <div class="rs-value">33.7%</div>
-    </div>
-    <div class="risk-stat">
-      <div class="rs-label">HHI</div>
-      <div class="rs-value">407</div>
-    </div>
-    <div class="risk-stat">
-      <div class="rs-label">JPY比率</div>
-      <div class="rs-value">82.7%</div>
-    </div>
-    <div class="risk-stat">
-      <div class="rs-label">USD比率</div>
-      <div class="rs-value">17.3%</div>
-    </div>
+  <div class="section-title">ポートフォリオ配分</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+    <div class="chart-container"><canvas id="typeAllocation"></canvas></div>
+    <div class="chart-container"><canvas id="brokerAllocation"></canvas></div>
+    <div class="chart-container"><canvas id="fxChart"></canvas></div>
   </div>
-
-  <!-- Alerts -->
-  
-  <div style="margin-bottom: 16px;">
-    
-    <div class="alert-box">USD建て17%（国際分散不足）</div>
-    
-    <div class="alert-box">投資信託10%（インデックス積立の比率拡大余地あり）</div>
-    
-  </div>
-  
-
-  <!-- Returns table -->
-  <div class="card" style="padding: 0; overflow-x: auto;">
-    <table>
-      <thead>
-        <tr>
-          <th>銘柄</th>
-          <th>種別</th>
-          <th>証券会社</th>
-          <th style="text-align:right">投資額</th>
-          <th style="text-align:right">評価額</th>
-          <th style="text-align:right">損益</th>
-          <th style="text-align:right">リターン</th>
-          <th style="text-align:right">構成比</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td><strong>三菱重工業</strong><br><span style="color:var(--text-muted);font-size:11px;">7011.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥13,167</td>
-          <td style="text-align:right">¥29,406</td>
-          <td style="text-align:right" class="pnl-positive">¥16,239</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+123.3%</strong></td>
-          <td style="text-align:right">0.3%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>プラチナ</strong><br><span style="color:var(--text-muted);font-size:11px;">PLAT_R</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥152,872</td>
-          <td style="text-align:right">¥213,462</td>
-          <td style="text-align:right" class="pnl-positive">¥60,590</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+39.6%</strong></td>
-          <td style="text-align:right">2.5%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ＩＨＩ</strong><br><span style="color:var(--text-muted);font-size:11px;">7013.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥163,645</td>
-          <td style="text-align:right">¥224,560</td>
-          <td style="text-align:right" class="pnl-positive">¥60,915</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+37.2%</strong></td>
-          <td style="text-align:right">2.7%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天・プラス・日経225インデックス・ファンド(楽天・プラス・日経225)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・プラス・日経2</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥175,000</td>
-          <td style="text-align:right">¥231,761</td>
-          <td style="text-align:right" class="pnl-positive">¥56,761</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+32.4%</strong></td>
-          <td style="text-align:right">2.8%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>金</strong><br><span style="color:var(--text-muted);font-size:11px;">GOLD_R</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥229,432</td>
-          <td style="text-align:right">¥301,280</td>
-          <td style="text-align:right" class="pnl-positive">¥71,848</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+31.3%</strong></td>
-          <td style="text-align:right">3.6%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天・シュワブ・高配当株式・米国ファンド(四半期決算型)(楽天・SCHD)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・シュワブ・高配</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥25,444</td>
-          <td style="text-align:right">¥33,266</td>
-          <td style="text-align:right" class="pnl-positive">¥7,822</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+30.7%</strong></td>
-          <td style="text-align:right">0.4%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>オープンドア</strong><br><span style="color:var(--text-muted);font-size:11px;">3926.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥28,500</td>
-          <td style="text-align:right">¥36,400</td>
-          <td style="text-align:right" class="pnl-positive">¥7,900</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+27.7%</strong></td>
-          <td style="text-align:right">0.4%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>三菱重</strong><br><span style="color:var(--text-muted);font-size:11px;">7011.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥394,000</td>
-          <td style="text-align:right">¥490,100</td>
-          <td style="text-align:right" class="pnl-positive">¥96,100</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+24.4%</strong></td>
-          <td style="text-align:right">5.9%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ドトール・日レスＨＤ</strong><br><span style="color:var(--text-muted);font-size:11px;">3087.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥244,000</td>
-          <td style="text-align:right">¥300,500</td>
-          <td style="text-align:right" class="pnl-positive">¥56,500</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+23.2%</strong></td>
-          <td style="text-align:right">3.6%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>iシェアーズ MSCI 韓国 ETF</strong><br><span style="color:var(--text-muted);font-size:11px;">EWY</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥575,861</td>
-          <td style="text-align:right">¥697,073</td>
-          <td style="text-align:right" class="pnl-positive">¥121,212</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+21.1%</strong></td>
-          <td style="text-align:right">8.3%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>iシェアーズ MSCI 韓国 ETF</strong><br><span style="color:var(--text-muted);font-size:11px;">EWY</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥115,275</td>
-          <td style="text-align:right">¥139,415</td>
-          <td style="text-align:right" class="pnl-positive">¥24,139</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+20.9%</strong></td>
-          <td style="text-align:right">1.7%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天・米国高配当株式インデックス・ファンド(楽天・VYM)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・米国高配当株式</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥175,000</td>
-          <td style="text-align:right">¥210,342</td>
-          <td style="text-align:right" class="pnl-positive">¥35,342</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+20.2%</strong></td>
-          <td style="text-align:right">2.5%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>名村造船</strong><br><span style="color:var(--text-muted);font-size:11px;">7014.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥475,000</td>
-          <td style="text-align:right">¥568,000</td>
-          <td style="text-align:right" class="pnl-positive">¥93,000</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+19.6%</strong></td>
-          <td style="text-align:right">6.8%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>良品計画</strong><br><span style="color:var(--text-muted);font-size:11px;">7453.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥296,700</td>
-          <td style="text-align:right">¥352,200</td>
-          <td style="text-align:right" class="pnl-positive">¥55,500</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+18.7%</strong></td>
-          <td style="text-align:right">4.2%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ＣＭＫ</strong><br><span style="color:var(--text-muted);font-size:11px;">6958.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥52,200</td>
-          <td style="text-align:right">¥61,900</td>
-          <td style="text-align:right" class="pnl-positive">¥9,700</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+18.6%</strong></td>
-          <td style="text-align:right">0.7%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>三菱重工業</strong><br><span style="color:var(--text-muted);font-size:11px;">7011.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥124,500</td>
-          <td style="text-align:right">¥147,030</td>
-          <td style="text-align:right" class="pnl-positive">¥22,530</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+18.1%</strong></td>
-          <td style="text-align:right">1.8%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天・全米株式インデックス・ファンド(楽天・VTI)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・全米株式インデ</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥175,000</td>
-          <td style="text-align:right">¥199,045</td>
-          <td style="text-align:right" class="pnl-positive">¥24,045</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+13.7%</strong></td>
-          <td style="text-align:right">2.4%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>中国塗料</strong><br><span style="color:var(--text-muted);font-size:11px;">4617.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥408,500</td>
-          <td style="text-align:right">¥455,500</td>
-          <td style="text-align:right" class="pnl-positive">¥47,000</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+11.5%</strong></td>
-          <td style="text-align:right">5.5%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天・プラス・日経225インデックス・ファンド(楽天・プラス・日経225)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・プラス・日経2</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥50,000</td>
-          <td style="text-align:right">¥55,206</td>
-          <td style="text-align:right" class="pnl-positive">¥5,206</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+10.4%</strong></td>
-          <td style="text-align:right">0.7%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>五洋建</strong><br><span style="color:var(--text-muted);font-size:11px;">1893.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥189,000</td>
-          <td style="text-align:right">¥208,500</td>
-          <td style="text-align:right" class="pnl-positive">¥19,500</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+10.3%</strong></td>
-          <td style="text-align:right">2.5%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>関西電力</strong><br><span style="color:var(--text-muted);font-size:11px;">9503.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥250,000</td>
-          <td style="text-align:right">¥274,400</td>
-          <td style="text-align:right" class="pnl-positive">¥24,400</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+9.8%</strong></td>
-          <td style="text-align:right">3.3%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ベースフード</strong><br><span style="color:var(--text-muted);font-size:11px;">2936.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥33,100</td>
-          <td style="text-align:right">¥36,100</td>
-          <td style="text-align:right" class="pnl-positive">¥3,000</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+9.1%</strong></td>
-          <td style="text-align:right">0.4%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>北海電力</strong><br><span style="color:var(--text-muted);font-size:11px;">9509.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥223,200</td>
-          <td style="text-align:right">¥242,400</td>
-          <td style="text-align:right" class="pnl-positive">¥19,200</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+8.6%</strong></td>
-          <td style="text-align:right">2.9%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>パンパシフィックＨＤ</strong><br><span style="color:var(--text-muted);font-size:11px;">7532.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥94,000</td>
-          <td style="text-align:right">¥101,750</td>
-          <td style="text-align:right" class="pnl-positive">¥7,750</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+8.2%</strong></td>
-          <td style="text-align:right">1.2%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>金</strong><br><span style="color:var(--text-muted);font-size:11px;">GOLD</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥200,002</td>
-          <td style="text-align:right">¥209,696</td>
-          <td style="text-align:right" class="pnl-positive">¥9,694</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+4.8%</strong></td>
-          <td style="text-align:right">2.5%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>関西電力</strong><br><span style="color:var(--text-muted);font-size:11px;">9503.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥262,800</td>
-          <td style="text-align:right">¥274,400</td>
-          <td style="text-align:right" class="pnl-positive">¥11,600</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+4.4%</strong></td>
-          <td style="text-align:right">3.3%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>銀</strong><br><span style="color:var(--text-muted);font-size:11px;">SILVER</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥90,000</td>
-          <td style="text-align:right">¥92,920</td>
-          <td style="text-align:right" class="pnl-positive">¥2,920</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+3.2%</strong></td>
-          <td style="text-align:right">1.1%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>プラチナ</strong><br><span style="color:var(--text-muted);font-size:11px;">PLATINUM</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥200,001</td>
-          <td style="text-align:right">¥203,496</td>
-          <td style="text-align:right" class="pnl-positive">¥3,495</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+1.8%</strong></td>
-          <td style="text-align:right">2.4%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天・米国高配当株式インデックス・ファンド(楽天・VYM)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・米国高配当株式</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥50,000</td>
-          <td style="text-align:right">¥50,494</td>
-          <td style="text-align:right" class="pnl-positive">¥494</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+1.0%</strong></td>
-          <td style="text-align:right">0.6%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ビジョン</strong><br><span style="color:var(--text-muted);font-size:11px;">9416.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥128,500</td>
-          <td style="text-align:right">¥129,200</td>
-          <td style="text-align:right" class="pnl-positive">¥700</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+0.5%</strong></td>
-          <td style="text-align:right">1.5%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>フジオフードＧ本社</strong><br><span style="color:var(--text-muted);font-size:11px;">2752.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥107,000</td>
-          <td style="text-align:right">¥107,500</td>
-          <td style="text-align:right" class="pnl-positive">¥500</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+0.5%</strong></td>
-          <td style="text-align:right">1.3%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ｒｏｂｏｔ　ｈｏｍｅ</strong><br><span style="color:var(--text-muted);font-size:11px;">1435.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥203,000</td>
-          <td style="text-align:right">¥203,000</td>
-          <td style="text-align:right" class="pnl-positive">¥0</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+0.0%</strong></td>
-          <td style="text-align:right">2.4%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>コンパニア・デ・ミナス・ブエナベントゥラ</strong><br><span style="color:var(--text-muted);font-size:11px;">BVN</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥608,634</td>
-          <td style="text-align:right">¥606,917</td>
-          <td style="text-align:right" class="pnl-negative">¥-1,717</td>
-          <td style="text-align:right" class="pnl-negative"><strong>-0.3%</strong></td>
-          <td style="text-align:right">7.3%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ＮＴＴ</strong><br><span style="color:var(--text-muted);font-size:11px;">9432.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥154,000</td>
-          <td style="text-align:right">¥152,100</td>
-          <td style="text-align:right" class="pnl-negative">¥-1,900</td>
-          <td style="text-align:right" class="pnl-negative"><strong>-1.2%</strong></td>
-          <td style="text-align:right">1.8%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天・全米株式インデックス・ファンド(楽天・VTI)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・全米株式インデ</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥50,000</td>
-          <td style="text-align:right">¥48,710</td>
-          <td style="text-align:right" class="pnl-negative">¥-1,290</td>
-          <td style="text-align:right" class="pnl-negative"><strong>-2.6%</strong></td>
-          <td style="text-align:right">0.6%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>楽天グループ</strong><br><span style="color:var(--text-muted);font-size:11px;">4755.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥84,500</td>
-          <td style="text-align:right">¥81,690</td>
-          <td style="text-align:right" class="pnl-negative">¥-2,810</td>
-          <td style="text-align:right" class="pnl-negative"><strong>-3.3%</strong></td>
-          <td style="text-align:right">1.0%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>東日本旅客鉄道</strong><br><span style="color:var(--text-muted);font-size:11px;">9020.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥404,500</td>
-          <td style="text-align:right">¥381,900</td>
-          <td style="text-align:right" class="pnl-negative">¥-22,600</td>
-          <td style="text-align:right" class="pnl-negative"><strong>-5.6%</strong></td>
-          <td style="text-align:right">4.6%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>ＮＴＴ</strong><br><span style="color:var(--text-muted);font-size:11px;">9432.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">楽天証券</td>
-          <td style="text-align:right">¥107,824</td>
-          <td style="text-align:right">¥100,842</td>
-          <td style="text-align:right" class="pnl-negative">¥-6,981</td>
-          <td style="text-align:right" class="pnl-negative"><strong>-6.5%</strong></td>
-          <td style="text-align:right">1.2%</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Ｉｎｅ</strong><br><span style="color:var(--text-muted);font-size:11px;">4933.T</span></td>
-          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
-          <td style="font-size:11px;">SBI証券</td>
-          <td style="text-align:right">¥135,000</td>
-          <td style="text-align:right">¥111,200</td>
-          <td style="text-align:right" class="pnl-negative">¥-23,800</td>
-          <td style="text-align:right" class="pnl-negative"><strong>-17.6%</strong></td>
-          <td style="text-align:right">1.3%</td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-
   <!-- Type breakdown table -->
   
   <div class="card" style="padding: 0; overflow-x: auto; margin-top: 16px;">
@@ -672,20 +179,20 @@ tr:hover { background: var(--surface2); }
           <td><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span><strong>国内株式</strong></td>
           <td style="text-align:right">24</td>
           <td style="text-align:right">¥4,576,636</td>
-          <td style="text-align:right">¥5,070,578</td>
-          <td style="text-align:right" class="pnl-positive">¥493,943</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+10.8%</strong></td>
+          <td style="text-align:right">¥5,087,178</td>
+          <td style="text-align:right" class="pnl-positive">¥510,543</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+11.2%</strong></td>
           <td style="text-align:right"><strong>60.6%</strong></td>
         </tr>
         
         <tr>
           <td><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#3b82f6;margin-right:6px;vertical-align:middle;"></span><strong>米国株式/ETF</strong></td>
           <td style="text-align:right">3</td>
-          <td style="text-align:right">¥1,299,771</td>
-          <td style="text-align:right">¥1,443,405</td>
-          <td style="text-align:right" class="pnl-positive">¥143,635</td>
-          <td style="text-align:right" class="pnl-positive"><strong>+11.1%</strong></td>
-          <td style="text-align:right"><strong>17.3%</strong></td>
+          <td style="text-align:right">¥1,299,896</td>
+          <td style="text-align:right">¥1,461,024</td>
+          <td style="text-align:right" class="pnl-positive">¥161,129</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+12.4%</strong></td>
+          <td style="text-align:right"><strong>17.4%</strong></td>
         </tr>
         
         <tr>
@@ -714,117 +221,6 @@ tr:hover { background: var(--surface2); }
   
 </div>
 
-<!-- Allocation Charts: Type / Brokerage / Market / FX -->
-<div class="section">
-  <div class="section-title">配分分析</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
-    <div class="chart-container"><canvas id="typeAllocation"></canvas></div>
-    <div class="chart-container"><canvas id="brokerAllocation"></canvas></div>
-    <div class="chart-container"><canvas id="fxChart"></canvas></div>
-  </div>
-</div>
-
-<!-- Strategy Section -->
-<div class="section">
-  <div class="section-title">成長戦略</div>
-  <div class="card">
-    <div style="margin-bottom: 16px;">
-      <strong style="font-size: 15px;">現状分析:</strong>
-      <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-muted); font-size: 13px; line-height: 2;">
-        
-        <li><span style="color: #6366f1; font-weight: 600;">国内株式</span>: 60.6% (24銘柄, +10.8%)</li>
-        
-        <li><span style="color: #3b82f6; font-weight: 600;">米国株式/ETF</span>: 17.3% (3銘柄, +11.1%)</li>
-        
-        <li><span style="color: #eab308; font-weight: 600;">コモディティ</span>: 12.2% (5銘柄, +17.0%)</li>
-        
-        <li><span style="color: #8b5cf6; font-weight: 600;">投資信託</span>: 9.9% (7銘柄, +18.3%)</li>
-        
-      </ul>
-    </div>
-    <div>
-      <strong style="font-size: 15px;">推奨アクション:</strong>
-      <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-muted); font-size: 13px; line-height: 2.2;">
-        <li><strong style="color: var(--accent2);">インデックス投信の積立強化</strong> — 投信比率を現在の水準から40-50%へ。楽天VTI/VYM/日経225/SCHDの積立額増額が最もリスク効率が良い</li>
-        <li><strong style="color: var(--blue);">米国比率の引き上げ</strong> — 目標40%に対し大幅不足。NISA枠でのETF(VTI/VOO)購入 or 投信(楽天VTI)積立で対応</li>
-        <li><strong style="color: var(--yellow);">コモディティは現状維持</strong> — 金・プラチナはインフレヘッジとして10%前後を目安。銀は投機的なので追加不要</li>
-        <li><strong style="color: var(--green);">個別株の整理検討</strong> — 骨太スコア×以下の銘柄（HHI低なので急ぎではない）は、NISAでなければ利確→投信へ振替</li>
-        <li><strong style="color: var(--red);">証券会社の分散</strong> — SBI/楽天の2社に集中。法人口座開設時にバランス調整</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- Optimization Suggestions -->
-
-<div class="section">
-  <div class="section-title">最適化提案</div>
-
-  <!-- Allocation gaps -->
-  
-  <div class="card" style="margin-bottom: 16px; padding: 0; overflow: hidden;">
-    <table>
-      <thead>
-        <tr>
-          <th>市場</th>
-          <th style="text-align:right">現在</th>
-          <th style="text-align:right">目標</th>
-          <th style="text-align:right">乖離</th>
-          <th style="text-align:right">乖離額</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td><strong>JP</strong></td>
-          <td style="text-align:right">82.7%</td>
-          <td style="text-align:right">60.0%</td>
-          <td style="text-align:right" class="pnl-negative"><strong>+22.7%</strong></td>
-          <td style="text-align:right">¥1,902,059</td>
-        </tr>
-        
-        <tr>
-          <td><strong>US</strong></td>
-          <td style="text-align:right">17.3%</td>
-          <td style="text-align:right">40.0%</td>
-          <td style="text-align:right" class="pnl-positive"><strong>-22.7%</strong></td>
-          <td style="text-align:right">¥-1,902,059</td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-  
-
-  <!-- Suggestions -->
-  <div class="card">
-    
-    <div class="suggestion-row">
-      <span class="action-badge sell-action">SELL</span>
-      <div style="flex:1;">
-        <strong>JP株全般</strong>
-        
-        
-        <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">JPが目標比+22.7%超過</div>
-      </div>
-      <span style="font-weight:700;white-space:nowrap;">¥1,902,059</span>
-    </div>
-    
-    <div class="suggestion-row">
-      <span class="action-badge buy-action">BUY</span>
-      <div style="flex:1;">
-        <strong>US株全般</strong>
-        
-        
-        <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">USが目標比-22.7%不足</div>
-      </div>
-      <span style="font-weight:700;white-space:nowrap;">¥1,902,059</span>
-    </div>
-    
-  </div>
-</div>
 
 
 <!-- Stock Cards -->
@@ -1973,7 +1369,7 @@ tr:hover { background: var(--surface2); }
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
         <div class="ret-value pnl-positive">+20.9%</div>
-        <div class="ret-sub">$154.68 / 評価額 ¥139,415</div>
+        <div class="ret-sub">$154.68 / 評価額 ¥139,428</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>6株</span>
@@ -2262,13 +1658,13 @@ tr:hover { background: var(--surface2); }
       <!-- Return Hero (portfolio mode) -->
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
-        <div class="ret-value pnl-positive">+23.2%</div>
-        <div class="ret-sub">¥56,500 / 評価額 ¥300,500</div>
+        <div class="ret-value pnl-positive">+20.5%</div>
+        <div class="ret-sub">¥50,000 / 評価額 ¥294,000</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>100株</span>
         <span>取得 ¥2,440</span>
-        <span>現在 ¥3,005</span>
+        <span>現在 ¥2,940</span>
       </div>
       
 
@@ -2277,7 +1673,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">PER</div>
-          <div class="fin-value" style="color: #22c55e;">19.7</div>
+          <div class="fin-value" style="color: #22c55e;">19.2</div>
         </div>
         
         <div class="fin-item">
@@ -2287,7 +1683,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">配当</div>
-          <div class="fin-value" style="color: #3b82f6;">1.88%</div>
+          <div class="fin-value" style="color: #3b82f6;">1.86%</div>
         </div>
         
         <div class="fin-item">
@@ -2315,7 +1711,7 @@ tr:hover { background: var(--surface2); }
       
 
       
-      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 19.7 (適正レンジ (8-20)) | ROE: 6.6 (普通 (基準: 10%)) | 流動比率: 2.45 (非常に安全 (基準: 1.5)) | FCF: ['6,442M', '6,871M', '-221M'] (2/3期黒字 (基準: 2期)) | 配当: 1.88 (配当あり (基準: 2.5%))</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 19.2 (適正レンジ (8-20)) | ROE: 6.6 (普通 (基準: 10%)) | 流動比率: 2.45 (非常に安全 (基準: 1.5)) | FCF: ['6,442M', '6,871M', '-221M'] (2/3期黒字 (基準: 2期)) | 配当: 1.86 (配当あり (基準: 2.5%))</p>
       
 
       <!-- Radar (only when 2+ axes have data) -->
@@ -2329,8 +1725,8 @@ tr:hover { background: var(--surface2); }
           <span class="card-title">🇯🇵 中国塗料</span>
           <span class="nisa-tag">NISA</span>
         </div>
-        <span class="score-badge excellent" style="font-size: 16px; padding: 4px 12px;">
-          ◎ 22/25pts (88%)
+        <span class="score-badge good" style="font-size: 16px; padding: 4px 12px;">
+          ○ 19/25pts (76%)
         </span>
       </div>
       <div class="card-tags">
@@ -2342,13 +1738,13 @@ tr:hover { background: var(--surface2); }
       <!-- Return Hero (portfolio mode) -->
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
-        <div class="ret-value pnl-positive">+11.5%</div>
-        <div class="ret-sub">¥47,000 / 評価額 ¥455,500</div>
+        <div class="ret-value pnl-positive">+13.7%</div>
+        <div class="ret-sub">¥56,000 / 評価額 ¥464,500</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>100株</span>
         <span>取得 ¥4,085</span>
-        <span>現在 ¥4,555</span>
+        <span>現在 ¥4,645</span>
       </div>
       
 
@@ -2357,7 +1753,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">PER</div>
-          <div class="fin-value" style="color: #22c55e;">20.0</div>
+          <div class="fin-value" style="color: #eab308;">20.4</div>
         </div>
         
         <div class="fin-item">
@@ -2367,7 +1763,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">配当</div>
-          <div class="fin-value" style="color: #3b82f6;">2.11%</div>
+          <div class="fin-value" style="color: #3b82f6;">2.13%</div>
         </div>
         
         <div class="fin-item">
@@ -2383,8 +1779,8 @@ tr:hover { background: var(--surface2); }
         
         <div class="axis-bar">
           <span class="name">財務</span>
-          <div class="bar-bg"><div class="bar-fill" style="width: 88%; background: #22c55e;"></div></div>
-          <span class="pts">22.0/25</span>
+          <div class="bar-bg"><div class="bar-fill" style="width: 76%; background: #3b82f6;"></div></div>
+          <span class="pts">19.0/25</span>
         </div>
         
       </div>
@@ -2395,7 +1791,7 @@ tr:hover { background: var(--surface2); }
       
 
       
-      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 20.0 (適正レンジ (8-20)) | ROE: 15.2 (優良 (基準: 10%)) | 流動比率: 2.42 (非常に安全 (基準: 1.5)) | FCF: ['14,539M', '12,388M', '29M'] (全期黒字 (3/3期)) | 配当: 2.11 (配当あり (基準: 2.5%))</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 20.4 (やや割高 (基準: 8-20)) | ROE: 15.2 (優良 (基準: 10%)) | 流動比率: 2.42 (非常に安全 (基準: 1.5)) | FCF: ['14,539M', '12,388M', '29M'] (全期黒字 (3/3期)) | 配当: 2.13 (配当あり (基準: 2.5%))</p>
       
 
       <!-- Radar (only when 2+ axes have data) -->
@@ -2662,13 +2058,13 @@ tr:hover { background: var(--surface2); }
       <!-- Return Hero (portfolio mode) -->
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
-        <div class="ret-value pnl-positive">+37.2%</div>
-        <div class="ret-sub">¥60,915 / 評価額 ¥224,560</div>
+        <div class="ret-value pnl-positive">+42.4%</div>
+        <div class="ret-sub">¥69,315 / 評価額 ¥232,960</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>56株</span>
         <span>取得 ¥2,922</span>
-        <span>現在 ¥4,010</span>
+        <span>現在 ¥4,160</span>
       </div>
       
 
@@ -2677,7 +2073,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">PER</div>
-          <div class="fin-value" style="color: #eab308;">32.9</div>
+          <div class="fin-value" style="color: #eab308;">34.1</div>
         </div>
         
         <div class="fin-item">
@@ -2687,7 +2083,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">配当</div>
-          <div class="fin-value" style="color: #eab308;">0.48%</div>
+          <div class="fin-value" style="color: #eab308;">0.50%</div>
         </div>
         
         <div class="fin-item">
@@ -2715,7 +2111,7 @@ tr:hover { background: var(--surface2); }
       
 
       
-      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 32.9 (割高 (基準: 8-20)) | ROE: 23.6 (優良 (基準: 10%)) | 流動比率: 1.17 (やや低い (基準: 1.5)) | FCF: ['117,385M', '1,124M', '-8,461M'] (2/3期黒字 (基準: 2期)) | 配当: 0.48 (配当あり (基準: 2.5%))</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 34.1 (割高 (基準: 8-20)) | ROE: 23.6 (優良 (基準: 10%)) | 流動比率: 1.17 (やや低い (基準: 1.5)) | FCF: ['117,385M', '1,124M', '-8,461M'] (2/3期黒字 (基準: 2期)) | 配当: 0.5 (配当あり (基準: 2.5%))</p>
       
 
       <!-- Radar (only when 2+ axes have data) -->
@@ -2742,13 +2138,13 @@ tr:hover { background: var(--surface2); }
       <!-- Return Hero (portfolio mode) -->
       
       <div class="card-return-hero" style="background: rgba(239,68,68,0.06);">
-        <div class="ret-value pnl-negative">-5.6%</div>
-        <div class="ret-sub">¥-22,600 / 評価額 ¥381,900</div>
+        <div class="ret-value pnl-negative">-5.0%</div>
+        <div class="ret-sub">¥-20,100 / 評価額 ¥384,400</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>100株</span>
         <span>取得 ¥4,045</span>
-        <span>現在 ¥3,819</span>
+        <span>現在 ¥3,844</span>
       </div>
       
 
@@ -2757,7 +2153,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">PER</div>
-          <div class="fin-value" style="color: #22c55e;">18.6</div>
+          <div class="fin-value" style="color: #22c55e;">18.7</div>
         </div>
         
         <div class="fin-item">
@@ -2795,7 +2191,7 @@ tr:hover { background: var(--surface2); }
       
 
       
-      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 18.6 (適正レンジ (8-20)) | ROE: 7.7 (普通 (基準: 10%)) | 流動比率: 0.88 (危険水準 (基準: 1.5)) | FCF: ['-38,682M', '-26,809M', '26,172M'] (1/3期のみ黒字) | 配当: 1.83 (配当あり (基準: 2.5%))</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 18.7 (適正レンジ (8-20)) | ROE: 7.7 (普通 (基準: 10%)) | 流動比率: 0.88 (危険水準 (基準: 1.5)) | FCF: ['-38,682M', '-26,809M', '26,172M'] (1/3期のみ黒字) | 配当: 1.83 (配当あり (基準: 2.5%))</p>
       
 
       <!-- Radar (only when 2+ axes have data) -->
@@ -2902,13 +2298,13 @@ tr:hover { background: var(--surface2); }
       <!-- Return Hero (portfolio mode) -->
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
-        <div class="ret-value pnl-positive">+4.4%</div>
-        <div class="ret-sub">¥11,600 / 評価額 ¥274,400</div>
+        <div class="ret-value pnl-positive">+5.0%</div>
+        <div class="ret-sub">¥13,200 / 評価額 ¥276,000</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>100株</span>
         <span>取得 ¥2,628</span>
-        <span>現在 ¥2,744</span>
+        <span>現在 ¥2,760</span>
       </div>
       
 
@@ -2927,7 +2323,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">配当</div>
-          <div class="fin-value" style="color: #22c55e;">3.27%</div>
+          <div class="fin-value" style="color: #22c55e;">3.28%</div>
         </div>
         
         <div class="fin-item">
@@ -2955,7 +2351,7 @@ tr:hover { background: var(--surface2); }
       
 
       
-      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 7.1 (低PER (基準: 8-20)) | ROE: 12.4 (良好 (基準: 10%)) | 流動比率: 1.15 (やや低い (基準: 1.5)) | FCF: ['575,299M', '1,154,990M', '128,038M'] (全期黒字 (3/3期)) | 配当: 3.27 (良好 (基準: 2.5%))</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 7.1 (低PER (基準: 8-20)) | ROE: 12.4 (良好 (基準: 10%)) | 流動比率: 1.15 (やや低い (基準: 1.5)) | FCF: ['575,299M', '1,154,990M', '128,038M'] (全期黒字 (3/3期)) | 配当: 3.28 (良好 (基準: 2.5%))</p>
       
 
       <!-- Radar (only when 2+ axes have data) -->
@@ -2982,13 +2378,13 @@ tr:hover { background: var(--surface2); }
       <!-- Return Hero (portfolio mode) -->
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
-        <div class="ret-value pnl-positive">+9.8%</div>
-        <div class="ret-sub">¥24,400 / 評価額 ¥274,400</div>
+        <div class="ret-value pnl-positive">+10.4%</div>
+        <div class="ret-sub">¥26,000 / 評価額 ¥276,000</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>100株</span>
         <span>取得 ¥2,500</span>
-        <span>現在 ¥2,744</span>
+        <span>現在 ¥2,760</span>
       </div>
       
 
@@ -3007,7 +2403,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">配当</div>
-          <div class="fin-value" style="color: #22c55e;">3.27%</div>
+          <div class="fin-value" style="color: #22c55e;">3.28%</div>
         </div>
         
         <div class="fin-item">
@@ -3035,7 +2431,7 @@ tr:hover { background: var(--surface2); }
       
 
       
-      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 7.1 (低PER (基準: 8-20)) | ROE: 12.4 (良好 (基準: 10%)) | 流動比率: 1.15 (やや低い (基準: 1.5)) | FCF: ['575,299M', '1,154,990M', '128,038M'] (全期黒字 (3/3期)) | 配当: 3.27 (良好 (基準: 2.5%))</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 7.1 (低PER (基準: 8-20)) | ROE: 12.4 (良好 (基準: 10%)) | 流動比率: 1.15 (やや低い (基準: 1.5)) | FCF: ['575,299M', '1,154,990M', '128,038M'] (全期黒字 (3/3期)) | 配当: 3.28 (良好 (基準: 2.5%))</p>
       
 
       <!-- Radar (only when 2+ axes have data) -->
@@ -3061,14 +2457,14 @@ tr:hover { background: var(--surface2); }
 
       <!-- Return Hero (portfolio mode) -->
       
-      <div class="card-return-hero" style="background: rgba(239,68,68,0.06);">
-        <div class="ret-value pnl-negative">-0.3%</div>
-        <div class="ret-sub">$-11.00 / 評価額 ¥606,917</div>
+      <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
+        <div class="ret-value pnl-positive">+2.6%</div>
+        <div class="ret-sub">$101.00 / 評価額 ¥624,456</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>100株</span>
         <span>取得 $39.00</span>
-        <span>現在 $38.89</span>
+        <span>現在 $40.01</span>
       </div>
       
 
@@ -3077,7 +2473,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">PER</div>
-          <div class="fin-value" style="color: #eab308;">21.7</div>
+          <div class="fin-value" style="color: #eab308;">22.4</div>
         </div>
         
         <div class="fin-item">
@@ -3087,7 +2483,7 @@ tr:hover { background: var(--surface2); }
         
         <div class="fin-item">
           <div class="fin-label">配当</div>
-          <div class="fin-value" style="color: #eab308;">1.12%</div>
+          <div class="fin-value" style="color: #eab308;">1.09%</div>
         </div>
         
         <div class="fin-item">
@@ -3115,7 +2511,7 @@ tr:hover { background: var(--surface2); }
       
 
       
-      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 21.7 (適正レンジ (10-25)) | ROE: 12.3 (普通 (基準: 15%)) | 流動比率: 2.27 (非常に安全 (基準: 1.5)) | FCF: ['148M', '-12M', '-110M'] (1/3期のみ黒字) | 配当: 1.12 (配当あり (基準: 1.5%))</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">PER: 22.4 (適正レンジ (10-25)) | ROE: 12.3 (普通 (基準: 15%)) | 流動比率: 2.27 (非常に安全 (基準: 1.5)) | FCF: ['148M', '-12M', '-110M'] (1/3期のみ黒字) | 配当: 1.09 (配当あり (基準: 1.5%))</p>
       
 
       <!-- Radar (only when 2+ axes have data) -->
@@ -3143,7 +2539,7 @@ tr:hover { background: var(--surface2); }
       
       <div class="card-return-hero" style="background: rgba(34,197,94,0.06);">
         <div class="ret-value pnl-positive">+21.0%</div>
-        <div class="ret-sub">$776.70 / 評価額 ¥697,073</div>
+        <div class="ret-sub">$776.70 / 評価額 ¥697,140</div>
       </div>
       <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
         <span>30株</span>
@@ -3869,18 +3265,6 @@ tr:hover { background: var(--surface2); }
         
         <tr>
           <td>2</td>
-          <td><strong>中国塗料</strong></td>
-          <td>🇯🇵</td>
-          <td>-</td>
-          <td>-</td>
-          <td>22</td>
-          <td>-</td>
-          <td><strong>22/25</strong></td>
-          <td><span class="score-badge excellent" style="font-size: 14px; padding: 2px 10px;">◎</span></td>
-        </tr>
-        
-        <tr>
-          <td>3</td>
           <td><strong>名村造船</strong></td>
           <td>🇯🇵</td>
           <td>-</td>
@@ -3892,8 +3276,20 @@ tr:hover { background: var(--surface2); }
         </tr>
         
         <tr>
-          <td>4</td>
+          <td>3</td>
           <td><strong>ＮＴＴ</strong></td>
+          <td>🇯🇵</td>
+          <td>-</td>
+          <td>-</td>
+          <td>19</td>
+          <td>-</td>
+          <td><strong>19/25</strong></td>
+          <td><span class="score-badge good" style="font-size: 14px; padding: 2px 10px;">○</span></td>
+        </tr>
+        
+        <tr>
+          <td>4</td>
+          <td><strong>中国塗料</strong></td>
           <td>🇯🇵</td>
           <td>-</td>
           <td>-</td>
@@ -4328,16 +3724,561 @@ tr:hover { background: var(--surface2); }
   </div>
 </div>
 
+<!-- Strategy & Optimization -->
+
+<div class="section">
+  <div class="section-title">戦略 & 最適化</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;">
+    <!-- Strategy card -->
+    <div class="card">
+      <strong style="font-size: 15px; display: block; margin-bottom: 12px;">推奨アクション</strong>
+      <ul style="padding-left: 18px; color: var(--text-muted); font-size: 13px; line-height: 2.2; list-style: none;">
+        
+        <li style="margin-bottom: 4px;"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span><span style="color:#6366f1;font-weight:600;">国内株式</span> 60.6% (+11.2%)</li>
+        
+        <li style="margin-bottom: 4px;"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:6px;vertical-align:middle;"></span><span style="color:#3b82f6;font-weight:600;">米国株式/ETF</span> 17.4% (+12.4%)</li>
+        
+        <li style="margin-bottom: 4px;"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:6px;vertical-align:middle;"></span><span style="color:#eab308;font-weight:600;">コモディティ</span> 12.2% (+17.0%)</li>
+        
+        <li style="margin-bottom: 4px;"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span><span style="color:#8b5cf6;font-weight:600;">投資信託</span> 9.9% (+18.3%)</li>
+        
+      </ul>
+      <div style="margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px;">
+        <ul style="padding-left: 18px; color: var(--text-muted); font-size: 13px; line-height: 2.2;">
+          <li><strong style="color: var(--accent2);">投信積立を強化</strong> — 現在の比率から40-50%へ</li>
+          <li><strong style="color: var(--blue);">米国比率を引き上げ</strong> — 目標40%に対し不足</li>
+          <li><strong style="color: var(--yellow);">コモディティは維持</strong> — 10%前後が目安</li>
+          <li><strong style="color: var(--green);">低スコア個別株を整理</strong> — NISA外は利確→投信へ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Optimization card -->
+    <div class="card">
+      <strong style="font-size: 15px; display: block; margin-bottom: 12px;">市場配分の調整</strong>
+      
+      <table style="margin-bottom: 12px;">
+        <thead><tr><th>市場</th><th style="text-align:right">現在</th><th style="text-align:right">目標</th><th style="text-align:right">乖離</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>JP</strong></td>
+            <td style="text-align:right">82.6%</td>
+            <td style="text-align:right">60.0%</td>
+            <td style="text-align:right" class="pnl-negative"><strong>+22.6%</strong></td>
+          </tr>
+          
+          <tr>
+            <td><strong>US</strong></td>
+            <td style="text-align:right">17.4%</td>
+            <td style="text-align:right">40.0%</td>
+            <td style="text-align:right" class="pnl-positive"><strong>-22.6%</strong></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      <div class="suggestion-row">
+        <span class="action-badge sell-action">SELL</span>
+        <div style="flex:1;">
+          <strong>JP株全般</strong>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">JPが目標比+22.6%超過</div>
+        </div>
+        <span style="font-weight:700;white-space:nowrap;">¥1,898,128</span>
+      </div>
+      
+      <div class="suggestion-row">
+        <span class="action-badge buy-action">BUY</span>
+        <div style="flex:1;">
+          <strong>US株全般</strong>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">USが目標比-22.6%不足</div>
+        </div>
+        <span style="font-weight:700;white-space:nowrap;">¥1,898,128</span>
+      </div>
+      
+      
+      
+      <div style="margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px;">
+        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">注意点</div>
+        
+        <div style="font-size: 12px; color: var(--yellow); margin-bottom: 4px;">USD建て17%（国際分散不足）</div>
+        
+        <div style="font-size: 12px; color: var(--yellow); margin-bottom: 4px;">投資信託10%（インデックス積立の比率拡大余地あり）</div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Detailed Returns Table -->
+
+<div class="section">
+  <div class="section-title">全銘柄リターン一覧</div>
+  <div class="card" style="padding: 0; overflow-x: auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>銘柄</th>
+          <th>種別</th>
+          <th>証券会社</th>
+          <th style="text-align:right">投資額</th>
+          <th style="text-align:right">評価額</th>
+          <th style="text-align:right">損益</th>
+          <th style="text-align:right">リターン</th>
+          <th style="text-align:right">構成比</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><strong>三菱重工業</strong><br><span style="color:var(--text-muted);font-size:11px;">7011.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥13,167</td>
+          <td style="text-align:right">¥29,406</td>
+          <td style="text-align:right" class="pnl-positive">¥16,239</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+123.3%</strong></td>
+          <td style="text-align:right">0.3%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ＩＨＩ</strong><br><span style="color:var(--text-muted);font-size:11px;">7013.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥163,645</td>
+          <td style="text-align:right">¥232,960</td>
+          <td style="text-align:right" class="pnl-positive">¥69,315</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+42.4%</strong></td>
+          <td style="text-align:right">2.8%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>プラチナ</strong><br><span style="color:var(--text-muted);font-size:11px;">PLAT_R</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥152,872</td>
+          <td style="text-align:right">¥213,462</td>
+          <td style="text-align:right" class="pnl-positive">¥60,590</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+39.6%</strong></td>
+          <td style="text-align:right">2.5%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天・プラス・日経225インデックス・ファンド(楽天・プラス・日経225)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・プラス・日経2</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥175,000</td>
+          <td style="text-align:right">¥231,761</td>
+          <td style="text-align:right" class="pnl-positive">¥56,761</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+32.4%</strong></td>
+          <td style="text-align:right">2.8%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>金</strong><br><span style="color:var(--text-muted);font-size:11px;">GOLD_R</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥229,432</td>
+          <td style="text-align:right">¥301,280</td>
+          <td style="text-align:right" class="pnl-positive">¥71,848</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+31.3%</strong></td>
+          <td style="text-align:right">3.6%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天・シュワブ・高配当株式・米国ファンド(四半期決算型)(楽天・SCHD)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・シュワブ・高配</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥25,444</td>
+          <td style="text-align:right">¥33,266</td>
+          <td style="text-align:right" class="pnl-positive">¥7,822</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+30.7%</strong></td>
+          <td style="text-align:right">0.4%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>オープンドア</strong><br><span style="color:var(--text-muted);font-size:11px;">3926.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥28,500</td>
+          <td style="text-align:right">¥36,400</td>
+          <td style="text-align:right" class="pnl-positive">¥7,900</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+27.7%</strong></td>
+          <td style="text-align:right">0.4%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>三菱重</strong><br><span style="color:var(--text-muted);font-size:11px;">7011.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥394,000</td>
+          <td style="text-align:right">¥490,100</td>
+          <td style="text-align:right" class="pnl-positive">¥96,100</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+24.4%</strong></td>
+          <td style="text-align:right">5.8%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>iシェアーズ MSCI 韓国 ETF</strong><br><span style="color:var(--text-muted);font-size:11px;">EWY</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥575,917</td>
+          <td style="text-align:right">¥697,140</td>
+          <td style="text-align:right" class="pnl-positive">¥121,223</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+21.1%</strong></td>
+          <td style="text-align:right">8.3%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>iシェアーズ MSCI 韓国 ETF</strong><br><span style="color:var(--text-muted);font-size:11px;">EWY</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥115,286</td>
+          <td style="text-align:right">¥139,428</td>
+          <td style="text-align:right" class="pnl-positive">¥24,142</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+20.9%</strong></td>
+          <td style="text-align:right">1.7%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ドトール・日レスＨＤ</strong><br><span style="color:var(--text-muted);font-size:11px;">3087.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥244,000</td>
+          <td style="text-align:right">¥294,000</td>
+          <td style="text-align:right" class="pnl-positive">¥50,000</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+20.5%</strong></td>
+          <td style="text-align:right">3.5%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天・米国高配当株式インデックス・ファンド(楽天・VYM)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・米国高配当株式</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥175,000</td>
+          <td style="text-align:right">¥210,342</td>
+          <td style="text-align:right" class="pnl-positive">¥35,342</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+20.2%</strong></td>
+          <td style="text-align:right">2.5%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>名村造船</strong><br><span style="color:var(--text-muted);font-size:11px;">7014.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥475,000</td>
+          <td style="text-align:right">¥568,000</td>
+          <td style="text-align:right" class="pnl-positive">¥93,000</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+19.6%</strong></td>
+          <td style="text-align:right">6.8%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>良品計画</strong><br><span style="color:var(--text-muted);font-size:11px;">7453.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥296,700</td>
+          <td style="text-align:right">¥352,200</td>
+          <td style="text-align:right" class="pnl-positive">¥55,500</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+18.7%</strong></td>
+          <td style="text-align:right">4.2%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ＣＭＫ</strong><br><span style="color:var(--text-muted);font-size:11px;">6958.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥52,200</td>
+          <td style="text-align:right">¥61,900</td>
+          <td style="text-align:right" class="pnl-positive">¥9,700</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+18.6%</strong></td>
+          <td style="text-align:right">0.7%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>三菱重工業</strong><br><span style="color:var(--text-muted);font-size:11px;">7011.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥124,500</td>
+          <td style="text-align:right">¥147,030</td>
+          <td style="text-align:right" class="pnl-positive">¥22,530</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+18.1%</strong></td>
+          <td style="text-align:right">1.8%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天・全米株式インデックス・ファンド(楽天・VTI)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・全米株式インデ</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥175,000</td>
+          <td style="text-align:right">¥199,045</td>
+          <td style="text-align:right" class="pnl-positive">¥24,045</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+13.7%</strong></td>
+          <td style="text-align:right">2.4%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>中国塗料</strong><br><span style="color:var(--text-muted);font-size:11px;">4617.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥408,500</td>
+          <td style="text-align:right">¥464,500</td>
+          <td style="text-align:right" class="pnl-positive">¥56,000</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+13.7%</strong></td>
+          <td style="text-align:right">5.5%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天・プラス・日経225インデックス・ファンド(楽天・プラス・日経225)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・プラス・日経2</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥50,000</td>
+          <td style="text-align:right">¥55,206</td>
+          <td style="text-align:right" class="pnl-positive">¥5,206</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+10.4%</strong></td>
+          <td style="text-align:right">0.7%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>関西電力</strong><br><span style="color:var(--text-muted);font-size:11px;">9503.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥250,000</td>
+          <td style="text-align:right">¥276,000</td>
+          <td style="text-align:right" class="pnl-positive">¥26,000</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+10.4%</strong></td>
+          <td style="text-align:right">3.3%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>五洋建</strong><br><span style="color:var(--text-muted);font-size:11px;">1893.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥189,000</td>
+          <td style="text-align:right">¥208,500</td>
+          <td style="text-align:right" class="pnl-positive">¥19,500</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+10.3%</strong></td>
+          <td style="text-align:right">2.5%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ベースフード</strong><br><span style="color:var(--text-muted);font-size:11px;">2936.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥33,100</td>
+          <td style="text-align:right">¥36,100</td>
+          <td style="text-align:right" class="pnl-positive">¥3,000</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+9.1%</strong></td>
+          <td style="text-align:right">0.4%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>北海電力</strong><br><span style="color:var(--text-muted);font-size:11px;">9509.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥223,200</td>
+          <td style="text-align:right">¥242,400</td>
+          <td style="text-align:right" class="pnl-positive">¥19,200</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+8.6%</strong></td>
+          <td style="text-align:right">2.9%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>パンパシフィックＨＤ</strong><br><span style="color:var(--text-muted);font-size:11px;">7532.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥94,000</td>
+          <td style="text-align:right">¥101,750</td>
+          <td style="text-align:right" class="pnl-positive">¥7,750</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+8.2%</strong></td>
+          <td style="text-align:right">1.2%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>関西電力</strong><br><span style="color:var(--text-muted);font-size:11px;">9503.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥262,800</td>
+          <td style="text-align:right">¥276,000</td>
+          <td style="text-align:right" class="pnl-positive">¥13,200</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+5.0%</strong></td>
+          <td style="text-align:right">3.3%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>金</strong><br><span style="color:var(--text-muted);font-size:11px;">GOLD</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥200,002</td>
+          <td style="text-align:right">¥209,696</td>
+          <td style="text-align:right" class="pnl-positive">¥9,694</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+4.8%</strong></td>
+          <td style="text-align:right">2.5%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>銀</strong><br><span style="color:var(--text-muted);font-size:11px;">SILVER</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥90,000</td>
+          <td style="text-align:right">¥92,920</td>
+          <td style="text-align:right" class="pnl-positive">¥2,920</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+3.2%</strong></td>
+          <td style="text-align:right">1.1%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>コンパニア・デ・ミナス・ブエナベントゥラ</strong><br><span style="color:var(--text-muted);font-size:11px;">BVN</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">米国株式/ETF</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥608,692</td>
+          <td style="text-align:right">¥624,456</td>
+          <td style="text-align:right" class="pnl-positive">¥15,764</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+2.6%</strong></td>
+          <td style="text-align:right">7.4%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>プラチナ</strong><br><span style="color:var(--text-muted);font-size:11px;">PLATINUM</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">コモディティ</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥200,001</td>
+          <td style="text-align:right">¥203,496</td>
+          <td style="text-align:right" class="pnl-positive">¥3,495</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+1.8%</strong></td>
+          <td style="text-align:right">2.4%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天・米国高配当株式インデックス・ファンド(楽天・VYM)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・米国高配当株式</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥50,000</td>
+          <td style="text-align:right">¥50,494</td>
+          <td style="text-align:right" class="pnl-positive">¥494</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+1.0%</strong></td>
+          <td style="text-align:right">0.6%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ビジョン</strong><br><span style="color:var(--text-muted);font-size:11px;">9416.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥128,500</td>
+          <td style="text-align:right">¥129,200</td>
+          <td style="text-align:right" class="pnl-positive">¥700</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+0.5%</strong></td>
+          <td style="text-align:right">1.5%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>フジオフードＧ本社</strong><br><span style="color:var(--text-muted);font-size:11px;">2752.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥107,000</td>
+          <td style="text-align:right">¥107,500</td>
+          <td style="text-align:right" class="pnl-positive">¥500</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+0.5%</strong></td>
+          <td style="text-align:right">1.3%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ｒｏｂｏｔ　ｈｏｍｅ</strong><br><span style="color:var(--text-muted);font-size:11px;">1435.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥203,000</td>
+          <td style="text-align:right">¥203,000</td>
+          <td style="text-align:right" class="pnl-positive">¥0</td>
+          <td style="text-align:right" class="pnl-positive"><strong>+0.0%</strong></td>
+          <td style="text-align:right">2.4%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ＮＴＴ</strong><br><span style="color:var(--text-muted);font-size:11px;">9432.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥154,000</td>
+          <td style="text-align:right">¥152,100</td>
+          <td style="text-align:right" class="pnl-negative">¥-1,900</td>
+          <td style="text-align:right" class="pnl-negative"><strong>-1.2%</strong></td>
+          <td style="text-align:right">1.8%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天・全米株式インデックス・ファンド(楽天・VTI)</strong><br><span style="color:var(--text-muted);font-size:11px;">FUND_楽天・全米株式インデ</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">投資信託</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥50,000</td>
+          <td style="text-align:right">¥48,710</td>
+          <td style="text-align:right" class="pnl-negative">¥-1,290</td>
+          <td style="text-align:right" class="pnl-negative"><strong>-2.6%</strong></td>
+          <td style="text-align:right">0.6%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>楽天グループ</strong><br><span style="color:var(--text-muted);font-size:11px;">4755.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥84,500</td>
+          <td style="text-align:right">¥81,690</td>
+          <td style="text-align:right" class="pnl-negative">¥-2,810</td>
+          <td style="text-align:right" class="pnl-negative"><strong>-3.3%</strong></td>
+          <td style="text-align:right">1.0%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>東日本旅客鉄道</strong><br><span style="color:var(--text-muted);font-size:11px;">9020.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥404,500</td>
+          <td style="text-align:right">¥384,400</td>
+          <td style="text-align:right" class="pnl-negative">¥-20,100</td>
+          <td style="text-align:right" class="pnl-negative"><strong>-5.0%</strong></td>
+          <td style="text-align:right">4.6%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>ＮＴＴ</strong><br><span style="color:var(--text-muted);font-size:11px;">9432.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">楽天証券</td>
+          <td style="text-align:right">¥107,824</td>
+          <td style="text-align:right">¥100,842</td>
+          <td style="text-align:right" class="pnl-negative">¥-6,981</td>
+          <td style="text-align:right" class="pnl-negative"><strong>-6.5%</strong></td>
+          <td style="text-align:right">1.2%</td>
+        </tr>
+        
+        <tr>
+          <td><strong>Ｉｎｅ</strong><br><span style="color:var(--text-muted);font-size:11px;">4933.T</span></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:4px;vertical-align:middle;"></span><span style="font-size:11px;">国内株式</span></td>
+          <td style="font-size:11px;">SBI証券</td>
+          <td style="text-align:right">¥135,000</td>
+          <td style="text-align:right">¥111,200</td>
+          <td style="text-align:right" class="pnl-negative">¥-23,800</td>
+          <td style="text-align:right" class="pnl-negative"><strong>-17.6%</strong></td>
+          <td style="text-align:right">1.3%</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 <div class="footer">
-  stock-analyzer v0.2 — 骨太投資術 × Porter競争戦略 MECE 4軸分析 + リスク&最適化<br>
-  Generated at 2026-02-26 20:59
+  stock-analyzer v0.3 — 骨太投資術 × Porter競争戦略 MECE 4軸分析 + リスク&最適化<br>
+  Generated at 2026-02-26 21:06
 </div>
 
 </div>
 
 <script>
 // Radar charts for each stock
-const radarConfigs = {"radar_0": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.0, 0]}, "radar_1": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 16.5, 0]}, "radar_2": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 10.0, 0]}, "radar_3": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_4": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 15.5, 0]}, "radar_5": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 16.5, 0]}, "radar_6": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 7.0, 0]}, "radar_7": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 19.0, 0]}, "radar_8": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 24.0, 0]}, "radar_9": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 13.0, 0]}, "radar_10": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 14.0, 0]}, "radar_11": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 13.0, 0]}, "radar_12": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 21.0, 0]}, "radar_13": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 15.5, 0]}, "radar_14": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_15": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_16": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_17": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_18": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.0, 0]}, "radar_19": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 22.0, 0]}, "radar_20": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 12.5, 0]}, "radar_21": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_22": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_23": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 14.0, 0]}, "radar_24": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 12.0, 0]}, "radar_25": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 19.0, 0]}, "radar_26": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.5, 0]}, "radar_27": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.5, 0]}, "radar_28": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 16.0, 0]}, "radar_29": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_30": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_31": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_32": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_33": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_34": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_35": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_36": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_37": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_38": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}};
+const radarConfigs = {"radar_0": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.0, 0]}, "radar_1": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 16.5, 0]}, "radar_2": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 10.0, 0]}, "radar_3": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_4": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 15.5, 0]}, "radar_5": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 16.5, 0]}, "radar_6": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 7.0, 0]}, "radar_7": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 19.0, 0]}, "radar_8": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 24.0, 0]}, "radar_9": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 13.0, 0]}, "radar_10": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 14.0, 0]}, "radar_11": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 13.0, 0]}, "radar_12": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 21.0, 0]}, "radar_13": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 15.5, 0]}, "radar_14": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_15": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_16": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_17": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_18": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.0, 0]}, "radar_19": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 19.0, 0]}, "radar_20": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 12.5, 0]}, "radar_21": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_22": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_23": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 14.0, 0]}, "radar_24": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 12.0, 0]}, "radar_25": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 19.0, 0]}, "radar_26": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.5, 0]}, "radar_27": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 18.5, 0]}, "radar_28": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 16.0, 0]}, "radar_29": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 9.0, 0]}, "radar_30": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_31": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_32": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_33": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_34": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_35": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_36": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_37": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}, "radar_38": {"labels": ["\u56fd\u7b56", "\u6226\u7565", "\u8ca1\u52d9", "\u7d44\u7e54"], "data": [0, 0, 0, 0]}};
 Object.entries(radarConfigs).forEach(([id, cfg]) => {
   const ctx = document.getElementById(id);
   if (!ctx) return;
@@ -4380,7 +4321,7 @@ if (typeCtx) {
     data: {
       labels: ["\u56fd\u5185\u682a\u5f0f", "\u7c73\u56fd\u682a\u5f0f/ETF", "\u30b3\u30e2\u30c7\u30a3\u30c6\u30a3", "\u6295\u8cc7\u4fe1\u8a17"],
       datasets: [{
-        data: [60.6, 17.3, 12.2, 9.9],
+        data: [60.6, 17.4, 12.2, 9.9],
         backgroundColor: ["#6366f1", "#3b82f6", "#eab308", "#8b5cf6"],
         borderColor: '#1a1d27',
         borderWidth: 2,
@@ -4404,7 +4345,7 @@ if (brokerCtx) {
     data: {
       labels: ["\u697d\u5929\u8a3c\u5238", "SBI\u8a3c\u5238"],
       datasets: [{
-        data: [58.8, 41.2],
+        data: [59.0, 41.0],
         backgroundColor: ["#ef4444", "#22c55e"],
         borderColor: '#1a1d27',
         borderWidth: 2,
@@ -4429,7 +4370,7 @@ if (fxCtx) {
       labels: ['JPY', 'USD'],
       datasets: [{
         label: '為替エクスポージャー (%)',
-        data: [parseFloat('82.7%'.replace('%','')), parseFloat('17.3%'.replace('%',''))],
+        data: [parseFloat('82.6%'.replace('%','')), parseFloat('17.4%'.replace('%',''))],
         backgroundColor: ['#6366f1', '#3b82f6'],
         borderRadius: 6,
       }]
