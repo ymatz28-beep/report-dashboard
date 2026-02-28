@@ -121,8 +121,7 @@ tr:hover { background: var(--surface2); }
   background: var(--surface2); font-weight: 600; color: var(--text-muted);
   text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px;
   padding: 10px 12px; border-bottom: 2px solid var(--border);
-  position: sticky; top: 52px; z-index: 10; cursor: pointer; user-select: none;
-  white-space: nowrap;
+  cursor: pointer; user-select: none; white-space: nowrap;
 }
 .stock-table th:hover { color: var(--text); }
 .stock-table th .sort-arrow { margin-left: 4px; font-size: 9px; opacity: 0.5; }
@@ -243,7 +242,7 @@ tr:hover { background: var(--surface2); }
 <!-- Hero -->
 <div class="hero">
   <h1>ポートフォリオ分析レポート</h1>
-  <div class="subtitle">骨太投資術 × Porter競争戦略 | 39銘柄 | 2026-02-28 20:43</div>
+  <div class="subtitle">骨太投資術 × Porter競争戦略 | 39銘柄 | 2026-02-28 21:11</div>
   <div class="stats">
     
     <div class="stat-card">
@@ -378,6 +377,7 @@ tr:hover { background: var(--surface2); }
           <th style="text-align:right" data-sort="value">評価額 <span class="sort-arrow">▼</span></th>
           <th style="text-align:center" data-sort="score">スコア <span class="sort-arrow">▼</span></th>
           <th style="text-align:center">PER</th>
+          <th style="text-align:center">EPS</th>
           <th style="text-align:center">ROE</th>
           <th style="text-align:center">配当</th>
         </tr>
@@ -414,7 +414,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥359,700</div>
-            <div class="pnl-line pnl-positive">¥63,000</div>
+            <div class="pnl-line pnl-positive">¥+63,000</div>
             
           </td>
           <td class="score-cell">
@@ -425,6 +425,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#ef4444;font-weight:600;">37.6</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -440,7 +445,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_0" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -542,7 +547,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥212,000</div>
-            <div class="pnl-line pnl-positive">¥9,000</div>
+            <div class="pnl-line pnl-positive">¥+9,000</div>
             
           </td>
           <td class="score-cell">
@@ -553,6 +558,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#eab308;font-weight:600;">34.0</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -568,7 +578,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_1" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -670,7 +680,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥36,500</div>
-            <div class="pnl-line pnl-positive">¥3,400</div>
+            <div class="pnl-line pnl-positive">¥+3,400</div>
             
           </td>
           <td class="score-cell">
@@ -681,6 +691,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#eab308;font-weight:600;">33.8</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -696,7 +711,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_2" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -798,7 +813,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥501,400</div>
-            <div class="pnl-line pnl-positive">¥107,400</div>
+            <div class="pnl-line pnl-positive">¥+107,400</div>
             
           </td>
           <td class="score-cell">
@@ -818,13 +833,18 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#eab308;font-weight:600;">0.48%</span>
             
           </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_3" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -926,7 +946,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥104,000</div>
-            <div class="pnl-line pnl-positive">¥10,000</div>
+            <div class="pnl-line pnl-positive">¥+10,000</div>
             
           </td>
           <td class="score-cell">
@@ -937,6 +957,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#eab308;font-weight:600;">31.2</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -952,7 +977,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_4" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1069,6 +1094,11 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#22c55e;font-weight:600;">15.5%</span>
             
           </td>
@@ -1080,7 +1110,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_5" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1182,7 +1212,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥36,500</div>
-            <div class="pnl-line pnl-positive">¥8,000</div>
+            <div class="pnl-line pnl-positive">¥+8,000</div>
             
           </td>
           <td class="score-cell">
@@ -1193,6 +1223,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#ef4444;font-weight:600;">59.8</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -1208,7 +1243,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_6" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1325,6 +1360,11 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#3b82f6;font-weight:600;">10.7%</span>
             
           </td>
@@ -1336,7 +1376,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_7" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1438,7 +1478,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥132,000</div>
-            <div class="pnl-line pnl-positive">¥3,500</div>
+            <div class="pnl-line pnl-positive">¥+3,500</div>
             
           </td>
           <td class="score-cell">
@@ -1449,6 +1489,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#22c55e;font-weight:600;">14.3</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -1464,7 +1509,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_8" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1566,7 +1611,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥108,500</div>
-            <div class="pnl-line pnl-positive">¥1,500</div>
+            <div class="pnl-line pnl-positive">¥+1,500</div>
             
           </td>
           <td class="score-cell">
@@ -1577,6 +1622,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#ef4444;font-weight:600;">623.6</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -1592,7 +1642,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_9" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1694,7 +1744,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥62,900</div>
-            <div class="pnl-line pnl-positive">¥10,700</div>
+            <div class="pnl-line pnl-positive">¥+10,700</div>
             
           </td>
           <td class="score-cell">
@@ -1705,6 +1755,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#22c55e;font-weight:600;">16.7</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -1720,7 +1775,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_10" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1822,7 +1877,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥213,350</div>
-            <div class="pnl-line pnl-positive">¥24,350</div>
+            <div class="pnl-line pnl-positive">¥+24,350</div>
             
           </td>
           <td class="score-cell">
@@ -1833,6 +1888,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#eab308;font-weight:600;">30.2</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -1848,7 +1908,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_11" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -1950,7 +2010,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥557,000</div>
-            <div class="pnl-line pnl-positive">¥82,000</div>
+            <div class="pnl-line pnl-positive">¥+82,000</div>
             
           </td>
           <td class="score-cell">
@@ -1961,6 +2021,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#22c55e;font-weight:600;">19.4</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -1976,7 +2041,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_12" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2078,7 +2143,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥246,100</div>
-            <div class="pnl-line pnl-positive">¥22,900</div>
+            <div class="pnl-line pnl-positive">¥+22,900</div>
             
           </td>
           <td class="score-cell">
@@ -2089,6 +2154,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#22c55e;font-weight:600;">4.4</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -2104,7 +2174,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_13" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2206,7 +2276,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥141,714</div>
-            <div class="pnl-line pnl-positive">$169.56</div>
+            <div class="pnl-line pnl-positive">¥+26,457</div>
             
           </td>
           <td class="score-cell">
@@ -2226,13 +2296,18 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#3b82f6;font-weight:600;">1.64%</span>
             
           </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_14" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2334,7 +2409,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥209,696</div>
-            <div class="pnl-line pnl-positive">¥9,694</div>
+            <div class="pnl-line pnl-positive">¥+9,694</div>
             
           </td>
           <td class="score-cell">
@@ -2357,10 +2432,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_15" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2452,7 +2532,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥203,496</div>
-            <div class="pnl-line pnl-positive">¥3,495</div>
+            <div class="pnl-line pnl-positive">¥+3,495</div>
             
           </td>
           <td class="score-cell">
@@ -2475,10 +2555,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_16" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2570,7 +2655,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥92,920</div>
-            <div class="pnl-line pnl-positive">¥2,920</div>
+            <div class="pnl-line pnl-positive">¥+2,920</div>
             
           </td>
           <td class="score-cell">
@@ -2593,10 +2678,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_17" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2688,7 +2778,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥299,600</div>
-            <div class="pnl-line pnl-positive">¥55,600</div>
+            <div class="pnl-line pnl-positive">¥+55,600</div>
             
           </td>
           <td class="score-cell">
@@ -2699,6 +2789,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#22c55e;font-weight:600;">19.6</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -2714,7 +2809,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_18" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2816,7 +2911,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥472,000</div>
-            <div class="pnl-line pnl-positive">¥63,500</div>
+            <div class="pnl-line pnl-positive">¥+63,500</div>
             
           </td>
           <td class="score-cell">
@@ -2827,6 +2922,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#eab308;font-weight:600;">20.7</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -2842,7 +2942,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_19" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -2959,6 +3059,11 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#ef4444;font-weight:600;">-9.5%</span>
             
           </td>
@@ -2970,7 +3075,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_20" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3072,7 +3177,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥30,084</div>
-            <div class="pnl-line pnl-positive">¥16,917</div>
+            <div class="pnl-line pnl-positive">¥+16,917</div>
             
           </td>
           <td class="score-cell">
@@ -3092,13 +3197,18 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#eab308;font-weight:600;">0.48%</span>
             
           </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_21" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3200,7 +3310,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥150,420</div>
-            <div class="pnl-line pnl-positive">¥25,920</div>
+            <div class="pnl-line pnl-positive">¥+25,920</div>
             
           </td>
           <td class="score-cell">
@@ -3220,13 +3330,18 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#eab308;font-weight:600;">0.48%</span>
             
           </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_22" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3328,7 +3443,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥240,968</div>
-            <div class="pnl-line pnl-positive">¥77,323</div>
+            <div class="pnl-line pnl-positive">¥+77,323</div>
             
           </td>
           <td class="score-cell">
@@ -3339,6 +3454,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#ef4444;font-weight:600;">35.2</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -3354,7 +3474,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_23" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3471,6 +3591,11 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#eab308;font-weight:600;">7.7%</span>
             
           </td>
@@ -3482,7 +3607,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_24" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3599,6 +3724,11 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#3b82f6;font-weight:600;">10.7%</span>
             
           </td>
@@ -3610,7 +3740,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_25" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3712,7 +3842,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥282,300</div>
-            <div class="pnl-line pnl-positive">¥19,500</div>
+            <div class="pnl-line pnl-positive">¥+19,500</div>
             
           </td>
           <td class="score-cell">
@@ -3723,6 +3853,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#22c55e;font-weight:600;">7.3</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -3738,7 +3873,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_26" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3840,7 +3975,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥282,300</div>
-            <div class="pnl-line pnl-positive">¥32,300</div>
+            <div class="pnl-line pnl-positive">¥+32,300</div>
             
           </td>
           <td class="score-cell">
@@ -3851,6 +3986,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#22c55e;font-weight:600;">7.3</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -3866,7 +4006,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_27" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -3968,7 +4108,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥681,405</div>
-            <div class="pnl-line pnl-positive">$467.00</div>
+            <div class="pnl-line pnl-positive">¥+72,868</div>
             
           </td>
           <td class="score-cell">
@@ -3979,6 +4119,11 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:center;">
             
             <span style="color:#eab308;font-weight:600;">24.4</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
           <td style="text-align:center;">
@@ -3994,7 +4139,7 @@ tr:hover { background: var(--surface2); }
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_28" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4096,7 +4241,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥708,571</div>
-            <div class="pnl-line pnl-positive">$851.10</div>
+            <div class="pnl-line pnl-positive">¥+132,801</div>
             
           </td>
           <td class="score-cell">
@@ -4116,13 +4261,18 @@ tr:hover { background: var(--surface2); }
           </td>
           <td style="text-align:center;">
             
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
+          <td style="text-align:center;">
+            
             <span style="color:#3b82f6;font-weight:600;">1.64%</span>
             
           </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_29" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4224,7 +4374,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥199,045</div>
-            <div class="pnl-line pnl-positive">¥240,446,608</div>
+            <div class="pnl-line pnl-positive">¥+24,045</div>
             
           </td>
           <td class="score-cell">
@@ -4247,10 +4397,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_30" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4342,7 +4497,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥48,710</div>
-            <div class="pnl-line pnl-negative">¥-12,896,214</div>
+            <div class="pnl-line pnl-negative">¥-1,290</div>
             
           </td>
           <td class="score-cell">
@@ -4365,10 +4520,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_31" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4460,7 +4620,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥210,342</div>
-            <div class="pnl-line pnl-positive">¥353,424,247</div>
+            <div class="pnl-line pnl-positive">¥+35,342</div>
             
           </td>
           <td class="score-cell">
@@ -4483,10 +4643,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_32" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4578,7 +4743,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥50,494</div>
-            <div class="pnl-line pnl-positive">¥4,936,468</div>
+            <div class="pnl-line pnl-positive">¥+494</div>
             
           </td>
           <td class="score-cell">
@@ -4601,10 +4766,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_33" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4696,7 +4866,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥231,761</div>
-            <div class="pnl-line pnl-positive">¥567,607,115</div>
+            <div class="pnl-line pnl-positive">¥+56,761</div>
             
           </td>
           <td class="score-cell">
@@ -4719,10 +4889,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_34" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4814,7 +4989,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥55,206</div>
-            <div class="pnl-line pnl-positive">¥52,060,964</div>
+            <div class="pnl-line pnl-positive">¥+5,206</div>
             
           </td>
           <td class="score-cell">
@@ -4837,10 +5012,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_35" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -4932,7 +5112,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥33,266</div>
-            <div class="pnl-line pnl-positive">¥78,221,026</div>
+            <div class="pnl-line pnl-positive">¥+7,822</div>
             
           </td>
           <td class="score-cell">
@@ -4955,10 +5135,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_36" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -5050,7 +5235,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥301,280</div>
-            <div class="pnl-line pnl-positive">¥71,848</div>
+            <div class="pnl-line pnl-positive">¥+71,848</div>
             
           </td>
           <td class="score-cell">
@@ -5073,10 +5258,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_37" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -5168,7 +5358,7 @@ tr:hover { background: var(--surface2); }
           <td style="text-align:right;">
             
             <div>¥213,462</div>
-            <div class="pnl-line pnl-positive">¥60,590</div>
+            <div class="pnl-line pnl-positive">¥+60,590</div>
             
           </td>
           <td class="score-cell">
@@ -5191,10 +5381,15 @@ tr:hover { background: var(--surface2); }
             <span style="color:#4b5563;font-weight:600;">N/A</span>
             
           </td>
+          <td style="text-align:center;">
+            
+            <span style="color:#4b5563;font-weight:600;">N/A</span>
+            
+          </td>
         </tr>
         <!-- Expandable Detail Row -->
         <tr class="detail-row" id="detail_38" style="display:none;">
-          <td colspan="9">
+          <td colspan="10">
             <div class="detail-content">
               <div>
                 <!-- Financial Sub-scores -->
@@ -6789,7 +6984,7 @@ tr:hover { background: var(--surface2); }
 
 <div class="footer">
   stock-analyzer v0.3 — 骨太投資術 × Porter競争戦略 MECE 4軸分析 + リスク&最適化<br>
-  Generated at 2026-02-28 20:43
+  Generated at 2026-02-28 21:11
 </div>
 
 </div>
