@@ -132,6 +132,12 @@ tr:hover { background: var(--surface2); }
 .axis-bar .bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
 .axis-bar .pts { width: 60px; font-size: 12px; font-weight: 600; }
 .nisa-tag { background: rgba(234,179,8,0.2); color: var(--yellow); font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+.strategy-tag { font-size: 9px; padding: 1px 6px; border-radius: 3px; margin-left: 6px; font-weight: 600; vertical-align: middle; white-space: nowrap; }
+.strat-hold { background: rgba(34,197,94,0.15); color: #22c55e; }
+.strat-buy { background: rgba(59,130,246,0.15); color: #3b82f6; }
+.strat-watch { background: rgba(234,179,8,0.15); color: #eab308; }
+.strat-sell { background: rgba(239,68,68,0.15); color: #ef4444; }
+.strat-other { background: rgba(156,163,175,0.15); color: #9ca3af; }
 /* === Compact Stock Table === */
 .table-controls {
   display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
@@ -302,6 +308,7 @@ tr:hover { background: var(--surface2); }
   .stock-name { font-size: 12px; white-space: normal; }
   .stock-ticker { font-size: 9px; }
   .nisa-tag { font-size: 9px; padding: 1px 5px; margin-left: 4px; }
+  .strategy-tag { font-size: 8px; padding: 1px 4px; margin-left: 3px; }
   .return-bar-wrap { min-width: 70px; gap: 4px; }
   .return-bar-track { display: none; }
   .return-val { font-size: 13px; font-weight: 700; min-width: auto; }
@@ -376,7 +383,7 @@ tr:hover { background: var(--surface2); }
 <!-- Hero -->
 <div class="hero">
   <h1>ポートフォリオ分析レポート</h1>
-  <div class="subtitle">骨太投資術 × Porter競争戦略 | 38銘柄 | 2026-03-01 22:33</div>
+  <div class="subtitle">骨太投資術 × Porter競争戦略 | 38銘柄 | 2026-03-01 22:52</div>
   <div class="stats">
     
     <div class="stat-card">
@@ -414,6 +421,7 @@ tr:hover { background: var(--surface2); }
   <a href="#allocation">配分</a>
   <a href="#stocks">銘柄分析</a>
   <a href="#ranking">ランキング</a>
+  <a href="#inv-strategy">投資戦略</a>
   <a href="#strategy">戦略</a>
   <a href="#realized">実現損益</a>
   <a href="#returns">リターン一覧</a>
@@ -1027,6 +1035,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 良品計画
               
+              
             </div>
             <div class="stock-ticker">7453.T · SBI証券</div>
           </td>
@@ -1152,6 +1161,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 37.6 (割高 (基準: 8-20)) | ROE: 16.8 (優良 (基準: 10%)) | 流動比率: 2.81 (非常に安全 (基準: 1.5)) | FCF: ['32,361M', '19,571M', '30,153M'] (全期黒字 (3/3期)) | 配当: 0.78 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -1169,6 +1179,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ｒｏｂｏｔ　ｈｏｍｅ
+              
               
             </div>
             <div class="stock-ticker">1435.T · SBI証券</div>
@@ -1295,6 +1306,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 34.0 (割高 (基準: 8-20)) | ROE: 19.5 (優良 (基準: 10%)) | 流動比率: 2.82 (非常に安全 (基準: 1.5)) | FCF: ['1,334M', '656M', '-342M'] (2/3期黒字 (基準: 2期)) | 配当: 0.94 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -1313,6 +1325,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ベースフード
               
+              <span class="strategy-tag strat-watch">様子見</span>
             </div>
             <div class="stock-ticker">2936.T · SBI証券</div>
           </td>
@@ -1438,6 +1451,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(234,179,8,0.15);border-radius:8px;border-left:3px solid #eab308;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#eab308;">様子見</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">成長期待あるが赤字体質。次の決算で判断</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 33.8 (割高 (基準: 8-20)) | ROE: 48.1 (優良 (基準: 10%)) | 流動比率: 1.24 (やや低い (基準: 1.5)) | FCF: ['51M', '-738M', '-801M'] (1/3期のみ黒字) | 配当: N/A</div>
                 
               </div>
@@ -1456,6 +1477,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 三菱重
               
+              <span class="strategy-tag strat-hold">長期保有</span>
             </div>
             <div class="stock-ticker">7011.T · SBI証券</div>
           </td>
@@ -1581,6 +1603,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#22c55e;">長期保有</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">防衛+重工。国策追い風。コア保有</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 61.7 (割高 (基準: 8-20)) | ROE: N/A | 流動比率: 1.27 (やや低い (基準: 1.5)) | FCF: ['289,767M', '170,700M', '-51,017M'] (2/3期黒字 (基準: 2期)) | 配当: 0.48 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -1598,6 +1628,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 パンパシフィックＨＤ
+              
               
             </div>
             <div class="stock-ticker">7532.T · SBI証券</div>
@@ -1724,6 +1755,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 31.2 (割高 (基準: 8-20)) | ROE: 16.0 (優良 (基準: 10%)) | 流動比率: 1.16 (やや低い (基準: 1.5)) | FCF: ['79,835M', '55,961M', '78,393M'] (全期黒字 (3/3期)) | 配当: 0.82 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -1742,6 +1774,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 Ｉｎｅ
               
+              <span class="strategy-tag strat-sell">手放す</span>
             </div>
             <div class="stock-ticker">4933.T · SBI証券</div>
           </td>
@@ -1867,6 +1900,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(239,68,68,0.15);border-radius:8px;border-left:3px solid #ef4444;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#ef4444;">手放す</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">スコア低め。集中度下げて投信へ振替</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 7.7 (低PER (基準: 8-20)) | ROE: 15.5 (優良 (基準: 10%)) | 流動比率: 2.5 (非常に安全 (基準: 1.5)) | FCF: ['-395M', '903M', '-742M'] (1/3期のみ黒字) | 配当: 1.33 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -1884,6 +1925,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 オープンドア
+              
               
             </div>
             <div class="stock-ticker">3926.T · SBI証券</div>
@@ -2010,6 +2052,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 59.8 (割高 (基準: 8-20)) | ROE: -29.7 (低水準 (基準: 10%)) | 流動比率: 5.41 (非常に安全 (基準: 1.5)) | FCF: ['-24M', '-351M', '-22M'] (全期赤字) | 配当: N/A</div>
                 
               </div>
@@ -2028,6 +2071,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ＮＴＴ
               
+              <span class="strategy-tag strat-hold">長期保有</span>
             </div>
             <div class="stock-ticker">9432.T · SBI証券</div>
           </td>
@@ -2153,6 +2197,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#22c55e;">長期保有</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">高配当+通信インフラ安定</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 12.2 (適正レンジ (8-20)) | ROE: 10.7 (良好 (基準: 10%)) | 流動比率: 0.58 (危険水準 (基準: 1.5)) | FCF: ['231,739M', '290,155M', '409,134M'] (全期黒字 (3/3期)) | 配当: 3.46 (良好 (基準: 2.5%))</div>
                 
               </div>
@@ -2171,6 +2223,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ビジョン
               
+              <span class="strategy-tag strat-sell">手放す</span>
             </div>
             <div class="stock-ticker">9416.T · SBI証券</div>
           </td>
@@ -2296,6 +2349,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(239,68,68,0.15);border-radius:8px;border-left:3px solid #ef4444;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#ef4444;">手放す</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">WiFi事業の成長鈍化。利確検討</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 14.3 (適正レンジ (8-20)) | ROE: 23.1 (優良 (基準: 10%)) | 流動比率: 3.44 (非常に安全 (基準: 1.5)) | FCF: ['2,039M', '3,240M', '254M'] (全期黒字 (3/3期)) | 配当: 4.39 (良好 (基準: 2.5%))</div>
                 
               </div>
@@ -2313,6 +2374,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 フジオフードＧ本社
+              
               
             </div>
             <div class="stock-ticker">2752.T · SBI証券</div>
@@ -2439,6 +2501,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 623.6 (割高 (基準: 8-20)) | ROE: 1.0 (低水準 (基準: 10%)) | 流動比率: 1.59 (安全 (基準: 1.5)) | FCF: ['1,475M', '1,375M', '225M'] (全期黒字 (3/3期)) | 配当: 0.28 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -2456,6 +2519,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ＣＭＫ
+              
               
             </div>
             <div class="stock-ticker">6958.T · SBI証券</div>
@@ -2582,6 +2646,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 16.7 (適正レンジ (8-20)) | ROE: 3.1 (低水準 (基準: 10%)) | 流動比率: 1.64 (安全 (基準: 1.5)) | FCF: ['-9,875M', '-6,531M', '-520M'] (全期赤字) | 配当: 3.18 (良好 (基準: 2.5%))</div>
                 
               </div>
@@ -2599,6 +2664,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 五洋建
+              
               
             </div>
             <div class="stock-ticker">1893.T · SBI証券</div>
@@ -2725,6 +2791,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 30.2 (割高 (基準: 8-20)) | ROE: 18.2 (優良 (基準: 10%)) | 流動比率: 1.18 (やや低い (基準: 1.5)) | FCF: ['-61,482M', '-1,748M', '9,575M'] (1/3期のみ黒字) | 配当: 2.06 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -2742,6 +2809,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 名村造船
+              
               
             </div>
             <div class="stock-ticker">7014.T · SBI証券</div>
@@ -2868,6 +2936,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 19.4 (適正レンジ (8-20)) | ROE: 16.9 (優良 (基準: 10%)) | 流動比率: 1.77 (安全 (基準: 1.5)) | FCF: ['32,186M', '25,472M', '6,922M'] (全期黒字 (3/3期)) | 配当: 0.72 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -2885,6 +2954,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 北海電力
+              
               
             </div>
             <div class="stock-ticker">9509.T · SBI証券</div>
@@ -3011,6 +3081,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 4.4 (低PER (基準: 8-20)) | ROE: 14.0 (良好 (基準: 10%)) | 流動比率: 0.95 (危険水準 (基準: 1.5)) | FCF: ['125,588M', '176,135M', '-574M'] (2/3期黒字 (基準: 2期)) | 配当: 2.44 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -3028,6 +3099,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:6px;vertical-align:middle;"></span>🇺🇸 iシェアーズ MSCI 韓国 ETF
+              
               
             </div>
             <div class="stock-ticker">EWY · SBI証券</div>
@@ -3154,6 +3226,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 22.5 (適正レンジ (10-25)) | ROE: N/A | 流動比率: N/A | FCF: N/A | 配当: 1.64 (良好 (基準: 1.5%))</div>
                 
               </div>
@@ -3172,6 +3245,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:6px;vertical-align:middle;"></span>🇯🇵 金
               
+              <span class="strategy-tag strat-hold">長期保有</span>
             </div>
             <div class="stock-ticker">GOLD · SBI証券</div>
           </td>
@@ -3257,6 +3331,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#22c55e;">長期保有</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">インフレヘッジ。ポートフォリオの守り</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -3274,6 +3356,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:6px;vertical-align:middle;"></span>🇯🇵 プラチナ
+              
               
             </div>
             <div class="stock-ticker">PLATINUM · SBI証券</div>
@@ -3360,6 +3443,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -3377,6 +3461,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:6px;vertical-align:middle;"></span>🇯🇵 銀
+              
               
             </div>
             <div class="stock-ticker">SILVER · SBI証券</div>
@@ -3463,6 +3548,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -3481,6 +3567,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ドトール・日レスＨＤ
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">3087.T · 楽天証券</div>
           </td>
@@ -3606,6 +3693,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 19.6 (適正レンジ (8-20)) | ROE: 6.6 (普通 (基準: 10%)) | 流動比率: 2.45 (非常に安全 (基準: 1.5)) | FCF: ['6,442M', '6,871M', '-221M'] (2/3期黒字 (基準: 2期)) | 配当: 1.87 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -3624,6 +3712,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 中国塗料
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">4617.T · 楽天証券</div>
           </td>
@@ -3749,6 +3838,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 20.7 (やや割高 (基準: 8-20)) | ROE: 15.2 (優良 (基準: 10%)) | 流動比率: 2.42 (非常に安全 (基準: 1.5)) | FCF: ['14,539M', '12,388M', '29M'] (全期黒字 (3/3期)) | 配当: 2.06 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -3766,6 +3856,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天グループ
+              
               
             </div>
             <div class="stock-ticker">4755.T · 楽天証券</div>
@@ -3892,6 +3983,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: -108.8 (低PER (基準: 8-20)) | ROE: -9.5 (低水準 (基準: 10%)) | 流動比率: 23.22 (非常に安全 (基準: 1.5)) | FCF: ['947,645M', '373,035M', '-697,286M'] (2/3期黒字 (基準: 2期)) | 配当: N/A</div>
                 
               </div>
@@ -3910,6 +4002,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 三菱重工業
               
+              <span class="strategy-tag strat-hold">長期保有</span>
             </div>
             <div class="stock-ticker">7011.T · 楽天証券</div>
           </td>
@@ -4035,6 +4128,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#22c55e;">長期保有</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">防衛+重工。国策追い風。コア保有</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 61.7 (割高 (基準: 8-20)) | ROE: N/A | 流動比率: 1.27 (やや低い (基準: 1.5)) | FCF: ['289,767M', '170,700M', '-51,017M'] (2/3期黒字 (基準: 2期)) | 配当: 0.48 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -4053,6 +4154,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 三菱重工業
               <span class="nisa-tag">NISA</span>
+              <span class="strategy-tag strat-hold">長期保有</span>
             </div>
             <div class="stock-ticker">7011.T · 楽天証券</div>
           </td>
@@ -4178,6 +4280,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#22c55e;">長期保有</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">防衛+重工。国策追い風。コア保有</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 61.7 (割高 (基準: 8-20)) | ROE: N/A | 流動比率: 1.27 (やや低い (基準: 1.5)) | FCF: ['289,767M', '170,700M', '-51,017M'] (2/3期黒字 (基準: 2期)) | 配当: 0.48 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -4196,6 +4306,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ＩＨＩ
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">7013.T · 楽天証券</div>
           </td>
@@ -4321,6 +4432,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 35.2 (割高 (基準: 8-20)) | ROE: 23.6 (優良 (基準: 10%)) | 流動比率: 1.17 (やや低い (基準: 1.5)) | FCF: ['117,385M', '1,124M', '-8,461M'] (2/3期黒字 (基準: 2期)) | 配当: 0.46 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -4338,6 +4450,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 東日本旅客鉄道
+              
               
             </div>
             <div class="stock-ticker">9020.T · 楽天証券</div>
@@ -4464,6 +4577,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 18.8 (適正レンジ (8-20)) | ROE: 7.7 (普通 (基準: 10%)) | 流動比率: 0.88 (危険水準 (基準: 1.5)) | FCF: ['-38,682M', '-26,809M', '26,172M'] (1/3期のみ黒字) | 配当: 1.81 (配当あり (基準: 2.5%))</div>
                 
               </div>
@@ -4482,6 +4596,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 ＮＴＴ
               
+              <span class="strategy-tag strat-hold">長期保有</span>
             </div>
             <div class="stock-ticker">9432.T · 楽天証券</div>
           </td>
@@ -4607,6 +4722,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.15);border-radius:8px;border-left:3px solid #22c55e;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#22c55e;">長期保有</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">高配当+通信インフラ安定</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 12.2 (適正レンジ (8-20)) | ROE: 10.7 (良好 (基準: 10%)) | 流動比率: 0.58 (危険水準 (基準: 1.5)) | FCF: ['231,739M', '290,155M', '409,134M'] (全期黒字 (3/3期)) | 配当: 3.46 (良好 (基準: 2.5%))</div>
                 
               </div>
@@ -4624,6 +4747,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 関西電力
+              
               
             </div>
             <div class="stock-ticker">9503.T · 楽天証券</div>
@@ -4750,6 +4874,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 7.3 (低PER (基準: 8-20)) | ROE: 12.4 (良好 (基準: 10%)) | 流動比率: 1.15 (やや低い (基準: 1.5)) | FCF: ['575,299M', '1,154,990M', '128,038M'] (全期黒字 (3/3期)) | 配当: 3.19 (良好 (基準: 2.5%))</div>
                 
               </div>
@@ -4768,6 +4893,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6366f1;margin-right:6px;vertical-align:middle;"></span>🇯🇵 関西電力
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">9503.T · 楽天証券</div>
           </td>
@@ -4893,6 +5019,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 7.3 (低PER (基準: 8-20)) | ROE: 12.4 (良好 (基準: 10%)) | 流動比率: 1.15 (やや低い (基準: 1.5)) | FCF: ['575,299M', '1,154,990M', '128,038M'] (全期黒字 (3/3期)) | 配当: 3.19 (良好 (基準: 2.5%))</div>
                 
               </div>
@@ -4911,6 +5038,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3b82f6;margin-right:6px;vertical-align:middle;"></span>🇺🇸 iシェアーズ MSCI 韓国 ETF
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">EWY · 楽天証券</div>
           </td>
@@ -5036,6 +5164,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">PER: 22.5 (適正レンジ (10-25)) | ROE: N/A | 流動比率: N/A | FCF: N/A | 配当: 1.64 (良好 (基準: 1.5%))</div>
                 
               </div>
@@ -5054,6 +5183,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天・全米株式インデックス・ファンド(楽天・VTI)
               <span class="nisa-tag">NISA</span>
+              <span class="strategy-tag strat-buy">追加購入</span>
             </div>
             <div class="stock-ticker">FUND_楽天・全米株式インデ · 楽天証券</div>
           </td>
@@ -5139,6 +5269,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(59,130,246,0.15);border-radius:8px;border-left:3px solid #3b82f6;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#3b82f6;">追加購入</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">積立NISA枠。米国比率引上げ</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5157,6 +5295,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天・全米株式インデックス・ファンド(楽天・VTI)
               <span class="nisa-tag">NISA</span>
+              <span class="strategy-tag strat-buy">追加購入</span>
             </div>
             <div class="stock-ticker">FUND_楽天・全米株式インデ · 楽天証券</div>
           </td>
@@ -5242,6 +5381,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(59,130,246,0.15);border-radius:8px;border-left:3px solid #3b82f6;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#3b82f6;">追加購入</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">積立NISA枠。米国比率引上げ</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5260,6 +5407,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天・米国高配当株式インデックス・ファンド(楽天・VYM)
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">FUND_楽天・米国高配当株式 · 楽天証券</div>
           </td>
@@ -5345,6 +5493,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5363,6 +5512,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天・米国高配当株式インデックス・ファンド(楽天・VYM)
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">FUND_楽天・米国高配当株式 · 楽天証券</div>
           </td>
@@ -5448,6 +5598,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5466,6 +5617,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天・プラス・日経225インデックス・ファンド(楽天・プラス・日経225)
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">FUND_楽天・プラス・日経2 · 楽天証券</div>
           </td>
@@ -5551,6 +5703,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5569,6 +5722,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天・プラス・日経225インデックス・ファンド(楽天・プラス・日経225)
               <span class="nisa-tag">NISA</span>
+              
             </div>
             <div class="stock-ticker">FUND_楽天・プラス・日経2 · 楽天証券</div>
           </td>
@@ -5654,6 +5808,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5672,6 +5827,7 @@ tr:hover { background: var(--surface2); }
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>🇯🇵 楽天・シュワブ・高配当株式・米国ファンド(四半期決算型)(楽天・SCHD)
               <span class="nisa-tag">NISA</span>
+              <span class="strategy-tag strat-buy">追加購入</span>
             </div>
             <div class="stock-ticker">FUND_楽天・シュワブ・高配 · 楽天証券</div>
           </td>
@@ -5757,6 +5913,14 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                <div style="margin-top:12px;padding:10px;background:rgba(59,130,246,0.15);border-radius:8px;border-left:3px solid #3b82f6;">
+                  <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">投資戦略</div>
+                  <div style="font-size:14px;font-weight:700;color:#3b82f6;">追加購入</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">高配当+四半期決算。キャッシュフロー強化</div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">更新: 2026-03-01</div>
+                </div>
+                
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5774,6 +5938,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:6px;vertical-align:middle;"></span>🇯🇵 金
+              
               
             </div>
             <div class="stock-ticker">GOLD_R · 楽天証券</div>
@@ -5860,6 +6025,7 @@ tr:hover { background: var(--surface2); }
                 </div>
                 
                 
+                
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
                 
               </div>
@@ -5877,6 +6043,7 @@ tr:hover { background: var(--surface2); }
           <td>
             <div class="stock-name">
               <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#eab308;margin-right:6px;vertical-align:middle;"></span>🇯🇵 プラチナ
+              
               
             </div>
             <div class="stock-ticker">PLAT_R · 楽天証券</div>
@@ -5961,6 +6128,7 @@ tr:hover { background: var(--surface2); }
                   <span>取得 <strong>¥8,237</strong></span>
                   <span>現在 <strong>¥11,501</strong></span>
                 </div>
+                
                 
                 
                 <div style="margin-top:12px;font-size:11px;color:var(--text-muted);line-height:1.7;">コモディティ/投資信託は財務指標の対象外</div>
@@ -6912,6 +7080,183 @@ tr:hover { background: var(--surface2); }
   </div>
 </div>
 
+<!-- Investment Strategy Section -->
+
+<div class="section">
+  <div class="section-title" id="inv-strategy">投資戦略 <span style="font-size:12px;color:var(--text-muted);font-weight:400;">12/38銘柄に設定</span></div>
+  <div class="responsive-grid cols-2">
+    
+    <div class="card" style="border-left:3px solid #22c55e;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <span style="font-size:16px;font-weight:700;color:#22c55e;">長期保有</span>
+        <span style="font-size:12px;color:var(--text-muted);background:var(--surface2);padding:2px 8px;border-radius:4px;">6銘柄</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">三菱重</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">防衛+重工。国策追い風。コア保有</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+27.3%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥501,400</span>
+        <span class="score-badge poor" style="font-size:11px;padding:1px 6px;">×</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">ＮＴＴ</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">高配当+通信インフラ安定</div>
+        </div>
+        <span class="pnl-negative" style="font-weight:600;font-size:12px;white-space:nowrap;">-0.5%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥153,300</span>
+        <span class="score-badge good" style="font-size:11px;padding:1px 6px;">○</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">金</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">インフレヘッジ。ポートフォリオの守り</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+4.8%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥209,696</span>
+        <span class="score-badge " style="font-size:11px;padding:1px 6px;">—</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">三菱重工業</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">防衛+重工。国策追い風。コア保有</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+128.5%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥30,084</span>
+        <span class="score-badge poor" style="font-size:11px;padding:1px 6px;">×</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">三菱重工業</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">防衛+重工。国策追い風。コア保有</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+20.8%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥150,420</span>
+        <span class="score-badge poor" style="font-size:11px;padding:1px 6px;">×</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">ＮＴＴ</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">高配当+通信インフラ安定</div>
+        </div>
+        <span class="pnl-negative" style="font-weight:600;font-size:12px;white-space:nowrap;">-5.7%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥101,638</span>
+        <span class="score-badge good" style="font-size:11px;padding:1px 6px;">○</span>
+      </div>
+      
+    </div>
+    
+    <div class="card" style="border-left:3px solid #3b82f6;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <span style="font-size:16px;font-weight:700;color:#3b82f6;">追加購入</span>
+        <span style="font-size:12px;color:var(--text-muted);background:var(--surface2);padding:2px 8px;border-radius:4px;">3銘柄</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">楽天・全米株式インデックス・ファンド(楽天・VTI)</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">積立NISA枠。米国比率引上げ</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+13.7%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥199,045</span>
+        <span class="score-badge " style="font-size:11px;padding:1px 6px;">—</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">楽天・全米株式インデックス・ファンド(楽天・VTI)</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">積立NISA枠。米国比率引上げ</div>
+        </div>
+        <span class="pnl-negative" style="font-weight:600;font-size:12px;white-space:nowrap;">-2.6%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥48,710</span>
+        <span class="score-badge " style="font-size:11px;padding:1px 6px;">—</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">楽天・シュワブ・高配当株式・米国ファンド(四半期決算型)(楽天・SCHD)</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">高配当+四半期決算。キャッシュフロー強化</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+30.7%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥33,266</span>
+        <span class="score-badge " style="font-size:11px;padding:1px 6px;">—</span>
+      </div>
+      
+    </div>
+    
+    <div class="card" style="border-left:3px solid #eab308;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <span style="font-size:16px;font-weight:700;color:#eab308;">様子見</span>
+        <span style="font-size:12px;color:var(--text-muted);background:var(--surface2);padding:2px 8px;border-radius:4px;">1銘柄</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">ベースフード</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">成長期待あるが赤字体質。次の決算で判断</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+10.3%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥36,500</span>
+        <span class="score-badge fair" style="font-size:11px;padding:1px 6px;">△</span>
+      </div>
+      
+    </div>
+    
+    <div class="card" style="border-left:3px solid #ef4444;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <span style="font-size:16px;font-weight:700;color:#ef4444;">手放す</span>
+        <span style="font-size:12px;color:var(--text-muted);background:var(--surface2);padding:2px 8px;border-radius:4px;">2銘柄</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">Ｉｎｅ</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">スコア低め。集中度下げて投信へ振替</div>
+        </div>
+        <span class="pnl-negative" style="font-weight:600;font-size:12px;white-space:nowrap;">-16.6%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥112,600</span>
+        <span class="score-badge good" style="font-size:11px;padding:1px 6px;">○</span>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:13px;">
+        <span>🇯🇵</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;">ビジョン</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">WiFi事業の成長鈍化。利確検討</div>
+        </div>
+        <span class="pnl-positive" style="font-weight:600;font-size:12px;white-space:nowrap;">+2.7%</span>
+        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">¥132,000</span>
+        <span class="score-badge excellent" style="font-size:11px;padding:1px 6px;">◎</span>
+      </div>
+      
+    </div>
+    
+  </div>
+  <div style="margin-top:12px;font-size:11px;color:var(--text-muted);text-align:center;">
+    戦略を設定: <code style="background:var(--surface2);padding:2px 6px;border-radius:3px;">data/strategy.yaml</code> を編集 → <code style="background:var(--surface2);padding:2px 6px;border-radius:3px;">stock report</code> で反映
+  </div>
+</div>
+
+
 <!-- Strategy & Optimization -->
 
 <div class="section">
@@ -7605,7 +7950,7 @@ tr:hover { background: var(--surface2); }
 
 <div class="footer">
   stock-analyzer v0.3 — 骨太投資術 × Porter競争戦略 MECE 4軸分析 + リスク&最適化<br>
-  Generated at 2026-03-01 22:33
+  Generated at 2026-03-01 22:52
 </div>
 
 </div>
