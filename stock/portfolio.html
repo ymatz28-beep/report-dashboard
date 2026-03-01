@@ -255,7 +255,6 @@ tr:hover { background: var(--surface2); }
 }
 .nav-bar a:hover { color: var(--text); background: var(--surface2); }
 .nav-bar a.active { color: var(--accent); background: rgba(99,102,241,0.12); }
-.nav-bar .hub-link { color: var(--accent); border: 1px solid rgba(99,102,241,0.3); }
 /* === Cross-site header === */
 .site-header {
   display: flex; align-items: center; justify-content: space-between;
@@ -419,7 +418,7 @@ tr:hover { background: var(--surface2); }
 <!-- Cross-site Header -->
 <div class="site-header">
   <div class="site-brand">iUMA Dashboard</div>
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="iUMAサイトナビゲーション">
     <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
     <a href="https://ymatz28-beep.github.io/report-dashboard/stock/portfolio.html" class="current">Stock</a>
     <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
@@ -430,7 +429,7 @@ tr:hover { background: var(--surface2); }
 <!-- Hero -->
 <div class="hero">
   <h1>ポートフォリオ分析レポート</h1>
-  <div class="subtitle">骨太投資術 × Porter競争戦略 | 38銘柄 | 2026-03-01 23:14</div>
+  <div class="subtitle">骨太投資術 × Porter競争戦略 | 38銘柄 | 2026-03-01 23:34</div>
   <div class="stats">
     
     <div class="stat-card">
@@ -469,7 +468,7 @@ tr:hover { background: var(--surface2); }
 </div>
 
 <!-- Navigation -->
-<div class="nav-bar">
+<nav class="nav-bar" aria-label="ページ内ナビゲーション">
   <a href="#policy">国策テーマ</a>
   <a href="#allocation">配分</a>
   <a href="#stocks">銘柄分析</a>
@@ -478,7 +477,7 @@ tr:hover { background: var(--surface2); }
   <a href="#strategy">リバランス</a>
   <a href="#realized">実現損益</a>
   <a href="#returns">リターン一覧</a>
-</div>
+</nav>
 
 
 
@@ -997,7 +996,7 @@ tr:hover { background: var(--surface2); }
           <td class="hide-mobile" style="text-align:right">24</td>
           <td class="hide-mobile" style="text-align:right">¥4,576,636</td>
           <td style="text-align:right">¥5,163,970</td>
-          <td class="hide-mobile" style="text-align:right" class="pnl-positive">¥587,334</td>
+          <td class="hide-mobile pnl-positive" style="text-align:right">¥587,334</td>
           <td style="text-align:right" class="pnl-positive"><strong>+12.8%</strong></td>
           <td style="text-align:right"><strong>65.7%</strong></td>
         </tr>
@@ -1007,7 +1006,7 @@ tr:hover { background: var(--surface2); }
           <td class="hide-mobile" style="text-align:right">5</td>
           <td class="hide-mobile" style="text-align:right">¥872,307</td>
           <td style="text-align:right">¥1,020,854</td>
-          <td class="hide-mobile" style="text-align:right" class="pnl-positive">¥148,547</td>
+          <td class="hide-mobile pnl-positive" style="text-align:right">¥148,547</td>
           <td style="text-align:right" class="pnl-positive"><strong>+17.0%</strong></td>
           <td style="text-align:right"><strong>13.0%</strong></td>
         </tr>
@@ -1017,7 +1016,7 @@ tr:hover { background: var(--surface2); }
           <td class="hide-mobile" style="text-align:right">2</td>
           <td class="hide-mobile" style="text-align:right">¥691,026</td>
           <td style="text-align:right">¥850,285</td>
-          <td class="hide-mobile" style="text-align:right" class="pnl-positive">¥159,259</td>
+          <td class="hide-mobile pnl-positive" style="text-align:right">¥159,259</td>
           <td style="text-align:right" class="pnl-positive"><strong>+23.0%</strong></td>
           <td style="text-align:right"><strong>10.8%</strong></td>
         </tr>
@@ -1027,7 +1026,7 @@ tr:hover { background: var(--surface2); }
           <td class="hide-mobile" style="text-align:right">7</td>
           <td class="hide-mobile" style="text-align:right">¥700,444</td>
           <td style="text-align:right">¥828,824</td>
-          <td class="hide-mobile" style="text-align:right" class="pnl-positive">¥128,380</td>
+          <td class="hide-mobile pnl-positive" style="text-align:right">¥128,380</td>
           <td style="text-align:right" class="pnl-positive"><strong>+18.3%</strong></td>
           <td style="text-align:right"><strong>10.5%</strong></td>
         </tr>
@@ -8021,7 +8020,7 @@ tr:hover { background: var(--surface2); }
 
 <div class="footer">
   stock-analyzer v0.3 — 骨太投資術 × Porter競争戦略 MECE 4軸分析 + リスク&最適化<br>
-  Generated at 2026-03-01 23:14
+  Generated at 2026-03-01 23:34
 </div>
 
 </div>
