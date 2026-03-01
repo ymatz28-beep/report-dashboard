@@ -3,22 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Report Dashboard</title>
+<title>iUMA Report Dashboard</title>
 <style>
-body { font-family: 'Inter', sans-serif; background: #0f1117; color: #e4e4e7; padding: 40px; }
-h1 { font-size: 28px; margin-bottom: 8px; }
-.subtitle { color: #9ca3af; margin-bottom: 32px; }
-.section { margin-bottom: 24px; }
-h2 { font-size: 18px; color: #a78bfa; margin-bottom: 12px; }
-ul { list-style: none; padding: 0; }
-li { margin-bottom: 8px; }
-a { color: #818cf8; text-decoration: none; padding: 8px 16px; background: #1a1d27; border-radius: 8px; display: inline-block; }
-a:hover { background: #242836; }
+:root { --bg:#0f1117; --surface:#1a1d27; --surface2:#242836; --border:#2d3348; --text:#e4e4e7; --muted:#9ca3af; --accent:#8b5cf6; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',-apple-system,'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+.container { max-width:800px; margin:0 auto; padding:40px 20px; }
+.hero { text-align:center; margin-bottom:40px; }
+.hero h1 { font-size:32px; font-weight:700; margin-bottom:4px; }
+.hero .brand { font-size:13px; color:var(--accent); letter-spacing:2px; text-transform:uppercase; }
+.hero .updated { font-size:12px; color:var(--muted); margin-top:8px; }
+.hub-card {
+  display:flex; gap:16px; align-items:flex-start;
+  background:var(--surface); border:1px solid var(--border); border-radius:12px;
+  padding:20px; margin-bottom:12px; transition:transform 0.15s;
+}
+.hub-card:hover { transform:translateX(4px); }
+.card-icon { font-size:28px; padding-top:2px; }
+.card-body { flex:1; }
+.card-title { font-size:16px; font-weight:700; margin-bottom:4px; }
+.card-desc { font-size:12px; color:var(--muted); margin-bottom:10px; }
+.card-links { display:flex; gap:8px; flex-wrap:wrap; }
+.card-link {
+  font-size:12px; font-weight:600; color:var(--text); text-decoration:none;
+  padding:6px 14px; background:var(--surface2); border-radius:6px; transition:background 0.15s;
+}
+.card-link:hover { background:var(--accent); color:white; }
+.footer { text-align:center; color:var(--muted); font-size:11px; margin-top:40px; }
+@media (max-width:640px) {
+  .container { padding:20px 12px; }
+  .hero h1 { font-size:24px; }
+  .hub-card { padding:14px; gap:12px; }
+  .card-icon { font-size:22px; }
+  .card-title { font-size:14px; }
+}
 </style>
 </head>
 <body>
-<h1>Report Dashboard</h1>
-<p class="subtitle">Last updated: 2026-03-01 21:45</p>
-<div class="section"><h2>📈 Stock Analyzer</h2><ul><li><a href="stock/portfolio.html">Portfolio</a></li></ul></div>
+<div class="container">
+  <div class="hero">
+    <div class="brand">iUMA Report Dashboard</div>
+    <h1>Intelligence Hub</h1>
+    <div class="updated">Last updated: 2026-03-01 22:07</div>
+  </div>
+  
+    <div class="hub-card" style="border-left:3px solid #8b5cf6;">
+      <div class="card-icon">📈</div>
+      <div class="card-body">
+        <div class="card-title" style="color:#8b5cf6;">Stock Analyzer</div>
+        <div class="card-desc">骨太投資術 × Porter競争戦略 MECE 4軸分析</div>
+        <div class="card-links"><a href="stock/portfolio.html" class="card-link">Portfolio</a></div>
+      </div>
+    </div>
+    <div class="hub-card" style="border-left:3px solid #3b9eff;">
+      <div class="card-icon">🏠</div>
+      <div class="card-body">
+        <div class="card-title" style="color:#3b9eff;">Property Report</div>
+        <div class="card-desc">不動産ポートフォリオ分析</div>
+        <div class="card-links"><a href="https://ymatz28-beep.github.io/property-report/" class="card-link">Property Dashboard ↗</a></div>
+      </div>
+    </div>
+  <div class="footer">iUMA Property Management — Powered by Claude Code</div>
+</div>
 </body>
 </html>
