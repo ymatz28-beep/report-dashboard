@@ -346,7 +346,7 @@ tr:hover { background: var(--surface2); }
 <!-- Hero -->
 <div class="hero">
   <h1>ポートフォリオ分析レポート</h1>
-  <div class="subtitle">骨太投資術 × Porter競争戦略 | 38銘柄 | 2026-03-01 21:31</div>
+  <div class="subtitle">骨太投資術 × Porter競争戦略 | 38銘柄 | 2026-03-01 21:38</div>
   <div class="stats">
     
     <div class="stat-card">
@@ -369,6 +369,11 @@ tr:hover { background: var(--surface2); }
       <div class="value pnl-positive">+15.0%</div>
     </div>
     
+    <div class="stat-card">
+      <div class="label">実現損益</div>
+      <div class="value pnl-positive">¥+30,000</div>
+    </div>
+    
   </div>
 </div>
 
@@ -378,6 +383,7 @@ tr:hover { background: var(--surface2); }
   <a href="#stocks">銘柄分析</a>
   <a href="#ranking">ランキング</a>
   <a href="#strategy">戦略</a>
+  <a href="#realized">実現損益</a>
   <a href="#returns">リターン一覧</a>
 </div>
 
@@ -6843,6 +6849,75 @@ tr:hover { background: var(--surface2); }
 </div>
 
 
+<!-- Realized P&L Section -->
+
+<div class="section">
+  <div class="section-title" id="realized">実現損益</div>
+  <div class="responsive-grid cols-2">
+    <!-- Summary card -->
+    <div class="card">
+      <div class="risk-grid" style="margin-bottom:16px;">
+        <div class="risk-stat">
+          <div class="rs-label">累計実現損益</div>
+          <div class="rs-value pnl-positive">¥+30,000</div>
+        </div>
+        <div class="risk-stat">
+          <div class="rs-label">売却回数</div>
+          <div class="rs-value">1回</div>
+        </div>
+        <div class="risk-stat">
+          <div class="rs-label">利確</div>
+          <div class="rs-value pnl-positive">¥+30,000</div>
+        </div>
+        <div class="risk-stat">
+          <div class="rs-label">損切り</div>
+          <div class="rs-value pnl-negative">¥0</div>
+        </div>
+      </div>
+      
+      <div style="border-top:1px solid var(--border);padding-top:12px;">
+        <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px;">
+          <span style="color:var(--text-muted);">含み損益（現保有）</span>
+          <span class="pnl-positive" style="font-weight:600;">¥1,023,520</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px;">
+          <span style="color:var(--text-muted);">実現損益（売却済）</span>
+          <span class="pnl-positive" style="font-weight:600;">¥+30,000</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:15px;font-weight:700;border-top:1px solid var(--border);margin-top:4px;">
+          <span>トータルリターン</span>
+          
+          
+          <span class="pnl-positive">計算中...</span>
+        </div>
+      </div>
+      
+    </div>
+    <!-- Chart card -->
+    <div class="card">
+      <strong style="font-size:14px;display:block;margin-bottom:12px;">売却履歴</strong>
+      <div style="height:200px;"><canvas id="realizedChart"></canvas></div>
+    </div>
+  </div>
+  <!-- Transaction table -->
+  <div class="card" style="padding:0;overflow-x:auto;margin-top:16px;">
+    <table>
+      <thead><tr><th>日付</th><th>銘柄</th><th style="text-align:right">実現損益</th><th class="hide-mobile">メモ</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td style="white-space:nowrap;font-size:12px;color:var(--text-muted);">2026-03-01</td>
+          <td><strong>コンパニア・デ・ミナス・ブエナベントゥラ 利確 +3万円</strong><br><span style="font-size:11px;color:var(--text-muted);">BVN</span></td>
+          <td style="text-align:right" class="pnl-positive"><strong>¥+30,000</strong></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--text-muted);">コンパニア・デ・ミナス・ブエナベントゥラ 利確 +3万円</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 <!-- Detailed Returns Table -->
 
 <div class="section">
@@ -7289,7 +7364,7 @@ tr:hover { background: var(--surface2); }
 
 <div class="footer">
   stock-analyzer v0.3 — 骨太投資術 × Porter競争戦略 MECE 4軸分析 + リスク&最適化<br>
-  Generated at 2026-03-01 21:31
+  Generated at 2026-03-01 21:38
 </div>
 
 </div>
@@ -7446,6 +7521,60 @@ Object.entries(radarConfigs).forEach(([id, cfg]) => {
     }
   });
 });
+
+
+
+// Realized P&L bar chart
+const realizedCtx = document.getElementById('realizedChart');
+if (realizedCtx) {
+  const items = [{"date": "2026-03-01", "name": "\u30b3\u30f3\u30d1\u30cb\u30a2\u30fb\u30c7\u30fb\u30df\u30ca\u30b9\u30fb\u30d6\u30a8\u30ca\u30d9\u30f3\u30c8\u30a5\u30e9 \u5229\u78ba +3\u4e07\u5186", "note": "\u30b3\u30f3\u30d1\u30cb\u30a2\u30fb\u30c7\u30fb\u30df\u30ca\u30b9\u30fb\u30d6\u30a8\u30ca\u30d9\u30f3\u30c8\u30a5\u30e9 \u5229\u78ba +3\u4e07\u5186", "pnl_class": "pnl-positive", "pnl_jpy": "\u00a5+30,000", "pnl_raw": 30000, "ticker": "BVN"}];
+  new Chart(realizedCtx, {
+    type: 'bar',
+    data: {
+      labels: items.map(i => i.name.substring(0, 8)),
+      datasets: [{
+        data: items.map(i => i.pnl_raw),
+        backgroundColor: items.map(i => i.pnl_raw >= 0 ? 'rgba(34,197,94,0.6)' : 'rgba(239,68,68,0.6)'),
+        borderColor: items.map(i => i.pnl_raw >= 0 ? '#22c55e' : '#ef4444'),
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              const v = ctx.parsed.y;
+              return (v >= 0 ? '+' : '') + '¥' + v.toLocaleString();
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          ticks: { color: '#9ca3af', callback: v => '¥' + v.toLocaleString() },
+          grid: { color: 'rgba(255,255,255,0.05)' }
+        },
+        x: { ticks: { color: '#9ca3af', font: { size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+}
+// Total return calculation
+(function() {
+  const totalPnlEl = document.querySelector('#realized .rs-value.pnl-positive');
+  const unrealized = 1023520;
+  const realized = 30000;
+  const total = unrealized + realized;
+  const totalEl = document.querySelector('#realized [class*="計算中"]');
+  if (totalEl) {
+    totalEl.textContent = (total >= 0 ? '+' : '') + '¥' + Math.abs(total).toLocaleString();
+    totalEl.className = total >= 0 ? 'pnl-positive' : 'pnl-negative';
+  }
+})();
 
 
 
