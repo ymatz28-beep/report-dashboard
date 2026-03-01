@@ -38,6 +38,11 @@
   .card .deadline.soon { background: #92400e; color: #fde68a; }
   .card .deadline.ok { background: #1e3a5f; color: #93c5fd; }
   .id-tag { display: inline-block; background: #1e293b; color: #94a3b8; font-size: 10px; padding: 1px 6px; border-radius: 3px; font-family: 'JetBrains Mono', monospace; margin-right: 4px; }
+  .check-item { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-box { width: 22px; height: 22px; border: 2px solid rgba(255,255,255,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; transition: all 0.25s; font-size: 12px; color: transparent; }
+  .check-item input:checked + .check-box { background: #22c55e; border-color: #22c55e; color: #fff; }
+  .check-item input:checked ~ div .check-text { text-decoration: line-through; opacity: 0.4; }
   .footer { text-align: center; color: #475569; font-size: 11px; margin-top: 32px; padding-top: 16px; border-top: 1px solid #1e293b; }
   @media (max-width: 480px) {
     .stats { gap: 14px; }
@@ -67,277 +72,301 @@
   <div class="section">
     <div class="section-header"><span class="badge" style="background:#ef4444;">URGENT</span><span class="count">1 items</span></div>
     <div class="card" style="border-left: 3px solid #ef4444;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="prop-01">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">特区民泊の新規候補物件 — 提供先に問い合わせ送付</div>
+          <div class="check-text title">特区民泊の新規候補物件 — 提供先に問い合わせ送付</div>
           <div class="meta"><span class="id-tag">prop-01</span> <a href="https://ymatz28-beep.github.io/property-report/" style="color:#818cf8; text-decoration:none; font-size:11px;">Property →</a></div>
           <div class="context">大阪特区民泊の事業拡大。受付期限(5/29)後は新規参入不可。物件提供先に問い合わせメール/メッセージを送る</div>
           <div class="impact">→ 特区民泊受付終了まで残り3ヶ月。扇町・天満橋は民泊不可確定</div>
         </div>
-      </div>
+      </label>
     </div>
   </div>
   <div class="section">
     <div class="section-header"><span class="badge" style="background:#f59e0b;">HIGH</span><span class="count">10 items</span></div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="wealth-01">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">小規模企業共済 加入手続き</div>
+          <div class="check-text title">小規模企業共済 加入手続き</div>
           <div class="meta"><span class="id-tag">wealth-01</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">FIRE戦略の節税施策。個人事業主(役員報酬分)として加入可能。掛金全額が所得控除になる国の制度</div>
           <div class="impact">→ 年 ¥84万控除 → 年 ¥36万節税。即効</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="wealth-02">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">法人証券口座開設（iUMA PM → SBI証券）</div>
+          <div class="check-text title">法人証券口座開設（iUMA PM → SBI証券）</div>
           <div class="meta"><span class="id-tag">wealth-02</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">1億円資産構築ロードマップの前提。法人の余剰CFをインデックス投資に回すために必須。個人NISAとは別枠</div>
           <div class="impact">→ 1億円戦略の最重要前提条件。法人CFを投資に回せない</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="point-01">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">三井住友ゴールド(NL) 申込</div>
+          <div class="check-text title">三井住友ゴールド(NL) 申込</div>
           <div class="meta"><span class="id-tag">point-01</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">ポイント最適化戦略の中核カード。Vポイント経済圏(SBI証券+三井住友)を構築。コンビニ・飲食の日常支出を高還元化</div>
           <div class="impact">→ 年+¥18,800効果。コンビニ飲食7%還元。年100万利用で永年無料</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="point-02">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">楽天プレミアム → ゴールドにダウングレード</div>
+          <div class="check-text title">楽天プレミアム → ゴールドにダウングレード</div>
           <div class="meta"><span class="id-tag">point-02</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">カード年会費の最適化。プレミアムの空港ラウンジ特典はANA SFC(スタアラGold)で代替済み。不要な年会費を削減</div>
           <div class="impact">→ 年 ¥5,800 純節約。スタアラGoldでラウンジカバー済</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="point-03">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">法人カード → ビジネスオーナーズ ゴールドに切替</div>
+          <div class="check-text title">法人カード → ビジネスオーナーズ ゴールドに切替</div>
           <div class="meta"><span class="id-tag">point-03</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">法人経費(月¥30-50万)のポイント還元最大化。三井住友NLとのペアで1.5%還元。Vポイント経済圏に統合</div>
           <div class="impact">→ 年+¥10,000(Vポイント)。年100万利用で永年無料</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="point-04">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">イオンカードセレクト 申込</div>
+          <div class="check-text title">イオンカードセレクト 申込</div>
           <div class="meta"><span class="id-tag">point-04</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">日常食費(まいばすけっと)のコスト最適化。WAON払いで常時1.5%+月2回5%OFF。生活固定費の削減</div>
           <div class="impact">→ 年会費無料。まいばすけっと WAON 1.5%、20日30日5%OFF</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="tax-03">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">Layer1 休眠届の提出</div>
+          <div class="check-text title">Layer1 休眠届の提出</div>
           <div class="meta"><span class="id-tag">tax-03</span> <span style="color:#64748b; font-size:11px;">Tax / 確定申告</span></div>
           <div class="context">旧法人Layer1 Inc.の維持コスト削減。事業はiUMA PMに集約済み。休眠届で均等割(年¥7万)を停止</div>
           <div class="impact">→ 均等割 ¥7万/年 の節約。第7期申告完了後に提出</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="wealth-03">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">海老名・名古屋の売却査定を不動産屋に依頼</div>
+          <div class="check-text title">海老名・名古屋の売却査定を不動産屋に依頼</div>
           <div class="meta"><span class="id-tag">wealth-03</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">個人所有の不動産を売却→法人で新規物件取得する資産法人化戦略。売却額の把握がBS計画の前提</div>
           <div class="impact">→ 売却→法人新規で +¥2,350-3,000万のインパクト差</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="wealth-04">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">貸付金回収戦略の策定・進行</div>
+          <div class="check-text title">貸付金回収戦略の策定・進行</div>
           <div class="meta"><span class="id-tag">wealth-04</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">過去の事業で発生した貸付金¥2,500万が未回収。回収できれば投資原資に。放置すると時効リスクもあり</div>
           <div class="impact">→ SOLAND ¥1,200万 + GPP ¥1,300万 = ¥2,500万。放置中</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #f59e0b;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="wealth-05">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">住信SBIネット銀行 法人口座開設</div>
+          <div class="check-text title">住信SBIネット銀行 法人口座開設</div>
           <div class="meta"><span class="id-tag">wealth-05</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">法人のメインバンクをネット銀行に移行。API連携でAI会計パイプライン(銀行CSV→自動仕訳)を実現するための前提</div>
           <div class="impact">→ 法人メインバンク移行。AI会計パイプラインの前提</div>
         </div>
-      </div>
+      </label>
     </div>
   </div>
   <div class="section">
     <div class="section-header"><span class="badge" style="background:#3b82f6;">MID</span><span class="count">7 items</span></div>
     <div class="card" style="border-left: 3px solid #3b82f6;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="point-06">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">ポイント残高確認（デルタマイル/楽天/Vポイント）</div>
+          <div class="check-text title">ポイント残高確認（デルタマイル/楽天/Vポイント）</div>
           <div class="meta"><span class="id-tag">point-06</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">ポイント/マイルの棚卸し。デルタマイル(有効期限なし)、楽天ポイント(期間限定)、Vポイントの残高把握→失効防止</div>
           <div class="impact">→ 戦略精緻化。失効リスクの把握</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #3b82f6;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="point-07">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">楽天カード明細CSV取得（楽天e-NAVI）</div>
+          <div class="check-text title">楽天カード明細CSV取得（楽天e-NAVI）</div>
           <div class="meta"><span class="id-tag">point-07</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">年間支出の可視化。楽天カードの明細CSVをダウンロードしてBS/PL/CFダッシュボードの支出データを完成させる</div>
           <div class="impact">→ 年間支出の全体把握。生活費レンジの確定</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #3b82f6;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="wealth-06">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">筑波銀行返済計画表を入手（自宅保管）</div>
+          <div class="check-text title">筑波銀行返済計画表を入手（自宅保管）</div>
           <div class="meta"><span class="id-tag">wealth-06</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">不動産ローン残高の正確な把握。BSダッシュボードの負債サイドのデータ精度向上に必要</div>
           <div class="impact">→ 西浦和・チサン博多の正確な返済額確定</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #3b82f6;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="infra-01">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">ANTHROPIC_API_KEY リジェネレート → Keychain更新</div>
+          <div class="check-text title">ANTHROPIC_API_KEY リジェネレート → Keychain更新</div>
           <div class="meta"><span class="id-tag">infra-01</span> <a href="https://ymatz28-beep.github.io/report-dashboard/action/" style="color:#818cf8; text-decoration:none; font-size:11px;">Kaizen Agent →</a></div>
           <div class="context">以前.envファイルに平文保存されていた痕跡あり。セキュリティのためリジェネレートしてKeychain管理に統一</div>
           <div class="impact">→ APIキー漏洩リスク。Phase 2 AI review不可</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #3b82f6;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="infra-02">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">GCPコンソールでOAuthアプリを「公開」に変更</div>
+          <div class="check-text title">GCPコンソールでOAuthアプリを「公開」に変更</div>
           <div class="meta"><span class="id-tag">infra-02</span> <span style="color:#64748b; font-size:11px;">Wealth Strategy</span></div>
           <div class="context">Gmail/Drive連携のOAuthトークンが「テスト」モードでは7日で失効する問題。公開にすれば長期トークン取得可能</div>
           <div class="impact">→ 7日トークン失効の恒久対策</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #3b82f6;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="tax-04">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">iUMA決算を飯塚先生に正式依頼</div>
+          <div class="check-text title">iUMA決算を飯塚先生に正式依頼</div>
           <div class="meta"><span class="id-tag">tax-04</span> <span style="color:#64748b; font-size:11px;">Tax / 確定申告</span></div>
           <div class="context">法人(iUMA PM)の第7期決算・申告。AI会計パイプラインで仕訳データは準備済み。税理士に渡す形式を確認</div>
           <div class="impact">→ データ共有形式の確認含む。早めに依頼しておく</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #3b82f6;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="prop-02">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">仙台クレストモール データ補完</div>
+          <div class="check-text title">仙台クレストモール データ補完</div>
           <div class="meta"><span class="id-tag">prop-02</span> <a href="https://ymatz28-beep.github.io/property-report/" style="color:#818cf8; text-decoration:none; font-size:11px;">Property →</a></div>
           <div class="context">不動産ポートフォリオダッシュボードで仙台物件のデータが欠損。物件資料から構造・取得日・建築費を補完</div>
           <div class="impact">→ structure/取得日/建築費がnull。ダッシュボード精度向上</div>
         </div>
-      </div>
+      </label>
     </div>
   </div>
   <div class="section">
     <div class="section-header"><span class="badge" style="background:#6b7280;">LOW</span><span class="count">6 items</span></div>
     <div class="card" style="border-left: 3px solid #6b7280;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="cisco-01">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">CIRCUIT RAG検証（同期遅延計測）</div>
+          <div class="check-text title">CIRCUIT RAG検証（同期遅延計測）</div>
           <div class="meta"><span class="id-tag">cisco-01</span> <span style="color:#64748b; font-size:11px;">Cisco OS</span></div>
           <div class="context">Cisco業務自動化(Leader OS)の一環。CIRCUITのRAG機能で同期遅延がどれくらいか検証→業務フロー設計に反映</div>
           <div class="impact">→ フロー改善の前提条件</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #6b7280;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="cisco-02">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">NotebookLM コンプライアンス確認</div>
+          <div class="check-text title">NotebookLM コンプライアンス確認</div>
           <div class="meta"><span class="id-tag">cisco-02</span> <span style="color:#64748b; font-size:11px;">Cisco OS</span></div>
           <div class="context">Cisco業務データを個人Googleアカウントのnotebook LMに投入できるかコンプラ確認。OKなら業務ナレッジベース化</div>
           <div class="impact">→ 個人アカウント利用の可否</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #6b7280;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="cisco-03">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">プロンプト棚卸し（Gemini/ChatGPTからテキスト抽出）</div>
+          <div class="check-text title">プロンプト棚卸し（Gemini/ChatGPTからテキスト抽出）</div>
           <div class="meta"><span class="id-tag">cisco-03</span> <span style="color:#64748b; font-size:11px;">Cisco OS</span></div>
           <div class="context">各AIツールに散在するプロンプトをGitリポジトリ(prompts/)に集約。再利用性と版管理を確保</div>
           <div class="impact">→ prompts/への移行。Git管理化</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #6b7280;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="sns-01">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">LoRA再学習用の顔クロップ写真追加（10枚以上）</div>
+          <div class="check-text title">LoRA再学習用の顔クロップ写真追加（10枚以上）</div>
           <div class="meta"><span class="id-tag">sns-01</span> <span style="color:#64748b; font-size:11px;">SNS Auto</span></div>
           <div class="context">SNS自動投稿用のAIアバター品質向上。現状の学習データでは顔の再現度が低い。追加データで精度UP</div>
           <div class="impact">→ 顔精度向上。再学習コスト ~$3</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #6b7280;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="digest-01">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">NotebookLMで分析プロンプト実行</div>
+          <div class="check-text title">NotebookLMで分析プロンプト実行</div>
           <div class="meta"><span class="id-tag">digest-01</span> <span style="color:#64748b; font-size:11px;">Newsletter</span></div>
           <div class="context">勝間和代メルマガ数年分をNotebookLMに登録済み。テーマ別に知識を抽出・構造化して実生活に活用</div>
           <div class="impact">→ 勝間メルマガ28ドキュメント登録済み。知識化の次ステップ</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #6b7280;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">⬜</div>
+      <label class="check-item" data-id="infra-03">
+        <input type="checkbox">
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="color: #f0f0f0;">LINE通知の実稼働確認</div>
+          <div class="check-text title">LINE通知の実稼働確認</div>
           <div class="meta"><span class="id-tag">infra-03</span> <a href="https://ymatz28-beep.github.io/report-dashboard/action/" style="color:#818cf8; text-decoration:none; font-size:11px;">Kaizen Agent →</a></div>
           <div class="context">全プロジェクトの通知パイプライン稼働確認。launchdで毎日動いているはずだが、実際にLINEに届いているか未確認</div>
           <div class="impact">→ stock/inbox-zero/propertyで届くか検証</div>
         </div>
-      </div>
+      </label>
     </div>
   </div>
   <div class="section">
@@ -364,26 +393,28 @@
   <div class="section">
     <div class="section-header"><span class="badge" style="background:#166534;">COMPLETED</span><span class="count">2 items</span></div>
     <div class="card" style="border-left: 3px solid #ef4444;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">✅</div>
+      <label class="check-item" data-id="tax-01">
+        <input type="checkbox" checked>
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="text-decoration: line-through; color: #475569;">確定申告の進捗確認 → 飯塚先生に催促</div>
+          <div class="check-text title">確定申告の進捗確認 → 飯塚先生に催促</div>
           <div class="meta"><span class="id-tag">tax-01</span> <span style="color:#64748b; font-size:11px;">Tax / 確定申告</span></div>
           <div class="context">個人の令和7年分確定申告。飯塚先生に委託済みだが進捗不明。不動産所得+給与所得+副業の申告</div>
           <div class="impact">→ 期限3/16。未提出だと延滞税・無申告加算税</div>
         </div>
-      </div>
+      </label>
     </div>
     <div class="card" style="border-left: 3px solid #ef4444;">
-      <div style="display:flex; align-items:flex-start; gap:10px;">
-        <div style="font-size:18px; line-height:1; flex-shrink:0; margin-top:1px;">✅</div>
+      <label class="check-item" data-id="tax-02">
+        <input type="checkbox" checked>
+        <span class="check-box">✓</span>
         <div style="flex:1; min-width:0;">
-          <div class="title" style="text-decoration: line-through; color: #475569;">福岡火災保険料 ¥717,900 計上可否</div>
+          <div class="check-text title">福岡火災保険料 ¥717,900 計上可否</div>
           <div class="meta"><span class="id-tag">tax-02</span> <span style="color:#64748b; font-size:11px;">Tax / 確定申告</span></div>
           <div class="context">チサン博多(福岡民泊物件)の火災保険料。iUMA PM法人経費として計上決定</div>
           <div class="impact">→ iUMAプロパティマネジメントで計上予定</div>
         </div>
-      </div>
+      </label>
     </div>
   </div>
   <div class="footer">
@@ -391,5 +422,29 @@
     <code style="font-size:10px; color:#64748b;">python action_tracker.py --done &lt;id&gt;</code>
   </div>
 </div>
+<script>
+document.querySelectorAll('.check-item input').forEach(function(cb) {
+  var id = cb.closest('.check-item').dataset.id;
+  if (!id) return;
+  var key = 'action-check-' + id;
+  var saved = localStorage.getItem(key);
+  if (saved === 'true') cb.checked = true;
+  else if (saved === 'false') cb.checked = false;
+  cb.addEventListener('change', function() {
+    localStorage.setItem(key, cb.checked);
+    updateProgress();
+  });
+});
+function updateProgress() {
+  var all = document.querySelectorAll('.check-item input');
+  var checked = document.querySelectorAll('.check-item input:checked');
+  var pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+  var fill = document.querySelector('.progress-fill');
+  var label = document.querySelector('.progress-label');
+  if (fill) fill.style.width = pct + '%';
+  if (label) label.textContent = checked.length + '/' + all.length + ' completed (' + pct + '%)';
+}
+updateProgress();
+</script>
 </body>
 </html>
