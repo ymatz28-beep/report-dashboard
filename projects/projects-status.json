@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19 17:30",
+  "generated_at": "2026-05-19 17:49",
   "summary": {
     "total": 20,
     "hot": 9,
@@ -65,9 +65,9 @@
       "days_inactive": 0,
       "last_commit": "2026-05-19",
       "tier": "HOT",
-      "now": "Q3 FY26コンテンツ更新完了。株価ATH $115・レイオフ警告・Q2比較4カラム・TTB QoQ自動計算を追加し、全13枚QA確認済み",
-      "last": "S3に5/14 ATH $115追加（Y軸max 125拡張）、レイオフ警告帯を下部に追加、ハイライトをQ3|Q2|YoYの4カラムに変更、S5インサイトのTTB QoQをJS自動計算に変更",
-      "next": "Step 3（四半期パイプライン）— 新しい FY26QN.json を置くだけで全スライドが自動更新されるワークフロー構築"
+      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
+      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
+      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ"
     },
     {
       "name": "sns-auto",
