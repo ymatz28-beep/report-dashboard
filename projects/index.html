@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iUMA Projects OS — Mind Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Noto+Sans+JP:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0c12;
+  --bg2: #111420;
+  --bg3: #1a1e2e;
+  --bg4: #20253a;
+  --gold: #c9a84c;
+  --gold-dim: rgba(201,168,76,0.3);
+  --indigo: #6366f1;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+  --cyan: #22d3ee;
+  --gray: #6b7280;
+  --text: #e2e8f0;
+  --text-dim: #64748b;
+  --text-mid: #94a3b8;
+  --border: #1e2438;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Noto Sans JP', -apple-system, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+/* ── Gnav ── */
+.site-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; height: 44px;
+  background: rgba(17,20,32,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  z-index: 10;
+  position: relative;
+}
+.site-nav { display: flex; gap: 4px; }
+.site-nav a {
+  color: var(--text-dim); text-decoration: none; font-size: 12px; font-weight: 500;
+  padding: 5px 12px; border-radius: 6px; transition: background .15s, color .15s;
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] {
+  background: rgba(255,255,255,0.065); color: var(--text);
+}
+.nav-toggle { display: none; }
+.nav-toggle-label { display: none; cursor: pointer; padding: 8px; }
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block; background: var(--text); height: 2px; width: 20px;
+  border-radius: 2px; position: relative; transition: .3s;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after { content: ''; position: absolute; }
+.nav-toggle-label span::before { top: -6px; }
+.nav-toggle-label span::after { top: 6px; }
+@media (max-width: 640px) {
+  .nav-toggle-label { display: block; }
+  .site-nav {
+    display: none; flex-direction: column; gap: 0;
+    position: absolute; top: 44px; left: 0; right: 0;
+    background: rgba(17,20,32,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+  }
+  .site-nav a { padding: 12px 20px; border-radius: 0; font-size: 14px; }
+  .nav-toggle:checked ~ .site-nav { display: flex; }
+  .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
+  .nav-toggle:checked ~ .nav-toggle-label span::before { top: 0; transform: rotate(45deg); }
+  .nav-toggle:checked ~ .nav-toggle-label span::after { top: 0; transform: rotate(-45deg); }
+}
+
+/* ── Top bar ── */
+.topbar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.topbar-logo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.goal-pill {
+  flex: 1;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 11px;
+  color: #a5b4fc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.goal-pill span { color: var(--text-dim); }
+.topbar-meta {
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* ── Main layout ── */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Map area ── */
+.map-area {
+  flex: 1;
+  position: relative;
+  overflow: auto;
+  padding: 32px 40px;
+}
+
+.mindmap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: 860px;
+  position: relative;
+}
+
+/* Root node */
+.root-node {
+  background: linear-gradient(135deg, #1c213d 0%, #0f1225 100%);
+  border: 1.5px solid var(--gold);
+  border-radius: 14px;
+  padding: 18px 22px;
+  text-align: center;
+  min-width: 110px;
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+}
+.rn-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+.rn-sub {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.rn-stats {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.rn-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+}
+.rn-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+/* Branches column */
+.branches {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-left: 48px;
+  position: relative;
+}
+
+/* Single branch row */
+.branch {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Layer node */
+.layer-node {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 14px;
+  min-width: 100px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  transition: border-color 0.2s;
+}
+.layer-node:hover { border-color: var(--gold-dim); }
+.ln-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+.ln-name { font-size: 12px; font-weight: 600; margin-top: 2px; }
+.ln-count { font-size: 9px; color: var(--text-dim); margin-top: 1px; }
+
+.l1 .ln-name { color: var(--green); }
+.l2 .ln-name { color: var(--blue); }
+.l3 .ln-name { color: var(--purple); }
+.l4 .ln-name { color: var(--yellow); }
+.l5 .ln-name { color: var(--red); }
+.linfra .ln-name { color: var(--gray); }
+
+/* Leaves container */
+.leaves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-left: 28px;
+  max-width: 580px;
+}
+
+/* Project leaf */
+.leaf {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 11px;
+  cursor: pointer;
+  transition: all 0.18s;
+  min-width: 130px;
+  max-width: 185px;
+  position: relative;
+  z-index: 2;
+}
+.leaf:hover {
+  border-color: rgba(201,168,76,0.4);
+  background: var(--bg3);
+  transform: translateY(-1px);
+}
+.leaf.selected {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.07);
+  box-shadow: 0 0 12px rgba(201,168,76,0.12);
+}
+
+.leaf-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.leaf-name-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Activity dots */
+.adot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.adot-hot {
+  background: var(--green);
+  box-shadow: 0 0 6px rgba(34,197,94,0.7);
+  animation: blink 2s ease-in-out infinite;
+}
+.adot-warm { background: var(--yellow); }
+.adot-cold { background: #2d3748; border: 1px solid #374151; }
+.adot-sleep { background: #1a202c; border: 1px solid #2d3748; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.leaf-name { font-size: 11px; font-weight: 600; }
+
+/* Status badges */
+.sbadge {
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.s-prod    { background: rgba(34,197,94,0.12);  color: #4ade80; }
+.s-dev     { background: rgba(99,102,241,0.12); color: #818cf8; }
+.s-active  { background: rgba(234,179,8,0.12);  color: #fbbf24; }
+.s-mvp     { background: rgba(34,211,238,0.12); color: #22d3ee; }
+.s-proto   { background: rgba(107,114,128,0.12);color: #9ca3af; }
+.s-phase0  { background: rgba(55,65,81,0.3);    color: #4b5563; }
+.s-ready   { background: rgba(6,182,212,0.08);  color: #67e8f9; }
+
+.leaf-next {
+  font-size: 10px;
+  color: var(--text-dim);
+  line-height: 1.35;
+  margin-top: 1px;
+}
+.leaf-next.urgent { color: #fca5a5; }
+.leaf-next.waiting { color: #fcd34d; }
+
+/* SVG connector layer */
+#connector-svg {
+  position: absolute;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Right sidebar ── */
+.sidebar {
+  width: 310px;
+  background: var(--bg2);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.sidebar-head {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar-title { font-size: 12px; font-weight: 600; color: var(--gold); }
+.sidebar-date { font-size: 10px; color: var(--text-dim); }
+
+.priority-list { overflow-y: auto; flex: 1; padding: 10px; }
+
+.pi {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.pi:hover { border-color: rgba(201,168,76,0.3); }
+.pi.pi-urgent  { border-left: 3px solid var(--red); }
+.pi.pi-ready   { border-left: 3px solid var(--green); }
+.pi.pi-waiting { border-left: 3px solid var(--yellow); }
+.pi.pi-watch   { border-left: 3px solid var(--blue); }
+
+.pi-top { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.pi-num {
+  width: 18px; height: 18px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.pi-pj { font-size: 11px; font-weight: 600; }
+.pi-type {
+  margin-left: auto;
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.type-urgent  { background: rgba(239,68,68,0.15);   color: #fca5a5; }
+.type-ready   { background: rgba(34,197,94,0.15);   color: #4ade80; }
+.type-waiting { background: rgba(234,179,8,0.15);   color: #fcd34d; }
+.type-watch   { background: rgba(59,130,246,0.15);  color: #93c5fd; }
+
+.pi-action {
+  font-size: 11px;
+  color: var(--text-mid);
+  line-height: 1.45;
+}
+
+/* Detail panel */
+.detail-panel {
+  background: var(--bg4);
+  border-top: 1px solid var(--border);
+  padding: 14px 16px;
+  font-size: 11px;
+  max-height: 220px;
+  overflow-y: auto;
+  display: none;
+}
+.detail-panel.show { display: block; }
+.dp-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+.dp-row { margin-bottom: 8px; }
+.dp-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.dp-val { color: var(--text-mid); line-height: 1.5; }
+
+/* ── Stats bar ── */
+.statsbar {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 7px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+.st { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-dim); }
+.st strong { color: var(--text); }
+.st-sep { color: var(--border); }
+
+/* Proposal hint */
+.proposal-hint {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.auto-badge {
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  color: #4ade80;
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+
+<!-- Gnav -->
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="/">Hub</a>
+    <a href="/projects/" aria-current="page">Projects</a>
+    <a href="/intel/">Intel</a>
+  </nav>
+</header>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-logo">iUMA Projects OS</div>
+  <div class="goal-pill">
+    <span>最終更新:</span>
+    <span id="topbar-generated">HANDOFF.md から自動生成</span>
+  </div>
+  <div class="topbar-meta" id="topbar-date">2026-05-19</div>
+</div>
+
+<!-- Main -->
+<div class="main">
+  <!-- Mind Map -->
+  <div class="map-area" id="mapArea">
+    <svg id="connector-svg" width="0" height="0"></svg>
+
+    <div class="mindmap" id="mindmap">
+      <!-- Root -->
+      <div class="root-node" id="root">
+        <div class="rn-title">iUMA</div>
+        <div class="rn-sub">Projects OS<br>Yuma Tejima</div>
+        <div class="rn-stats">
+          <div class="rn-stat">
+            <div class="rn-dot" style="background:#22c55e;box-shadow:0 0 5px rgba(34,197,94,.6)"></div>
+            <span style="color:#94a3b8" id="rn-hot">HOT 9</span>
+          </div>
+          <div class="rn-stat">
+            <div class="rn-dot" style="background:#eab308"></div>
+            <span style="color:#94a3b8" id="rn-warm">WARM 2</span>
+          </div>
+          <div class="rn-stat">
+            <div class="rn-dot" style="background:#2d3748;border:1px solid #374151"></div>
+            <span style="color:#94a3b8" id="rn-cold">COLD 3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branches -->
+      <div class="branches" id="branches">
+
+        <!-- L1 Daily Auto -->
+        <div class="branch" id="b-l1">
+          <div class="layer-node l1" id="ln-l1">
+            <div class="ln-label">L1</div>
+            <div class="ln-name">毎日自動</div>
+            <div class="ln-count">3 projects</div>
+          </div>
+          <div class="leaves">
+            <div class="leaf" id="p-sns-auto" onclick="select('sns-auto')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">sns-auto</div>
+                </div>
+                <div class="sbadge s-dev">Dev</div>
+              </div>
+              <div class="leaf-next urgent">▶ Hedra API取得 → 動画生成テスト</div>
+            </div>
+            <div class="leaf" id="p-inbox-zero" onclick="select('inbox-zero')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">inbox-zero</div>
+                </div>
+                <div class="sbadge s-prod">Prod</div>
+              </div>
+              <div class="leaf-next waiting">⏸ GitHub請求エラー（Yumaの操作待ち）</div>
+            </div>
+            <div class="leaf" id="p-health-tracker" onclick="select('health-tracker')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">health-tracker</div>
+                </div>
+                <div class="sbadge s-mvp">MVP</div>
+              </div>
+              <div class="leaf-next">停止中 — 再開待ち</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- L2 Cisco -->
+        <div class="branch" id="b-l2">
+          <div class="layer-node l2" id="ln-l2">
+            <div class="ln-label">L2</div>
+            <div class="ln-name">Cisco業務</div>
+            <div class="ln-count">2 projects</div>
+          </div>
+          <div class="leaves">
+            <div class="leaf" id="p-slide-creator" onclick="select('slide-creator')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">slide-creator</div>
+                </div>
+                <div class="sbadge s-prod">Prod</div>
+              </div>
+              <div class="leaf-next">Q3 FY26 全13枚QA済 — All-Hands待ち</div>
+            </div>
+            <div class="leaf" id="p-cisco-os" onclick="select('cisco-os')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">cisco-os</div>
+                </div>
+                <div class="sbadge s-dev">Dev</div>
+              </div>
+              <div class="leaf-next urgent">▶ 実ケース複数投入 → 精度検証</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- L3 Assets -->
+        <div class="branch" id="b-l3">
+          <div class="layer-node l3" id="ln-l3">
+            <div class="ln-label">L3</div>
+            <div class="ln-name">資産・知識</div>
+            <div class="ln-count">9 projects</div>
+          </div>
+          <div class="leaves">
+            <div class="leaf" id="p-trading-bot" onclick="select('trading-bot')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-warm"></div>
+                  <div class="leaf-name">trading-bot</div>
+                </div>
+                <div class="sbadge s-active">Active</div>
+              </div>
+              <div class="leaf-next">dry-run稼働 ETH保有中 — 30日観測</div>
+            </div>
+            <div class="leaf" id="p-x-bookmarks" onclick="select('x-bookmarks')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">x-bookmarks</div>
+                </div>
+                <div class="sbadge s-active">Active</div>
+              </div>
+              <div class="leaf-next">▶ 日本特化MCP追加（hourei/EDINET）</div>
+            </div>
+            <div class="leaf" id="p-stock-analyzer" onclick="select('stock-analyzer')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-cold"></div>
+                  <div class="leaf-name">stock-analyzer</div>
+                </div>
+                <div class="sbadge s-prod">Prod</div>
+              </div>
+              <div class="leaf-next">運用中 — 要確認</div>
+            </div>
+            <div class="leaf" id="p-wealth-strategy" onclick="select('wealth-strategy')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">wealth-strategy</div>
+                </div>
+                <div class="sbadge s-active">Active</div>
+              </div>
+              <div class="leaf-next">状態不明 — 確認待ち</div>
+            </div>
+            <div class="leaf" id="p-property-analyzer" onclick="select('property-analyzer')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-sleep"></div>
+                  <div class="leaf-name">property-analyzer</div>
+                </div>
+                <div class="sbadge s-dev">Dev</div>
+              </div>
+              <div class="leaf-next">停止中 — 再開待ち</div>
+            </div>
+            <div class="leaf" id="p-tax" onclick="select('tax')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-sleep"></div>
+                  <div class="leaf-name">tax</div>
+                </div>
+                <div class="sbadge s-active">Active</div>
+              </div>
+              <div class="leaf-next">申告期間外 — 季節待機</div>
+            </div>
+            <div class="leaf" id="p-newsletter-digest" onclick="select('newsletter-digest')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-sleep"></div>
+                  <div class="leaf-name">newsletter-digest</div>
+                </div>
+                <div class="sbadge s-ready">Ready</div>
+              </div>
+              <div class="leaf-next">未着手 — KB変換待ち</div>
+            </div>
+            <div class="leaf" id="p-trip-planner" onclick="select('trip-planner')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-sleep"></div>
+                  <div class="leaf-name">trip-planner</div>
+                </div>
+                <div class="sbadge s-prod">Prod</div>
+              </div>
+              <div class="leaf-next">待機中 — 旅行計画時に使用</div>
+            </div>
+            <div class="leaf" id="p-medical-advisor" onclick="select('medical-advisor')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">medical-advisor</div>
+                </div>
+                <div class="sbadge s-proto">Proto</div>
+              </div>
+              <div class="leaf-next">停止中 — 再開待ち</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- L4 Meta -->
+        <div class="branch" id="b-l4">
+          <div class="layer-node l4" id="ln-l4">
+            <div class="ln-label">L4</div>
+            <div class="ln-name">メタ/QA</div>
+            <div class="ln-count">1 project</div>
+          </div>
+          <div class="leaves">
+            <div class="leaf" id="p-kaizen-agent" onclick="select('kaizen-agent')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">kaizen-agent</div>
+                </div>
+                <div class="sbadge s-prod">Prod</div>
+              </div>
+              <div class="leaf-next">毎晩巡回+自動修復稼働中 — 1週間確認中</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- L5 Revenue -->
+        <div class="branch" id="b-l5">
+          <div class="layer-node l5" id="ln-l5">
+            <div class="ln-label">L5</div>
+            <div class="ln-name">収益/SaaS</div>
+            <div class="ln-count">4 projects</div>
+          </div>
+          <div class="leaves">
+            <div class="leaf" id="p-aikeru" onclick="select('aikeru')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-warm"></div>
+                  <div class="leaf-name">aikeru</div>
+                </div>
+                <div class="sbadge s-active">Active</div>
+              </div>
+              <div class="leaf-next">▶ Xアカウント取得 → ファネル設計</div>
+            </div>
+            <div class="leaf" id="p-self-insight" onclick="select('self-insight')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">self-insight</div>
+                </div>
+                <div class="sbadge s-phase0">Phase0</div>
+              </div>
+              <div class="leaf-next">コンセプト固め待ち</div>
+            </div>
+            <div class="leaf" id="p-sns-monetize" onclick="select('sns-monetize')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-cold"></div>
+                  <div class="leaf-name">sns-monetize</div>
+                </div>
+                <div class="sbadge s-dev">Dev</div>
+              </div>
+              <div class="leaf-next">停止中</div>
+            </div>
+            <div class="leaf" id="p-maply" onclick="select('maply')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-cold"></div>
+                  <div class="leaf-name">maply</div>
+                </div>
+                <div class="sbadge s-dev">Dev</div>
+              </div>
+              <div class="leaf-next">停止中</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infra -->
+        <div class="branch" id="b-infra">
+          <div class="layer-node linfra" id="ln-infra">
+            <div class="ln-label">Infra</div>
+            <div class="ln-name">インフラ</div>
+            <div class="ln-count">3 projects</div>
+          </div>
+          <div class="leaves">
+            <div class="leaf" id="p-report-dashboard-deploy" onclick="select('report-dashboard-deploy')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-sleep"></div>
+                  <div class="leaf-name">report-dashboard</div>
+                </div>
+                <div class="sbadge s-prod">Prod</div>
+              </div>
+              <div class="leaf-next">デプロイ基盤稼働中</div>
+            </div>
+            <div class="leaf" id="p-pj-intake" onclick="select('pj-intake')">
+              <div class="leaf-top">
+                <div class="leaf-name-row">
+                  <div class="adot adot-hot"></div>
+                  <div class="leaf-name">pj-intake</div>
+                </div>
+                <div class="sbadge s-prod">Prod</div>
+              </div>
+              <div class="leaf-next">メール→PJ自動ルーティング稼働中</div>
+            </div>
+            <div class="leaf" id="p-kaizen-agent-infra" onclick="select('kaizen-agent')" style="display:none"></div>
+          </div>
+        </div>
+
+      </div><!-- /branches -->
+    </div><!-- /mindmap -->
+  </div><!-- /map-area -->
+
+  <!-- Right sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-head">
+      <div class="sidebar-title">今すぐやること</div>
+      <div class="sidebar-date">Top 7</div>
+    </div>
+
+    <div class="priority-list">
+
+      <div class="pi pi-ready" onclick="select('cisco-os')">
+        <div class="pi-top">
+          <div class="pi-num">1</div>
+          <div class="pi-pj">cisco-os</div>
+          <div class="pi-type type-ready">今すぐ</div>
+        </div>
+        <div class="pi-action">実ケースを複数投入してQA採点ツールv2の精度を検証</div>
+      </div>
+
+      <div class="pi pi-ready" onclick="select('sns-auto')">
+        <div class="pi-top">
+          <div class="pi-num">2</div>
+          <div class="pi-pj">sns-auto</div>
+          <div class="pi-type type-ready">今すぐ</div>
+        </div>
+        <div class="pi-action">Hedra API キー取得（hedra.com → Settings → API Keys）→ video_gen.py テスト</div>
+      </div>
+
+      <div class="pi pi-urgent" onclick="select('inbox-zero')">
+        <div class="pi-top">
+          <div class="pi-num">3</div>
+          <div class="pi-pj">inbox-zero</div>
+          <div class="pi-type type-waiting">手動操作待ち</div>
+        </div>
+        <div class="pi-action">GitHub Actions の請求エラーを Yuma が手動解除 → Reply Assist 全停止解消</div>
+      </div>
+
+      <div class="pi pi-ready" onclick="select('x-bookmarks')">
+        <div class="pi-top">
+          <div class="pi-num">4</div>
+          <div class="pi-pj">x-bookmarks</div>
+          <div class="pi-type type-ready">今すぐ</div>
+        </div>
+        <div class="pi-action">日本特化 MCP 追加（hourei / EDINET、APIキー不要）</div>
+      </div>
+
+      <div class="pi pi-ready" onclick="select('aikeru')">
+        <div class="pi-top">
+          <div class="pi-num">5</div>
+          <div class="pi-pj">aikeru</div>
+          <div class="pi-type type-ready">今すぐ</div>
+        </div>
+        <div class="pi-action">X アカウント取得 → 柱A+C のファネル設計（入口〜中盤）</div>
+      </div>
+
+      <div class="pi pi-watch" onclick="select('trading-bot')">
+        <div class="pi-top">
+          <div class="pi-num">6</div>
+          <div class="pi-pj">trading-bot</div>
+          <div class="pi-type type-watch">監視中</div>
+        </div>
+        <div class="pi-action">ETH/JPY(id=8) RSI exit 評価。30日観測後に live 移行判断</div>
+      </div>
+
+      <div class="pi pi-watch" onclick="select('kaizen-agent')">
+        <div class="pi-top">
+          <div class="pi-num">7</div>
+          <div class="pi-pj">kaizen-agent</div>
+          <div class="pi-type type-watch">監視中</div>
+        </div>
+        <div class="pi-action">1週間本番運用で path 腐敗再発ゼロを確認 → 多層対策の信頼性検証</div>
+      </div>
+
+    </div><!-- /priority-list -->
+
+    <!-- Detail panel (shows on click) -->
+    <div class="detail-panel" id="detailPanel">
+      <div class="dp-title" id="dp-title">—</div>
+      <div class="dp-row">
+        <div class="dp-label">Now</div>
+        <div class="dp-val" id="dp-now">—</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-label">Last</div>
+        <div class="dp-val" id="dp-last">—</div>
+      </div>
+      <div class="dp-row">
+        <div class="dp-label">Next</div>
+        <div class="dp-val" id="dp-next">—</div>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+</div><!-- /main -->
+
+<!-- Stats bar -->
+<div class="statsbar">
+  <div class="st"><strong id="s-total">20</strong> PJs</div>
+  <div class="st-sep">|</div>
+  <div class="st"><span style="color:#22c55e">●</span> HOT <strong id="s-hot">9</strong></div>
+  <div class="st"><span style="color:#eab308">●</span> WARM <strong id="s-warm">2</strong></div>
+  <div class="st"><span style="color:#22d3ee">●</span> COLD <strong id="s-cold">3</strong></div>
+  <div class="st"><span style="color:#374151">●</span> SLEEP <strong id="s-sleep">6</strong></div>
+  <div class="st-sep">|</div>
+  <div class="st">凍結候補 <strong id="s-freeze">6</strong></div>
+  <div class="proposal-hint">
+    自律実行中:
+    <div class="auto-badge" title="scripts/gen_projects_json.py">HANDOFF→JSON ✓</div>
+    <div class="auto-badge" title="kaizen-agent/src/checks/project_lifecycle.py">凍結ルール ✓</div>
+  </div>
+</div>
+
+<script>
+const RESUMES = {
+  'sns-auto': {
+    now: 'miracle_milk IG 自動投稿が毎日12時・19時稼働中（catbox→freeimage.host 移行済み）。GPT Image 2 は Codex MCP 経由で生成中（追加課金ゼロ確認済み）',
+    last: 'catbox.moe が Cisco VPN の SSL MITM + HTTP 403 で完全ブロック → catbox_upload.py を freeimage.host 実装に置換。miracle_milk end-to-end 確認（Make HTTP 200、auto_posted: true）',
+    next: '(1) Hedra API キー取得（hedra.com → Settings → API Keys）→ video_gen.py テスト。(2) yesyoumax Make 設定は保留（後回し）'
+  },
+  'inbox-zero': {
+    now: '朝の自動分類（classify-inbox）と watchdog の2つのlaunchd jobが稼働中（2026-05-09修正済み）',
+    last: 'classify-inbox のネットワーク障害クラッシュ修正 + inbox_watchdog.py 再作成。両ジョブとも exit 0 確認済み',
+    next: 'GitHub Actions の Reply Assist が GitHub 請求エラーで全停止中 → Yuma が github.com/settings/billing で支払い解消する必要あり'
+  },
+  'health-tracker': {
+    now: '停止中（詳細不明）',
+    last: 'MVP完成後に停止',
+    next: '再開待ち — 優先度は現在低い'
+  },
+  'slide-creator': {
+    now: 'Q3 FY26コンテンツ更新完了。株価ATH $115・レイオフ警告・Q2比較4カラム・TTB QoQ自動計算を追加し、全13枚QA確認済み',
+    last: 'commit 500a72a — showVal+numFmt"0%"+データ正規化4ステップ（%ラベル表示確定版）',
+    next: 'All-Hands 本番使用待ち。CSAT集計の方法論はproject_slide_creator_csat_methodology.mdに記録済み'
+  },
+  'cisco-os': {
+    now: 'Meraki QA採点ツール v2 が完成。PDFと画像を読み込ませて全37項目を判定できる状態',
+    last: 'commit 437a852 push済。1ケース（QACE0009）で動作確認、ブラウザで結果表示OK',
+    next: '実ケースを複数投入して判定精度を検証（変更後テスト証跡なしのWARN解消が目標）'
+  },
+  'trading-bot': {
+    now: 'dry-run稼働中。bitbank UTC日付境界バグを根本修正完了（PatchedBitbankAsync 経由）。ETH/JPY trade(id=8) 保有中',
+    last: 'launchd plist を run_freqtrade_bitbank_patched.py 経由起動に変更。UTC跨ぎ複数日結合取得で "Outdated history" 警告ゼロ確認',
+    next: 'シグナル待ち。ETH/JPY(id=8) の RSI exit 評価が有効。30日観測後に live 移行判断'
+  },
+  'x-bookmarks': {
+    now: '評価パイプライン完了。decide.html（120件）デプロイ済み（2026-05-02）',
+    last: '500件中未評価は3件のみ確認（残りはキャッシュ済/キュー済/手動判定済）。1件採用・2件却下',
+    next: '(1) 日本特化 MCP 追加（hourei/EDINET、APIキー不要）、(2) NotebookLM MCP、(3) RTK MCP'
+  },
+  'stock-analyzer': { now: '運用中（詳細不明）', last: '不明', next: '要確認' },
+  'wealth-strategy': { now: '状態不明', last: '不明', next: '要確認' },
+  'property-analyzer': { now: '停止中', last: '不明', next: '再開待ち' },
+  'tax': { now: '確定申告期間外', last: '不明', next: '次回確定申告まで季節待機' },
+  'newsletter-digest': { now: '未着手', last: '不明', next: 'メルマガ→KB変換（Ready状態）' },
+  'trip-planner': { now: '待機中', last: '不明', next: '旅行計画時に使用' },
+  'medical-advisor': { now: '停止中', last: '不明', next: '再開待ち（低優先）' },
+  'kaizen-agent': {
+    now: '毎晩巡回ロボがPC パス検査＋自動修復を実行。壊れたら自分で治す仕組みが完成',
+    last: '2026-05-01 に kaizen-patrol に check_path_rot 統合（infra.py にパス腐敗検知＋自動修復追加）',
+    next: '1週間の本番運用で再発ゼロ状態を確認して多層対策の信頼性を検証'
+  },
+  'aikeru': {
+    now: '戦略転換済（柱 B parked → 柱 A+C 中心、アフィ → 自社教材主軸）。X アカウント未取得',
+    last: '両セッション合意: 柱B parked、ファネル設計（入口〜中盤）は保留中',
+    next: 'X アカウント取得 → 柱A+C のファネル設計。aikeru/HANDOFF.md の Cross-session notes を先に確認'
+  },
+  'self-insight': { now: 'Phase 0 — 未着手', last: '不明', next: 'コンセプト固め（有料SaaS想定）' },
+  'sns-monetize': { now: '停止中', last: '不明', next: '再開待ち' },
+  'maply': { now: '停止中', last: '不明', next: '再開待ち' },
+  'report-dashboard-deploy': { now: 'デプロイ基盤稼働中', last: '不明', next: '維持' },
+  'pj-intake': {
+    now: 'メール→PJ更新ルーティング稼働中（3-phase完了）',
+    last: 'pj-intake 3-phase 完了、Commit Policy 制度化',
+    next: '医療キーワードSSoT一本化（pj_intake と ai_router の重複解消）'
+  }
+};
+
+// ── Dynamic JSON loader ──
+function updateLeaf(p) {
+  const el = document.getElementById('p-' + p.name);
+  if (!el) return;
+  const dot = el.querySelector('.adot');
+  if (dot) dot.className = 'adot adot-' + p.tier.toLowerCase();
+  const nextEl = el.querySelector('.leaf-next');
+  if (nextEl && p.next) {
+    const short = p.next.length > 85 ? p.next.slice(0, 85) + '…' : p.next;
+    nextEl.textContent = short;
+    nextEl.className = 'leaf-next';
+  }
+}
+
+function set(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+async function loadData() {
+  try {
+    const res = await fetch('./projects-status.json');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    data.projects.forEach(p => {
+      if (p.now || p.last || p.next) {
+        RESUMES[p.name] = { now: p.now || '—', last: p.last || '—', next: p.next || '—' };
+      }
+      updateLeaf(p);
+    });
+
+    const s = data.summary;
+    set('s-total', s.total);
+    set('s-hot', s.hot);
+    set('s-warm', s.warm);
+    set('s-cold', s.cold);
+    set('s-sleep', s.sleep);
+    set('s-freeze', s.freeze_candidates);
+    set('rn-hot', 'HOT ' + s.hot);
+    set('rn-warm', 'WARM ' + s.warm);
+    set('rn-cold', 'COLD ' + s.cold);
+    set('topbar-generated', data.generated_at);
+  } catch (e) {
+    console.log('projects-status.json fetch failed, using static fallback');
+  }
+}
+
+// ── Click handler ──
+let selected = null;
+
+function select(id) {
+  if (selected) {
+    const prev = document.getElementById('p-' + selected);
+    if (prev) prev.classList.remove('selected');
+  }
+  selected = id;
+  const el = document.getElementById('p-' + id);
+  if (el) el.classList.add('selected');
+
+  const data = RESUMES[id];
+  if (data) {
+    set('dp-title', id);
+    set('dp-now', data.now);
+    set('dp-last', data.last);
+    set('dp-next', data.next);
+    document.getElementById('detailPanel').classList.add('show');
+  }
+}
+
+// ── SVG connectors ──
+function drawConnectors() {
+  const svg = document.getElementById('connector-svg');
+  const mapArea = document.getElementById('mapArea');
+  const root = document.getElementById('root');
+
+  const areaRect = mapArea.getBoundingClientRect();
+  const scrollLeft = mapArea.scrollLeft;
+  const scrollTop = mapArea.scrollTop;
+
+  svg.setAttribute('width', mapArea.scrollWidth);
+  svg.setAttribute('height', mapArea.scrollHeight);
+  svg.innerHTML = '';
+
+  function getCenter(el) {
+    const r = el.getBoundingClientRect();
+    return {
+      cx: r.left - areaRect.left + scrollLeft + r.width / 2,
+      cy: r.top - areaRect.top + scrollTop + r.height / 2,
+      rx: r.left - areaRect.left + scrollLeft + r.width,
+      lx: r.left - areaRect.left + scrollLeft,
+    };
+  }
+
+  const layerColors = {
+    'l1': '#22c55e', 'l2': '#3b82f6', 'l3': '#a855f7',
+    'l4': '#f59e0b', 'l5': '#ef4444', 'infra': '#6b7280'
+  };
+
+  const rootPos = getCenter(root);
+
+  ['l1','l2','l3','l4','l5','infra'].forEach(lid => {
+    const ln = document.getElementById('ln-' + lid);
+    if (!ln) return;
+    const lnPos = getCenter(ln);
+    const color = layerColors[lid];
+    const mx = (rootPos.rx + lnPos.lx) / 2;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', `M ${rootPos.rx} ${rootPos.cy} C ${mx} ${rootPos.cy}, ${mx} ${lnPos.cy}, ${lnPos.lx} ${lnPos.cy}`);
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', '0.45');
+    svg.appendChild(path);
+
+    const branchEl = document.getElementById('b-' + lid);
+    if (!branchEl) return;
+    branchEl.querySelectorAll('.leaf').forEach(leaf => {
+      if (leaf.style.display === 'none') return;
+      const leafPos = getCenter(leaf);
+      const lmx = lnPos.rx + 14;
+      const lpath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      lpath.setAttribute('d', `M ${lnPos.rx} ${lnPos.cy} C ${lmx} ${lnPos.cy}, ${lmx} ${leafPos.cy}, ${leafPos.lx} ${leafPos.cy}`);
+      lpath.setAttribute('stroke', color);
+      lpath.setAttribute('stroke-width', '1');
+      lpath.setAttribute('fill', 'none');
+      lpath.setAttribute('opacity', '0.25');
+      svg.appendChild(lpath);
+    });
+  });
+}
+
+loadData().then(() => setTimeout(drawConnectors, 100));
+window.addEventListener('resize', drawConnectors);
+document.getElementById('mapArea').addEventListener('scroll', drawConnectors);
+</script>
+</body>
+</html>

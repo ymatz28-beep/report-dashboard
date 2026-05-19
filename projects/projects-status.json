@@ -1,0 +1,213 @@
+{
+  "generated_at": "2026-05-19 17:04",
+  "summary": {
+    "total": 20,
+    "hot": 9,
+    "warm": 2,
+    "cold": 3,
+    "sleep": 6,
+    "freeze_candidates": 6
+  },
+  "projects": [
+    {
+      "name": "cisco-os",
+      "layer": "l2",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "Cisco 業務 PJ（内容非公開）",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "health-tracker",
+      "layer": "l1",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "inbox-zero",
+      "layer": "l1",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "朝の自動分類（classify-inbox）とwatchdogの2つのlaunchd jobがクラッシュしていたのを修正済み（2026-05-11）",
+      "last": "classify-inbox のネットワーク障害クラッシュ修正 + inbox_watchdog.py 再作成。両ジョブとも exit 0 確認済み",
+      "next": "GitHub Actions の Reply Assist が GitHub 請求エラーで全停止中 → Yuma が github.com/settings/billing で支払い確認要"
+    },
+    {
+      "name": "medical-advisor",
+      "layer": "l3",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "家族みんなで開ける医療まとめページ（iuma-family.pages.dev）は 4/23 中間版（骨シンチ結果＋西川MRI再読影、v9）に復活済。同じ事故が再発しないよう 4 つの罠（縮みガード/自動スナップショット/DRY_RUN/deploy 直前内容ガード）を仕掛けた状態",
+      "last": "今日 2026-04-26 夕方に Yuma が「玄関真っ白＋中身が古い」を発見 → 過去のデプロイ履歴（Cloudflare Pages）から本物の v9 を救出して再 deploy → 自動同期スクリプト 2 本に再発防止 4 段を追加（commit f75acab push 済、原因は前セッション 17:58 の Phase 4-2 配線時の dummy 巻き戻し事故）",
+      "next": "(1) 母の MRI 結果が出たら家族向けまとめを v10 最終確定版に更新して deploy、(2) 新しい家族カードが追加された時に自動 deploy が縮みガード（10% 超縮みで abort）を誤って踏まないか実機で 1 回確認、(3) 縮みガードの「骨シンチ」キーワード hardcode を v10 で見直し（病状フェーズが変わると誤発火するリスク）"
+    },
+    {
+      "name": "self-insight",
+      "layer": "l3",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "slide-creator",
+      "layer": "l2",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "Q3 FY26コンテンツ更新完了。株価ATH $115・レイオフ警告・Q2比較4カラム・TTB QoQ自動計算を追加し、全13枚QA確認済み",
+      "last": "S3に5/14 ATH $115追加（Y軸max 125拡張）、レイオフ警告帯を下部に追加、ハイライトをQ3|Q2|YoYの4カラムに変更、S5インサイトのTTB QoQをJS自動計算に変更",
+      "next": "Step 3（四半期パイプライン）— 新しい FY26QN.json を置くだけで全スライドが自動更新されるワークフロー構築"
+    },
+    {
+      "name": "sns-auto",
+      "layer": "l1",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "miracle_milk IG 自動投稿が毎日12時・19時稼働中（catbox→freeimage.host 移行済み）。GPT Image 2 は Codex MCP 経由で生成中（追加課金ゼロ確認済み）",
+      "last": "catbox.moe が Cisco VPN の SSL MITM + HTTP 403 で完全ブロック → catbox_upload.py を freeimage.host 実装に置換。miracle_milk end-to-end 確認（Make HTTP 200、auto_posted: true）。GPT Image 2 は codex_mcp プロバイダー経由で ChatGPT Plus 定額内生成が動作中（~/.codex/generated_images/ に30枚超確認）",
+      "next": "(1) Hedra API キー取得（https://www.hedra.com → Settings → API Keys）→ video_gen.py テスト。(2) yesyoumax Make 設定は保留（面倒、後回し）"
+    },
+    {
+      "name": "wealth-strategy",
+      "layer": "l3",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "x-bookmarks",
+      "layer": "l3",
+      "days_inactive": 0,
+      "last_commit": "2026-05-19",
+      "tier": "HOT",
+      "now": "評価パイプライン完了・decide.html(120件)デプロイ済み（2026-05-02）",
+      "last": "500件中実際の未評価は3件のみ（残りはキャッシュ済/キュー済/手動判定済）。1件採用(スプレッドシート自動化)・2件却下。wrangler直接実行でデプロイ完了",
+      "next": "(1) 日本特化 MCP 追加（hourei/EDINET、APIキー不要）、(2) NotebookLM MCP、(3) RTK 導入"
+    },
+    {
+      "name": "aikeru",
+      "layer": "l3",
+      "days_inactive": 4,
+      "last_commit": "2026-05-15",
+      "tier": "WARM",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "trading-bot",
+      "layer": "l3",
+      "days_inactive": 4,
+      "last_commit": "2026-05-15",
+      "tier": "WARM",
+      "now": "dry-run 稼働中。bitbank UTC日付境界バグを根本修正完了（PatchedBitbankAsync 経由）、15分クリーン確認済み。ETH/JPY trade(id=8) 保有中",
+      "last": "launchd plist を run_freqtrade_bitbank_patched.py 経由起動に変更 → install_monkeypatch() が ccxt_async.bitbank を PatchedBitbankAsync に差し替え → UTC跨ぎで複数日エンドポイントを結合取得 → \"Outdated history\" 警告ゼロを確認",
+      "next": "シグナル待ち。ETH/JPY(id=8)の RSI exit 評価が有効になった。30日観測後に live 移行判断"
+    },
+    {
+      "name": "maply",
+      "layer": "infra",
+      "days_inactive": 35,
+      "last_commit": "2026-04-14",
+      "tier": "COLD",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "sns-monetize",
+      "layer": "infra",
+      "days_inactive": 35,
+      "last_commit": "2026-04-14",
+      "tier": "COLD",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "stock-analyzer",
+      "layer": "l3",
+      "days_inactive": 60,
+      "last_commit": "2026-03-20",
+      "tier": "COLD",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "newsletter-digest",
+      "layer": "l3",
+      "days_inactive": 999,
+      "last_commit": "—",
+      "tier": "SLEEP",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "property-analyzer",
+      "layer": "l3",
+      "days_inactive": 999,
+      "last_commit": "—",
+      "tier": "SLEEP",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "property-report",
+      "layer": "infra",
+      "days_inactive": 999,
+      "last_commit": "—",
+      "tier": "SLEEP",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "report-dashboard-deploy",
+      "layer": "infra",
+      "days_inactive": 999,
+      "last_commit": "—",
+      "tier": "SLEEP",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "tax",
+      "layer": "l3",
+      "days_inactive": 999,
+      "last_commit": "—",
+      "tier": "SLEEP",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
+    {
+      "name": "trip-planner",
+      "layer": "l3",
+      "days_inactive": 999,
+      "last_commit": "—",
+      "tier": "SLEEP",
+      "now": "",
+      "last": "",
+      "next": ""
+    }
+  ]
+}
