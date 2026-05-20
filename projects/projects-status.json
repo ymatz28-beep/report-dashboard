@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20 17:03",
+  "generated_at": "2026-05-20 17:09",
   "summary": {
     "total": 20,
     "hot": 10,
@@ -9,6 +9,16 @@
     "freeze_candidates": 6
   },
   "projects": [
+    {
+      "name": "aikeru",
+      "layer": "l3",
+      "days_inactive": 0,
+      "last_commit": "2026-05-20",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": ""
+    },
     {
       "name": "cisco-os",
       "layer": "l2",
@@ -98,16 +108,6 @@
       "now": "評価パイプライン完了・decide.html(120件)デプロイ済み（2026-05-02）",
       "last": "500件中実際の未評価は3件のみ（残りはキャッシュ済/キュー済/手動判定済）。1件採用(スプレッドシート自動化)・2件却下。wrangler直接実行でデプロイ完了",
       "next": "(1) 日本特化 MCP 追加（hourei/EDINET、APIキー不要）、(2) NotebookLM MCP、(3) RTK 導入"
-    },
-    {
-      "name": "aikeru",
-      "layer": "l3",
-      "days_inactive": 1,
-      "last_commit": "2026-05-19",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": ""
     },
     {
       "name": "trading-bot",
