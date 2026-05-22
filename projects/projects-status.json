@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22 13:23",
+  "generated_at": "2026-05-22 15:21",
   "summary": {
     "total": 20,
     "hot": 10,
@@ -173,9 +173,9 @@
       "days_inactive": 0,
       "last_commit": "2026-05-22",
       "tier": "HOT",
-      "now": "評価パイプライン完了・decide.html(120件)デプロイ済み（2026-05-02）",
-      "last": "500件中実際の未評価は3件のみ（残りはキャッシュ済/キュー済/手動判定済）。1件採用(スプレッドシート自動化)・2件却下。wrangler直接実行でデプロイ完了",
-      "next": "(1) 日本特化 MCP 追加（hourei/EDINET、APIキー不要）、(2) NotebookLM MCP、(3) RTK 導入",
+      "now": "dashboard.html がパイプライン全体を正確に表示（採用41/却下560/評価待ち71/未実装41）",
+      "last": "daily_digest.py を修正 — rejected.jsonl(550件)・delta_queue.json(71件)を統計に統合、bookmarks.json JOIN でカード表示修正、implemented.yaml 読み込み修正、4列グリッド化",
+      "next": "別セッションでの実装判断作業に引き継ぎ。(任意) 未実装41件の action_id→スラッグ照合改善",
       "blockers": [
         "Haiku返答が valid JSON だが what_is_it/what_it_does 未出力ケース有 → _enrich_missingで原文抽出フォールバック済",
         "Chinese/Spanish 投稿で Haiku が日本語要約を生成しない場合あり (fallback化)",
