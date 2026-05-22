@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22 10:46",
+  "generated_at": "2026-05-22 12:56",
   "summary": {
     "total": 20,
     "hot": 10,
@@ -76,6 +76,23 @@
       ]
     },
     {
+      "name": "medical-advisor",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-05-22",
+      "tier": "HOT",
+      "now": "家族みんなで開ける医療まとめページ（iuma-family.pages.dev）は 4/23 中間版（骨シンチ結果＋西川MRI再読影、v9）に復活済。同じ事故が再発しないよう 4 つの罠（縮みガード/自動スナップショット/DRY_RUN/deploy 直前内容ガード）を仕掛けた状態",
+      "last": "今日 2026-04-26 夕方に Yuma が「玄関真っ白＋中身が古い」を発見 → 過去のデプロイ履歴（Cloudflare Pages）から本物の v9 を救出して再 deploy → 自動同期スクリプト 2 本に再発防止 4 段を追加（commit f75acab push 済、原因は前セッション 17:58 の Phase 4-2 配線時の dummy 巻き戻し事故）",
+      "next": "(1) 母の MRI 結果が出たら家族向けまとめを v10 最終確定版に更新して deploy、(2) 新しい家族カードが追加された時に自動 deploy が縮みガード（10% 超縮みで abort）を誤って踏まないか実機で 1 回確認、(3) 縮みガードの「骨シンチ」キーワード hardcode を v10 で見直し（病状フェーズが変わると誤発火するリスク）",
+      "blockers": [
+        "なし（現時点で進行可能状態）"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "self-insight",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
@@ -101,43 +118,11 @@
       "automation_jobs": []
     },
     {
-      "name": "medical-advisor",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-05-21",
-      "tier": "HOT",
-      "now": "家族みんなで開ける医療まとめページ（iuma-family.pages.dev）は 4/23 中間版（骨シンチ結果＋西川MRI再読影、v9）に復活済。同じ事故が再発しないよう 4 つの罠（縮みガード/自動スナップショット/DRY_RUN/deploy 直前内容ガード）を仕掛けた状態",
-      "last": "今日 2026-04-26 夕方に Yuma が「玄関真っ白＋中身が古い」を発見 → 過去のデプロイ履歴（Cloudflare Pages）から本物の v9 を救出して再 deploy → 自動同期スクリプト 2 本に再発防止 4 段を追加（commit f75acab push 済、原因は前セッション 17:58 の Phase 4-2 配線時の dummy 巻き戻し事故）",
-      "next": "(1) 母の MRI 結果が出たら家族向けまとめを v10 最終確定版に更新して deploy、(2) 新しい家族カードが追加された時に自動 deploy が縮みガード（10% 超縮みで abort）を誤って踏まないか実機で 1 回確認、(3) 縮みガードの「骨シンチ」キーワード hardcode を v10 で見直し（病状フェーズが変わると誤発火するリスク）",
-      "blockers": [
-        "なし（現時点で進行可能状態）"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "slide-creator",
-      "layer": "l2",
-      "layer_label": "Layer 2 / Cisco業務",
-      "days_inactive": 1,
-      "last_commit": "2026-05-21",
-      "tier": "HOT",
-      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
-      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
-      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "sns-auto",
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
-      "days_inactive": 1,
-      "last_commit": "2026-05-21",
+      "days_inactive": 0,
+      "last_commit": "2026-05-22",
       "tier": "HOT",
       "now": "miracle_milk IG 自動投稿が毎日12時・19時稼働中（catbox→freeimage.host 移行済み）。GPT Image 2 は Codex MCP 経由で生成中（追加課金ゼロ確認済み）",
       "last": "catbox.moe が Cisco VPN の SSL MITM + HTTP 403 で完全ブロック → catbox_upload.py を freeimage.host 実装に置換。miracle_milk end-to-end 確認（Make HTTP 200、auto_posted: true）。GPT Image 2 は codex_mcp プロバイダー経由で ChatGPT Plus 定額内生成が動作中（~/.codex/generated_images/ に30枚超確認）",
@@ -166,8 +151,8 @@
       "name": "wealth-strategy",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-05-21",
+      "days_inactive": 0,
+      "last_commit": "2026-05-22",
       "tier": "HOT",
       "now": "",
       "last": "",
@@ -185,8 +170,8 @@
       "name": "x-bookmarks",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-05-21",
+      "days_inactive": 0,
+      "last_commit": "2026-05-22",
       "tier": "HOT",
       "now": "評価パイプライン完了・decide.html(120件)デプロイ済み（2026-05-02）",
       "last": "500件中実際の未評価は3件のみ（残りはキャッシュ済/キュー済/手動判定済）。1件採用(スプレッドシート自動化)・2件却下。wrangler直接実行でデプロイ完了",
@@ -209,6 +194,21 @@
         "com.yuma.xbookmarks",
         "com.yuma.xbookmarks-weekly"
       ]
+    },
+    {
+      "name": "slide-creator",
+      "layer": "l2",
+      "layer_label": "Layer 2 / Cisco業務",
+      "days_inactive": 1,
+      "last_commit": "2026-05-21",
+      "tier": "HOT",
+      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
+      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
+      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
     },
     {
       "name": "aikeru",
