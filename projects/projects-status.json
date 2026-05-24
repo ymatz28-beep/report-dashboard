@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 20:10",
+  "generated_at": "2026-05-24 20:17",
   "summary": {
     "total": 20,
     "hot": 10,
@@ -51,9 +51,9 @@
       "days_inactive": 0,
       "last_commit": "2026-05-24",
       "tier": "HOT",
-      "now": "朝の自動分類（classify-inbox）とwatchdogの2つのlaunchd jobがクラッシュしていたのを修正済み（2026-05-11）",
-      "last": "classify-inbox のネットワーク障害クラッシュ修正 + inbox_watchdog.py 再作成。両ジョブとも exit 0 確認済み",
-      "next": "GitHub Actions の Reply Assist が GitHub 請求エラーで全停止中 → Yuma が github.com/settings/billing で支払い確認要",
+      "now": "classify-inbox が80日間死んでいたのを完全復旧（2026-05-24）。OAuth token 更新確認済み、launchd exit 0、メール分類正常稼働中",
+      "last": "kaizen-paused マーカー削除 + calendar_inject.py の kaizen-allow コメント追加 + launchd bootout/bootstrap で exit 78 解消",
+      "next": "GitHub Actions の Reply Assist 15連続失敗（github_actions_health）が violation_tracker に残存 → 別課題として対処要",
       "blockers": [
         "OAuth token: GitHub Secret GMAIL_TOKEN にrefresh_token格納。Google側でrevoke時は再認証必要",
         "ANTHROPIC_API_KEY: GitHub Secret",
