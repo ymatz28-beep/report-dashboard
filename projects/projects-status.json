@@ -1,14 +1,31 @@
 {
-  "generated_at": "2026-05-24 20:18",
+  "generated_at": "2026-05-24 21:04",
   "summary": {
     "total": 20,
-    "hot": 10,
-    "warm": 1,
+    "hot": 11,
+    "warm": 0,
     "cold": 3,
     "sleep": 6,
     "freeze_candidates": 6
   },
   "projects": [
+    {
+      "name": "aikeru",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-05-24",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "なし"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
     {
       "name": "cisco-os",
       "layer": "l2",
@@ -51,9 +68,9 @@
       "days_inactive": 0,
       "last_commit": "2026-05-24",
       "tier": "HOT",
-      "now": "classify-inbox が80日間死んでいたのを完全復旧（2026-05-24）。OAuth token 更新確認済み、launchd exit 0、メール分類正常稼働中",
-      "last": "kaizen-paused マーカー削除 + calendar_inject.py の kaizen-allow コメント追加 + launchd bootout/bootstrap で exit 78 解消",
-      "next": "GitHub Actions の Reply Assist 15連続失敗（github_actions_health）が violation_tracker に残存 → 別課題として対処要",
+      "now": "Reply Assist GHA を .disabled → .yml に戻して手動実行成功（2026-05-24）。課金エラーは解消済み",
+      "last": "classify-inbox 80日間停止の完全復旧 + Reply Assist re-enable",
+      "next": "data_freshness 違反（clean_inbox.log 1926h古い）の調査",
       "blockers": [
         "OAuth token: GitHub Secret GMAIL_TOKEN にrefresh_token格納。Google側でrevoke時は再認証必要",
         "ANTHROPIC_API_KEY: GitHub Secret",
@@ -114,6 +131,21 @@
         "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
         "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
       ],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "slide-creator",
+      "layer": "l2",
+      "layer_label": "Layer 2 / Cisco業務",
+      "days_inactive": 0,
+      "last_commit": "2026-05-24",
+      "tier": "HOT",
+      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
+      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
+      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
+      "blockers": [],
+      "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
     },
@@ -216,38 +248,6 @@
         "com.yuma.xbookmarks",
         "com.yuma.xbookmarks-weekly"
       ]
-    },
-    {
-      "name": "aikeru",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 2,
-      "last_commit": "2026-05-22",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "なし"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "slide-creator",
-      "layer": "l2",
-      "layer_label": "Layer 2 / Cisco業務",
-      "days_inactive": 3,
-      "last_commit": "2026-05-21",
-      "tier": "WARM",
-      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
-      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
-      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
     },
     {
       "name": "maply",
