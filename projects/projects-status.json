@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 21:06",
+  "generated_at": "2026-05-25 10:11",
   "summary": {
     "total": 20,
     "hot": 11,
@@ -10,28 +10,11 @@
   },
   "projects": [
     {
-      "name": "aikeru",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-05-24",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "なし"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "cisco-os",
       "layer": "l2",
       "layer_label": "Layer 2 / Cisco業務",
       "days_inactive": 0,
-      "last_commit": "2026-05-24",
+      "last_commit": "2026-05-25",
       "tier": "HOT",
       "now": "Cisco 業務 PJ（内容非公開）",
       "last": "",
@@ -48,7 +31,7 @@
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
       "days_inactive": 0,
-      "last_commit": "2026-05-24",
+      "last_commit": "2026-05-25",
       "tier": "HOT",
       "now": "",
       "last": "",
@@ -66,7 +49,7 @@
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
       "days_inactive": 0,
-      "last_commit": "2026-05-24",
+      "last_commit": "2026-05-25",
       "tier": "HOT",
       "now": "Reply Assist GHA を .disabled → .yml に戻して手動実行成功（2026-05-24）。課金エラーは解消済み",
       "last": "classify-inbox 80日間停止の完全復旧 + Reply Assist re-enable",
@@ -93,28 +76,11 @@
       ]
     },
     {
-      "name": "medical-advisor",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-05-24",
-      "tier": "HOT",
-      "now": "家族みんなで開ける医療まとめページ（iuma-family.pages.dev）は 4/23 中間版（骨シンチ結果＋西川MRI再読影、v9）に復活済。同じ事故が再発しないよう 4 つの罠（縮みガード/自動スナップショット/DRY_RUN/deploy 直前内容ガード）を仕掛けた状態",
-      "last": "今日 2026-04-26 夕方に Yuma が「玄関真っ白＋中身が古い」を発見 → 過去のデプロイ履歴（Cloudflare Pages）から本物の v9 を救出して再 deploy → 自動同期スクリプト 2 本に再発防止 4 段を追加（commit f75acab push 済、原因は前セッション 17:58 の Phase 4-2 配線時の dummy 巻き戻し事故）",
-      "next": "(1) 母の MRI 結果が出たら家族向けまとめを v10 最終確定版に更新して deploy、(2) 新しい家族カードが追加された時に自動 deploy が縮みガード（10% 超縮みで abort）を誤って踏まないか実機で 1 回確認、(3) 縮みガードの「骨シンチ」キーワード hardcode を v10 で見直し（病状フェーズが変わると誤発火するリスク）",
-      "blockers": [
-        "なし（現時点で進行可能状態）"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "self-insight",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
       "days_inactive": 0,
-      "last_commit": "2026-05-24",
+      "last_commit": "2026-05-25",
       "tier": "HOT",
       "now": "",
       "last": "",
@@ -135,26 +101,11 @@
       "automation_jobs": []
     },
     {
-      "name": "slide-creator",
-      "layer": "l2",
-      "layer_label": "Layer 2 / Cisco業務",
-      "days_inactive": 0,
-      "last_commit": "2026-05-24",
-      "tier": "HOT",
-      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
-      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
-      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "sns-auto",
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
       "days_inactive": 0,
-      "last_commit": "2026-05-24",
+      "last_commit": "2026-05-25",
       "tier": "HOT",
       "now": "miracle_milk IG 自動投稿が毎日12時・19時稼働中（catbox→freeimage.host 移行済み）。GPT Image 2 は Codex MCP 経由で生成中（追加課金ゼロ確認済み）",
       "last": "catbox.moe が Cisco VPN の SSL MITM + HTTP 403 で完全ブロック → catbox_upload.py を freeimage.host 実装に置換。miracle_milk end-to-end 確認（Make HTTP 200、auto_posted: true）。GPT Image 2 は codex_mcp プロバイダー経由で ChatGPT Plus 定額内生成が動作中（~/.codex/generated_images/ に30枚超確認）",
@@ -180,52 +131,11 @@
       ]
     },
     {
-      "name": "trading-bot",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-05-24",
-      "tier": "HOT",
-      "now": "dry-run 稼働中。bitbank UTC日付境界バグを根本修正完了（PatchedBitbankAsync 経由）、15分クリーン確認済み。ETH/JPY trade(id=8) 保有中",
-      "last": "launchd plist を run_freqtrade_bitbank_patched.py 経由起動に変更 → install_monkeypatch() が ccxt_async.bitbank を PatchedBitbankAsync に差し替え → UTC跨ぎで複数日エンドポイントを結合取得 → \"Outdated history\" 警告ゼロを確認",
-      "next": "シグナル待ち。ETH/JPY(id=8)の RSI exit 評価が有効になった。30日観測後に live 移行判断",
-      "blockers": [
-        "Yuma台北滞在中（4/17-4/19）、インヴァスト証券サイトがCloudflare WAFで海外IP遮断 → 口座開設は4/20帰国後",
-        "bitbank API key 発行は live 移行時のみ必要"
-      ],
-      "next_actions": [],
-      "automation_count": 3,
-      "automation_jobs": [
-        "com.yuma.trading-bot-watchdog",
-        "com.yuma.trading-bot-watchlist",
-        "com.yuma.trading-bot"
-      ]
-    },
-    {
-      "name": "wealth-strategy",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-05-24",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "チサン博多返済計画表: 未確定(≒¥100k/月の推定値使用中)",
-        "Drive MCP: 壊れたまま。OAuth curl直接API or Drive Desktopで迂回",
-        "daily-digest plist: ユーザーがStandardOutPathを~/Documents/に戻しRunAtLoad削除。TCC再発の可能性"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "x-bookmarks",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
       "days_inactive": 0,
-      "last_commit": "2026-05-24",
+      "last_commit": "2026-05-25",
       "tier": "HOT",
       "now": "dashboard.html がパイプライン全体を正確に表示（採用41/却下560/評価待ち71/未実装41）",
       "last": "daily_digest.py を修正 — rejected.jsonl(550件)・delta_queue.json(71件)を統計に統合、bookmarks.json JOIN でカード表示修正、implemented.yaml 読み込み修正、4列グリッド化",
@@ -250,10 +160,100 @@
       ]
     },
     {
+      "name": "aikeru",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 1,
+      "last_commit": "2026-05-24",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "なし"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "medical-advisor",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 1,
+      "last_commit": "2026-05-24",
+      "tier": "HOT",
+      "now": "家族みんなで開ける医療まとめページ（iuma-family.pages.dev）は 4/23 中間版（骨シンチ結果＋西川MRI再読影、v9）に復活済。同じ事故が再発しないよう 4 つの罠（縮みガード/自動スナップショット/DRY_RUN/deploy 直前内容ガード）を仕掛けた状態",
+      "last": "今日 2026-04-26 夕方に Yuma が「玄関真っ白＋中身が古い」を発見 → 過去のデプロイ履歴（Cloudflare Pages）から本物の v9 を救出して再 deploy → 自動同期スクリプト 2 本に再発防止 4 段を追加（commit f75acab push 済、原因は前セッション 17:58 の Phase 4-2 配線時の dummy 巻き戻し事故）",
+      "next": "(1) 母の MRI 結果が出たら家族向けまとめを v10 最終確定版に更新して deploy、(2) 新しい家族カードが追加された時に自動 deploy が縮みガード（10% 超縮みで abort）を誤って踏まないか実機で 1 回確認、(3) 縮みガードの「骨シンチ」キーワード hardcode を v10 で見直し（病状フェーズが変わると誤発火するリスク）",
+      "blockers": [
+        "なし（現時点で進行可能状態）"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "slide-creator",
+      "layer": "l2",
+      "layer_label": "Layer 2 / Cisco業務",
+      "days_inactive": 1,
+      "last_commit": "2026-05-24",
+      "tier": "HOT",
+      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
+      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
+      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "trading-bot",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 1,
+      "last_commit": "2026-05-24",
+      "tier": "HOT",
+      "now": "dry-run 稼働中。bitbank UTC日付境界バグを根本修正完了（PatchedBitbankAsync 経由）、15分クリーン確認済み。ETH/JPY trade(id=8) 保有中",
+      "last": "launchd plist を run_freqtrade_bitbank_patched.py 経由起動に変更 → install_monkeypatch() が ccxt_async.bitbank を PatchedBitbankAsync に差し替え → UTC跨ぎで複数日エンドポイントを結合取得 → \"Outdated history\" 警告ゼロを確認",
+      "next": "シグナル待ち。ETH/JPY(id=8)の RSI exit 評価が有効になった。30日観測後に live 移行判断",
+      "blockers": [
+        "Yuma台北滞在中（4/17-4/19）、インヴァスト証券サイトがCloudflare WAFで海外IP遮断 → 口座開設は4/20帰国後",
+        "bitbank API key 発行は live 移行時のみ必要"
+      ],
+      "next_actions": [],
+      "automation_count": 3,
+      "automation_jobs": [
+        "com.yuma.trading-bot-watchdog",
+        "com.yuma.trading-bot-watchlist",
+        "com.yuma.trading-bot"
+      ]
+    },
+    {
+      "name": "wealth-strategy",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 1,
+      "last_commit": "2026-05-24",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "チサン博多返済計画表: 未確定(≒¥100k/月の推定値使用中)",
+        "Drive MCP: 壊れたまま。OAuth curl直接API or Drive Desktopで迂回",
+        "daily-digest plist: ユーザーがStandardOutPathを~/Documents/に戻しRunAtLoad削除。TCC再発の可能性"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "maply",
       "layer": "infra",
       "layer_label": "Infra",
-      "days_inactive": 40,
+      "days_inactive": 41,
       "last_commit": "2026-04-14",
       "tier": "COLD",
       "now": "",
@@ -277,7 +277,7 @@
       "name": "sns-monetize",
       "layer": "infra",
       "layer_label": "Infra",
-      "days_inactive": 40,
+      "days_inactive": 41,
       "last_commit": "2026-04-14",
       "tier": "COLD",
       "now": "",
@@ -295,7 +295,7 @@
       "name": "stock-analyzer",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 65,
+      "days_inactive": 66,
       "last_commit": "2026-03-20",
       "tier": "COLD",
       "now": "",
