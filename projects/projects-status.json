@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08 22:34",
+  "generated_at": "2026-06-08 23:16",
   "summary": {
     "total": 20,
     "hot": 11,
@@ -139,9 +139,8 @@
         "scripts/enrich_topics_with_persona.py の処遇: interview 型で完全置換済み。deprecated リネーム or 削除判定",
         "残り pending topic への interview 段階拡大: 高優先 10件目標、毎朝1-3件ペースで 1-2週間"
       ],
-      "automation_count": 7,
+      "automation_count": 6,
       "automation_jobs": [
-        "com.yuma.sns-auto",
         "com.yuma.sns-draft-and-send",
         "com.yuma.miracle-milk-reel",
         "com.yuma.sns-watchdog",
