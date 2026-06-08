@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08 19:34",
+  "generated_at": "2026-06-08 20:23",
   "summary": {
     "total": 20,
     "hot": 11,
@@ -51,9 +51,9 @@
       "days_inactive": 0,
       "last_commit": "2026-06-08",
       "tier": "HOT",
-      "now": "Reply Assist GHA を .disabled → .yml に戻して手動実行成功（2026-05-24）。課金エラーは解消済み",
-      "last": "classify-inbox 80日間停止の完全復旧 + Reply Assist re-enable",
-      "next": "data_freshness 違反（clean_inbox.log 1926h古い）の調査",
+      "now": "Reply Assist 精度ゼロベース改善 完了・ローカル常駐(5分毎)で新ロジック稼働中・実機で誤下書き0件を確認（2026-06-08）",
+      "last": "4層遮断(思考漏れ掃除/本文no-replyゲート/判定厳格化/生成棄権)実装+commit、過去の不良下書き15件を削除",
+      "next": "data_freshness 違反（clean_inbox.log 79日古い=ESCALATED 46d）の調査 / 別系統の残下書き10件掃除（任意）",
       "blockers": [
         "OAuth token: GitHub Secret GMAIL_TOKEN にrefresh_token格納。Google側でrevoke時は再認証必要",
         "ANTHROPIC_API_KEY: GitHub Secret",
