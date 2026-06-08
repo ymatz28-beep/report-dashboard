@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08 16:16",
+  "generated_at": "2026-06-08 16:20",
   "summary": {
     "total": 20,
     "hot": 11,
@@ -125,9 +125,9 @@
       "days_inactive": 0,
       "last_commit": "2026-06-08",
       "tier": "HOT",
-      "now": "miracle_milk IG 自動投稿が毎日12時・19時稼働中（catbox→freeimage.host 移行済み）。GPT Image 2 は Codex MCP 経由で生成中（追加課金ゼロ確認済み）",
-      "last": "catbox.moe が Cisco VPN の SSL MITM + HTTP 403 で完全ブロック → catbox_upload.py を freeimage.host 実装に置換。miracle_milk end-to-end 確認（Make HTTP 200、auto_posted: true）。GPT Image 2 は codex_mcp プロバイダー経由で ChatGPT Plus 定額内生成が動作中（~/.codex/generated_images/ に30枚超確認）",
-      "next": "yesyoumax Make 設定（保留・後回し）",
+      "now": "yesyoumax ストーリーズ自動投稿が開通（**画像＝稼働中**、**動画＝コード完成・実投稿成功済み**）。画像の毎日自動(12/19)は従来通り稼働。miracle_milk も従来通り。",
+      "last": "(1) 画像の多様性エンジン実装(src/scene_engine.py、毎回違う光/色/カメラ)。(2) FLUX.2比較→却下しGPT Image 2維持。(3) yesyoumaxストーリーズを**Instagram Login経路(FBページ不要・graph.instagram.com)**で開通、実投稿成功。(4) 動画ストーリーズ開通: 静止画→PixVerseで動画化→**Cloudflare Worker(r2-upload-worker/)経由でR2にアップ**(業務MacはS3もR2 RESTも遮断されるためWorkerが唯一の道)→投稿成功。(5) 声=OpenAI TTSナレーション焼き込み実装。(6) 8/3にトークン更新リマインドGmail送信のroutine登録(trig_01DS3SAKUhX5R3QmrqjiAjMn)。",
+      "next": "動画クオリティ向上の比較テスト（**HeyGen/Seedance/Runway**）＋**口パク(lip-sync)**。並行: 画像/動画ミックス自動化の有効化(scripts/daily_ig_post.shをplistに繋ぐ前に非live検証)＋ナレーション実機確認＋ストーリーへの**文字焼き込み**。",
       "blockers": [
         "Gemini Flash 503 が終日多発。interview/analyze pipeline は全て Ollama fallback で動作。時間により変動する",
         "別セッションが qwen3:14b 段階ロールアウト中(env var SNS_AUTO_LLM_MODEL)。interview_topic.py と analyze_hit_patterns.py はこれを明示指定済み、互換"
