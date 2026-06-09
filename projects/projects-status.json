@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09 22:13",
+  "generated_at": "2026-06-09 22:56",
   "summary": {
     "total": 20,
     "hot": 10,
@@ -66,12 +66,11 @@
         "[2026-05-02] 2週間問題なければ clean_inbox.py.disabled / patrol_inbox.py.disabled / migrate_to_gmail_filters.py.disabled / auto_whitelist.json / rescue_tracker.json を削除",
         "[資産移植] config.py の NOISE_DOMAINS / AD_PATTERNS / NOISE_SENDERS を classify-inbox のラベル判定に移植（現状未使用で残存）"
       ],
-      "automation_count": 6,
+      "automation_count": 5,
       "automation_jobs": [
         "com.yuma.classify-inbox",
         "com.yuma.rescue-otp",
         "com.yuma.cleanup-sent-auto-replies",
-        "com.yuma.reply-assist",
         "com.yuma.archive-digests",
         "com.yuma.inbox-watchdog"
       ]
