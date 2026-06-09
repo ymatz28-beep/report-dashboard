@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-09 22:56",
+  "generated_at": "2026-06-09 23:41",
   "summary": {
-    "total": 20,
-    "hot": 10,
+    "total": 21,
+    "hot": 11,
     "warm": 1,
     "cold": 3,
     "sleep": 6,
@@ -89,6 +89,28 @@
         "なし（現時点で進行可能状態）"
       ],
       "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "obsidian",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-06-09",
+      "tier": "HOT",
+      "now": "Obsidianを「第二の脳」として日常遣いする立ち上げ中。メモを入れる箱（vault）はもう完成",
+      "last": "昨夜、Mac・iPhone・Claudeで同じノートを共有する箱をiCloud上に作って同期も繋いだ",
+      "next": "MacにObsidianアプリを入れて、その箱を開く（君の手数はこれだけ）",
+      "blockers": [
+        "なし（MacアプリのインストールはYumaの1アクションのみ）"
+      ],
+      "next_actions": [
+        "MacにObsidianアプリを入れる（https://obsidian.md 、無料）→ 起動して「フォルダをvaultとして開く」で iCloud の iuma-vault を指定",
+        "iPhoneのObsidianを開いて iuma-vault が出てくるか確認（出れば同期成功の確定）",
+        "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
+        "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
+      ],
       "automation_count": 0,
       "automation_jobs": []
     },
