@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10 10:08",
+  "generated_at": "2026-06-10 12:30",
   "summary": {
     "total": 21,
     "hot": 10,
@@ -41,6 +41,48 @@
       ]
     },
     {
+      "name": "medical-advisor",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-06-10",
+      "tier": "HOT",
+      "now": "家族みんなで開ける医療まとめページ（iuma-family.pages.dev）は 4/23 中間版（骨シンチ結果＋西川MRI再読影、v9）に復活済。同じ事故が再発しないよう 4 つの罠（縮みガード/自動スナップショット/DRY_RUN/deploy 直前内容ガード）を仕掛けた状態",
+      "last": "今日 2026-04-26 夕方に Yuma が「玄関真っ白＋中身が古い」を発見 → 過去のデプロイ履歴（Cloudflare Pages）から本物の v9 を救出して再 deploy → 自動同期スクリプト 2 本に再発防止 4 段を追加（commit f75acab push 済、原因は前セッション 17:58 の Phase 4-2 配線時の dummy 巻き戻し事故）",
+      "next": "(1) 母の MRI 結果が出たら家族向けまとめを v10 最終確定版に更新して deploy、(2) 新しい家族カードが追加された時に自動 deploy が縮みガード（10% 超縮みで abort）を誤って踏まないか実機で 1 回確認、(3) 縮みガードの「骨シンチ」キーワード hardcode を v10 で見直し（病状フェーズが変わると誤発火するリスク）",
+      "blockers": [
+        "なし（現時点で進行可能状態）"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "self-insight",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-06-10",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "generate_dashboard.py 3,500+ 行で肥大化（ファイル分割が必要。現在 [WARN]）",
+        "相性診断機能 generate_compatibility.py は作成済みだが未実行・未デプロイ",
+        "母・妹が iuma-private を見るなら Access 設定確認が必要"
+      ],
+      "next_actions": [
+        "renderer.js動作テスト: Tier 1即時体験（生年月日のみ→リッチ結果表示）の本番品質化は完了。ブラウザ実機テストで全辞書・ナラティブ・チャートが正常表示されるか確認",
+        "相性診断の動作テスト+バイラル機能強化: compatibility.htmlのconst重複修正済み → 動作確認 + シェアカード→招待リンク→友達流入のバイラルループ検証",
+        "E2Eフロー完成: フォーム送信→Google Sheets蓄積が未確認（no-cors修正済み、再テスト必要）",
+        "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
+        "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
+      ],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "sns-auto",
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
@@ -69,6 +111,54 @@
         "com.yuma.sns-ig-auto",
         "com.yuma.sns-reply-watch",
         "com.yuma.llm-model-review"
+      ]
+    },
+    {
+      "name": "wealth-strategy",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-06-10",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "チサン博多返済計画表: 未確定(≒¥100k/月の推定値使用中)",
+        "Drive MCP: 壊れたまま。OAuth curl直接API or Drive Desktopで迂回",
+        "daily-digest plist: ユーザーがStandardOutPathを~/Documents/に戻しRunAtLoad削除。TCC再発の可能性"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "x-bookmarks",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-06-10",
+      "tier": "HOT",
+      "now": "dashboard.html がパイプライン全体を正確に表示（採用41/却下560/評価待ち71/未実装41）",
+      "last": "daily_digest.py を修正 — rejected.jsonl(550件)・delta_queue.json(71件)を統計に統合、bookmarks.json JOIN でカード表示修正、implemented.yaml 読み込み修正、4列グリッド化",
+      "next": "別セッションでの実装判断作業に引き継ぎ。(任意) 未実装41件の action_id→スラッグ照合改善",
+      "blockers": [
+        "Haiku返答が valid JSON だが what_is_it/what_it_does 未出力ケース有 → _enrich_missingで原文抽出フォールバック済",
+        "Chinese/Spanish 投稿で Haiku が日本語要約を生成しない場合あり (fallback化)",
+        "MDM配布 (JAMF/Intune) は Cisco IT依頼待ち"
+      ],
+      "next_actions": [
+        "Yuma: PAT再rotate（新PATも会話履歴に残ったため24h以内に regenerate 推奨、https://github.com/settings/personal-access-tokens）",
+        "Yuma: 朝 Daily Brief で AI評価6件レビュー（stock-analyzer×2 / lib×3 / kaizen-agent×1）。target_project 妥当性・scope 妥当性を目視確認",
+        "⑧ Self-healing launchd supervisor（別セッション設計議論）: 今回の fetch 海外VPN問題を全 pipeline（digest / newsletter / x-bookmarks）へ横展開する根本対策",
+        "評価品質モニタリング（1週間後 retro）: LLM判定の精度・target_project 的中率を手動確認、プロンプト微調整",
+        "Claude Code 再起動（GitHub MCP 新PAT反映）"
+      ],
+      "automation_count": 3,
+      "automation_jobs": [
+        "com.yuma.xbookmarks-daily",
+        "com.yuma.xbookmarks",
+        "com.yuma.xbookmarks-weekly"
       ]
     },
     {
@@ -107,23 +197,6 @@
       "automation_jobs": []
     },
     {
-      "name": "medical-advisor",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-06-09",
-      "tier": "HOT",
-      "now": "家族みんなで開ける医療まとめページ（iuma-family.pages.dev）は 4/23 中間版（骨シンチ結果＋西川MRI再読影、v9）に復活済。同じ事故が再発しないよう 4 つの罠（縮みガード/自動スナップショット/DRY_RUN/deploy 直前内容ガード）を仕掛けた状態",
-      "last": "今日 2026-04-26 夕方に Yuma が「玄関真っ白＋中身が古い」を発見 → 過去のデプロイ履歴（Cloudflare Pages）から本物の v9 を救出して再 deploy → 自動同期スクリプト 2 本に再発防止 4 段を追加（commit f75acab push 済、原因は前セッション 17:58 の Phase 4-2 配線時の dummy 巻き戻し事故）",
-      "next": "(1) 母の MRI 結果が出たら家族向けまとめを v10 最終確定版に更新して deploy、(2) 新しい家族カードが追加された時に自動 deploy が縮みガード（10% 超縮みで abort）を誤って踏まないか実機で 1 回確認、(3) 縮みガードの「骨シンチ」キーワード hardcode を v10 で見直し（病状フェーズが変わると誤発火するリスク）",
-      "blockers": [
-        "なし（現時点で進行可能状態）"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "obsidian",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
@@ -146,31 +219,6 @@
       "automation_jobs": []
     },
     {
-      "name": "self-insight",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-06-09",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "generate_dashboard.py 3,500+ 行で肥大化（ファイル分割が必要。現在 [WARN]）",
-        "相性診断機能 generate_compatibility.py は作成済みだが未実行・未デプロイ",
-        "母・妹が iuma-private を見るなら Access 設定確認が必要"
-      ],
-      "next_actions": [
-        "renderer.js動作テスト: Tier 1即時体験（生年月日のみ→リッチ結果表示）の本番品質化は完了。ブラウザ実機テストで全辞書・ナラティブ・チャートが正常表示されるか確認",
-        "相性診断の動作テスト+バイラル機能強化: compatibility.htmlのconst重複修正済み → 動作確認 + シェアカード→招待リンク→友達流入のバイラルループ検証",
-        "E2Eフロー完成: フォーム送信→Google Sheets蓄積が未確認（no-cors修正済み、再テスト必要）",
-        "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
-        "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
-      ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "slide-creator",
       "layer": "l2",
       "layer_label": "Layer 2 / Cisco業務",
@@ -184,54 +232,6 @@
       "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
-    },
-    {
-      "name": "wealth-strategy",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-06-09",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "チサン博多返済計画表: 未確定(≒¥100k/月の推定値使用中)",
-        "Drive MCP: 壊れたまま。OAuth curl直接API or Drive Desktopで迂回",
-        "daily-digest plist: ユーザーがStandardOutPathを~/Documents/に戻しRunAtLoad削除。TCC再発の可能性"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "x-bookmarks",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-06-09",
-      "tier": "HOT",
-      "now": "dashboard.html がパイプライン全体を正確に表示（採用41/却下560/評価待ち71/未実装41）",
-      "last": "daily_digest.py を修正 — rejected.jsonl(550件)・delta_queue.json(71件)を統計に統合、bookmarks.json JOIN でカード表示修正、implemented.yaml 読み込み修正、4列グリッド化",
-      "next": "別セッションでの実装判断作業に引き継ぎ。(任意) 未実装41件の action_id→スラッグ照合改善",
-      "blockers": [
-        "Haiku返答が valid JSON だが what_is_it/what_it_does 未出力ケース有 → _enrich_missingで原文抽出フォールバック済",
-        "Chinese/Spanish 投稿で Haiku が日本語要約を生成しない場合あり (fallback化)",
-        "MDM配布 (JAMF/Intune) は Cisco IT依頼待ち"
-      ],
-      "next_actions": [
-        "Yuma: PAT再rotate（新PATも会話履歴に残ったため24h以内に regenerate 推奨、https://github.com/settings/personal-access-tokens）",
-        "Yuma: 朝 Daily Brief で AI評価6件レビュー（stock-analyzer×2 / lib×3 / kaizen-agent×1）。target_project 妥当性・scope 妥当性を目視確認",
-        "⑧ Self-healing launchd supervisor（別セッション設計議論）: 今回の fetch 海外VPN問題を全 pipeline（digest / newsletter / x-bookmarks）へ横展開する根本対策",
-        "評価品質モニタリング（1週間後 retro）: LLM判定の精度・target_project 的中率を手動確認、プロンプト微調整",
-        "Claude Code 再起動（GitHub MCP 新PAT反映）"
-      ],
-      "automation_count": 3,
-      "automation_jobs": [
-        "com.yuma.xbookmarks-daily",
-        "com.yuma.xbookmarks",
-        "com.yuma.xbookmarks-weekly"
-      ]
     },
     {
       "name": "aikeru",
