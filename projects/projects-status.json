@@ -1,14 +1,31 @@
 {
-  "generated_at": "2026-06-10 15:04",
+  "generated_at": "2026-06-10 15:05",
   "summary": {
     "total": 21,
-    "hot": 10,
-    "warm": 2,
+    "hot": 11,
+    "warm": 1,
     "cold": 3,
     "sleep": 6,
     "freeze_candidates": 6
   },
   "projects": [
+    {
+      "name": "aikeru",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-06-10",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "なし"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
     {
       "name": "cisco-os",
       "layer": "l2",
@@ -230,23 +247,6 @@
         "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
         "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
       ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "aikeru",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 3,
-      "last_commit": "2026-06-07",
-      "tier": "WARM",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "なし"
-      ],
-      "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
     },
