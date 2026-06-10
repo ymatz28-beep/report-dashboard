@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10 14:35",
+  "generated_at": "2026-06-10 15:04",
   "summary": {
     "total": 21,
     "hot": 10,
@@ -118,6 +118,21 @@
       "automation_jobs": []
     },
     {
+      "name": "slide-creator",
+      "layer": "l2",
+      "layer_label": "Layer 2 / Cisco業務",
+      "days_inactive": 0,
+      "last_commit": "2026-06-10",
+      "tier": "HOT",
+      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
+      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
+      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "sns-auto",
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
@@ -215,21 +230,6 @@
         "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
         "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
       ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "slide-creator",
-      "layer": "l2",
-      "layer_label": "Layer 2 / Cisco業務",
-      "days_inactive": 1,
-      "last_commit": "2026-06-09",
-      "tier": "HOT",
-      "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
-      "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
-      "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
-      "blockers": [],
-      "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
     },
