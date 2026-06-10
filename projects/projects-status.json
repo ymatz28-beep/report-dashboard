@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10 00:07",
+  "generated_at": "2026-06-10 10:08",
   "summary": {
     "total": 21,
     "hot": 10,
@@ -47,9 +47,9 @@
       "days_inactive": 0,
       "last_commit": "2026-06-10",
       "tier": "HOT",
-      "now": "yesyoumax ストーリーズ自動投稿が開通（**画像＝稼働中**、**動画＝コード完成・実投稿成功済み**）。画像の毎日自動(12/19)は従来通り稼働。miracle_milk も従来通り。",
-      "last": "(1) 画像の多様性エンジン実装(src/scene_engine.py、毎回違う光/色/カメラ)。(2) FLUX.2比較→却下しGPT Image 2維持。(3) yesyoumaxストーリーズを**Instagram Login経路(FBページ不要・graph.instagram.com)**で開通、実投稿成功。(4) 動画ストーリーズ開通: 静止画→PixVerseで動画化→**Cloudflare Worker(r2-upload-worker/)経由でR2にアップ**(業務MacはS3もR2 RESTも遮断されるためWorkerが唯一の道)→投稿成功。(5) 声=OpenAI TTSナレーション焼き込み実装。(6) 8/3にトークン更新リマインドGmail送信のroutine登録(trig_01DS3SAKUhX5R3QmrqjiAjMn)。",
-      "next": "動画クオリティ向上の比較テスト（**HeyGen/Seedance/Runway**）＋**口パク(lip-sync)**。並行: 画像/動画ミックス自動化の有効化(scripts/daily_ig_post.shをplistに繋ぐ前に非live検証)＋ナレーション実機確認＋ストーリーへの**文字焼き込み**。",
+      "now": "本命Xアカ（50代管理職の集客エンジン）のX文章エンジンを大刷新中。下書きの土台をClaude優先(定額)→Gemini→最後だけOllamaに変え、Ollama産は必ずClaudeで全文書き直し。「ペイン→共感→失敗→成功」型・背景文脈必須・長文可(X Premium)・読者関心起点・具体の徹底・自慢/ナルシスト禁止 をエンジンに焼いた。ネタ帳807件。",
+      "last": "(1) Cisco業務語(SFDC/CSAT/TTB/SEQA/ケース番号等)をSecurity gate禁止語に追加＋一般語変換＋enforce_safe(検出→変換→再チェック→残れば破棄)で投稿3経路を鉄則準拠に。(2) 文章エンジンをClaude優先＋Ollama産は必ず書き直し。(3) 「ペイン→共感→失敗→成功」型を主軸化。(4) 背景文脈を必須化＋280字撤廃→MAX_X_CHARS=1000。(5) **自分画像/顔生成のナルシスト系ネタを本アカから全排除**(別垢=実物の体・盛らない・本アカ不適)。(6) 「読者(50代管理職)の関心起点・具体の徹底・骨抜きで意味不明な題材は捨てる」を追加。(7) 5〜6月のPJ失敗→成功＋AI自動化/複数PJ/動的ルーティングのネタ追加。回帰テスト追加(触ったモジュール緑/watchdog3件は既存failで無関係)。",
+      "next": "(1) この声(読者関心起点・具体・自慢にしない)で良いかYuma承認待ち→OKならこの路線で量産。(2) **Phase 3=文章力の随時ブラッシュアップ自動化**(フォロー/ブクマした人の文体を週次で吸い上げ手本を厚くする。x-bookmarks→style_exemplars.jsonlの生成スクリプト新設＋週1 launchd)。(3) 実機での下書き生成確認(launchd経路。セッション内はclaude CLI空応答地雷に注意)。",
       "blockers": [
         "Gemini Flash 503 が終日多発。interview/analyze pipeline は全て Ollama fallback で動作。時間により変動する",
         "別セッションが qwen3:14b 段階ロールアウト中(env var SNS_AUTO_LLM_MODEL)。interview_topic.py と analyze_hit_patterns.py はこれを明示指定済み、互換"
