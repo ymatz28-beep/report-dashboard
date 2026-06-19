@@ -10,6 +10,41 @@
   },
   "projects": [
     {
+      "name": "cisco-os",
+      "layer": "l2",
+      "layer_label": "Layer 2 / Cisco業務",
+      "days_inactive": 0,
+      "last_commit": "2026-06-19",
+      "tier": "HOT",
+      "now": "Cisco 業務 PJ（内容非公開）",
+      "last": "",
+      "next": "",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 1,
+      "automation_jobs": [
+        "com.yuma.leader-digest"
+      ]
+    },
+    {
+      "name": "health-tracker",
+      "layer": "l1",
+      "layer_label": "Layer 1 / 毎日自動",
+      "days_inactive": 0,
+      "last_commit": "2026-06-19",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "Apple Shortcuts側の構築が未着手（iPhone操作必要）",
+        "NFCタグ未購入（Amazon、約1000円）"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "inbox-zero",
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
@@ -174,41 +209,6 @@
       "next": "",
       "blockers": [
         "なし"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "cisco-os",
-      "layer": "l2",
-      "layer_label": "Layer 2 / Cisco業務",
-      "days_inactive": 1,
-      "last_commit": "2026-06-18",
-      "tier": "HOT",
-      "now": "Cisco 業務 PJ（内容非公開）",
-      "last": "",
-      "next": "",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 1,
-      "automation_jobs": [
-        "com.yuma.leader-digest"
-      ]
-    },
-    {
-      "name": "health-tracker",
-      "layer": "l1",
-      "layer_label": "Layer 1 / 毎日自動",
-      "days_inactive": 1,
-      "last_commit": "2026-06-18",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "Apple Shortcuts側の構築が未着手（iPhone操作必要）",
-        "NFCタグ未購入（Amazon、約1000円）"
       ],
       "next_actions": [],
       "automation_count": 0,
