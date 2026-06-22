@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22 18:07",
+  "generated_at": "2026-06-22 18:11",
   "summary": {
     "total": 21,
     "hot": 9,
@@ -99,14 +99,15 @@
       "days_inactive": 0,
       "last_commit": "2026-06-22",
       "tier": "HOT",
-      "now": "Obsidian vaultがCC（Claude Code）からも直接読み書きできる状態になった。mcp__obsidian__*ツールでvault内のファイルをCCセッションから操作可能",
-      "last": "obsidian-mcp を ~/.claude.json に登録。iuma-vault全体をCCから参照・作成・更新できるようになった（プラグイン不要・APIキー不要）",
-      "next": "CC × Obsidian の実用ユースケースを試す。例：Stopフックで決定事項を日次メモへ自動追記（Phase 2）",
+      "now": "claude-obsidianプラグイン(v1.9.2)インストール済み。/wiki ingest query: /save /autoresearch の5スキルが全CCセッションで使える",
+      "last": "WIKI.mdをiuma-vaultに配置、transport.json(filesystem優先)設定。次回セッションで /wiki を実行するとwiki構造（wiki/index.md, hot.md, log.md等）がiuma-vaultにスキャフォールドされる",
+      "next": "Macに Obsidian アプリを入れる（任意）→ /wiki を打って第二の脳を初期化する（1コマンドで完了）",
       "blockers": [
         "なし（MacアプリのインストールはYumaの1アクションのみ）"
       ],
       "next_actions": [
-        "MacにObsidianアプリを入れる（https://obsidian.md 、無料）→ 起動して「フォルダをvaultとして開く」で iCloud の iuma-vault を指定",
+        "第二の脳を初期化: 任意のCCセッションで `/wiki` と打つ → \"What is this vault for?\" と聞かれるので答えるだけ → wiki構造が自動生成され",
+        "MacにObsidianアプリを入れる（任意・後回しOK）: https://obsidian.md 、無料",
         "iPhoneのObsidianを開いて iuma-vault が出てくるか確認（出れば同期成功の確定）",
         "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
         "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
