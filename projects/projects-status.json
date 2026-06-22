@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22 16:24",
+  "generated_at": "2026-06-22 18:03",
   "summary": {
     "total": 21,
-    "hot": 8,
-    "warm": 4,
+    "hot": 9,
+    "warm": 3,
     "cold": 2,
     "sleep": 7,
     "freeze_candidates": 7
@@ -89,6 +89,28 @@
         "なし（現時点で進行可能状態）"
       ],
       "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "obsidian",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-06-22",
+      "tier": "HOT",
+      "now": "Obsidian vaultがCC（Claude Code）からも直接読み書きできる状態になった。mcp__obsidian__*ツールでvault内のファイルをCCセッションから操作可能",
+      "last": "obsidian-mcp を ~/.claude.json に登録。iuma-vault全体をCCから参照・作成・更新できるようになった（プラグイン不要・APIキー不要）",
+      "next": "CC × Obsidian の実用ユースケースを試す。例：Stopフックで決定事項を日次メモへ自動追記（Phase 2）",
+      "blockers": [
+        "なし（MacアプリのインストールはYumaの1アクションのみ）"
+      ],
+      "next_actions": [
+        "MacにObsidianアプリを入れる（https://obsidian.md 、無料）→ 起動して「フォルダをvaultとして開く」で iCloud の iuma-vault を指定",
+        "iPhoneのObsidianを開いて iuma-vault が出てくるか確認（出れば同期成功の確定）",
+        "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
+        "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
+      ],
       "automation_count": 0,
       "automation_jobs": []
     },
@@ -226,28 +248,6 @@
       "next": "Step 4 保留（slides/s*.js の旧バージョンファイルを削除済み）。次の四半期更新時に FY26Q4.json をコピーして FY27Q1.json を作成し node scripts/new-quarter.js FY27Q1 で雛形生成する流れ",
       "blockers": [],
       "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "obsidian",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 5,
-      "last_commit": "2026-06-17",
-      "tier": "WARM",
-      "now": "Obsidianを「第二の脳」として日常遣いする立ち上げ中。メモを入れる箱（vault）はもう完成",
-      "last": "昨夜、Mac・iPhone・Claudeで同じノートを共有する箱をiCloud上に作って同期も繋いだ",
-      "next": "MacにObsidianアプリを入れて、その箱を開く（君の手数はこれだけ）",
-      "blockers": [
-        "なし（MacアプリのインストールはYumaの1アクションのみ）"
-      ],
-      "next_actions": [
-        "MacにObsidianアプリを入れる（https://obsidian.md 、無料）→ 起動して「フォルダをvaultとして開く」で iCloud の iuma-vault を指定",
-        "iPhoneのObsidianを開いて iuma-vault が出てくるか確認（出れば同期成功の確定）",
-        "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
-        "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
-      ],
       "automation_count": 0,
       "automation_jobs": []
     },
