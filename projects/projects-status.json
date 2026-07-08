@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-08 17:55",
+  "generated_at": "2026-07-08 22:03",
   "summary": {
-    "total": 21,
-    "hot": 12,
+    "total": 22,
+    "hot": 13,
     "warm": 0,
     "cold": 2,
     "sleep": 7,
@@ -203,6 +203,21 @@
         "com.yuma.sns-reply-watch",
         "com.yuma.llm-model-review"
       ]
+    },
+    {
+      "name": "stock-autotrader",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-07-08",
+      "tier": "HOT",
+      "now": "Phase 1 実装完了（Alpaca paper 専用）。単体テスト green。Alpaca paper キー未発行のため実データ疎通は未検証",
+      "last": "2026-07-08 プロジェクト新規作成。au カブコム(現・三菱UFJ eスマート証券) kabuステーション API は Windows アプリ必須で Mac 単体不可と判定 → 実装見送り（README に調査記録）",
+      "next": "1. Yuma が Alpaca 口座作成 + Paper API キー発行 → .env 記入 2. run_backtest.py で実データバックテスト 3. run_paper.py を米国市場時間に手動起動して観測開始",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
     },
     {
       "name": "trading-bot",
