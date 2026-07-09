@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09 10:30",
+  "generated_at": "2026-07-09 10:43",
   "summary": {
     "total": 22,
     "hot": 13,
@@ -16,9 +16,9 @@
       "days_inactive": 0,
       "last_commit": "2026-07-09",
       "tier": "HOT",
-      "now": "**4戦略すべて実データ検証済みで、どれも年率+10%フロアに全く届かない**（目標は年率+10〜20%）。年率換算（eval 2024-07 -> 2026-07、~500営業日）: 1. SMAクロス ≈ 0%/yr（AAPL +0.33 / MSFT -0.67 / SPY +0.86%/yr） 2. ローテーション素 **-2.87%/yr** 3. ローテーション+テクニカルフィルター **-3.66%/yr**（悪化） 4. **固定%利確/損切り（beku_AI記事テンプレ: GC買い+建値からTP/SL、シグナル反転を待たない）も -2.7〜+1.4%/yr で誤差レベル**。14銘柄（AAPL/MSFT/SPY + 11セクターETF）× 3パラメータ組（TP8/SL4, TP10/SL5, TP15/SL8）全42通りでフロア未達。maxDDは1-3%に激減（10%allocで早期損切りするので当然）が、リターンがほぼゼロなので意味なし。唯一AAPL TP10/SL5がSharpe 1.01 vs buy&hold 0.68で勝つが、他銘柄・他パラメータで再現せず頑健性なし",
-      "last": "2026-07-08 固定%TP/SL出口の第4バリアント実装: strategy.py に tp_sl_exit_reason()/tp_sl_exit()（純関数、閾値判定はfloat誤差回避のためreturn比で比較）、backtest.py に TpSlBacktestResult/run_tpsl_backtest/run_tpsl_walk_forward（GCエントリーはsignal_series再利用、出口はTP/SLのみ・デスクロス無視）、scripts/run_tpsl_backtest.py（--rotation-universe で11ETFも）、config tp_sl.param_sets（in-sampleグリッドサーチ禁止、R:R~1:2の常識値3組固定）。tests 21件追加（計89 green）。既存3戦略は無変更",
-      "next": "1. **意思決定**: 出口機構を変えても結論不変 — 現行4戦略とも paper 運用の根拠なし。TP/SL路線もこの窓では打ち切り推奨 2. 評価期間が弱気相場含みなので、強気期間を含む長期データ（--years 5+、Alpaca IEXの取得可能範囲を要確認）での再検証が先 3. それでも届かない場合、戦略クラス自体の再選定（Phase 2判断）",
+      "now": "**第5戦略（フルデプロイ型トレンドフォロー、15ETF）も実データでフロア未達 — 5戦略連続で年率+10%フロアに届かず**。結果（eval 2024-04-24 -> 2026-07-08、552 bars、warmup 200）: 年率 **-2.15%/yr** vs equal-weight buy&hold +5.96%/yr（edge -18.17pt total）、Sharpe -0.09 vs 0.42、maxDD 17.52% vs 19.78%、walk-forward 3セグメント全て edge 負（-5.88 / -6.27 / -7.40pt）。**配分バグ（flat 10% alloc）は実在したが敗因ではない**: 平均エクスポージャー66.8%（中央値78.7%）まで資本は入っていた。敗因はSMA(10/30)クロスがセクターETF群でwhipsawすること。唯一の陽性データ点: **SPY単独 + ほぼ全額投入なら +13%/yr、Sharpe 1.42 vs 1.16、maxDD 6.4% vs 19.0%**（新エンジンでも旧run_backtest --alloc-pct 0.95でも再現）— ただし1銘柄・1窓・5-6トレードで統計的検出力なし、raw returnはbuy&hold +19.4%/yrに依然劣後",
+      "last": "2026-07-09 第5戦略実装+配分バグ再検証: sizing.py に vol-target/trend-graduated sizing 純関数5つ（realized_vol_annualized/vol_scalar/trend_multiplier/trend_alloc_pct/cap_allocations、flat position_qty は無変更で併存）、backtest.py に TrendBacktestResult/run_trend_backtest/run_trend_walk_forward（マルチシンボル、月次リサイズ、0.95露出キャップ）、scripts/run_trend_backtest.py、config trend セクション追加。run_backtest.py/run_tpsl_backtest.py に --alloc-pct フラグ追加（戦略1/4のフルデプロイ再検証用）。戦略1@0.95: SPY +13.4%/yr・maxDD 5.15%（audit通り）だが AAPL は +2.8%/yr vs buy&hold +17.2%/yr でシグナル欠陥確定。戦略4@0.95: AAPL TP10/SL5 のみ +15.5%/yr でフロア突破もフロック確定（隣接パラメータ +0.2 / +4.2%/yr、SPY/MSFT全滅）。tests 36件追加（計125 green）。既存4戦略は無変更",
+      "next": "1. **意思決定（Yuma判断）**: 15ETFユニバース案は棄却。残る候補は (a) SPY単独トレンドフォロー（+13%/yr・Sharpe/DD大幅優位だがフロアぎりぎり・検出力なし）を paper で検証するか (b) buy&hold ベンチマーク自体を戦略として受け入れるか (c) Phase 2 で戦略クラス再選定 2. どの道でも下の Rollout Gate 基準案の確認が先 3. scripts/_scratch_alloc_audit.py は所見反映済みなので削除可（Tier 3なのでYuma判断）",
       "blockers": [],
       "next_actions": [],
       "automation_count": 0,
