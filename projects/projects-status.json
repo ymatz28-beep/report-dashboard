@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13 10:01",
+  "generated_at": "2026-07-13 14:49",
   "summary": {
     "total": 22,
-    "hot": 10,
-    "warm": 3,
+    "hot": 11,
+    "warm": 2,
     "cold": 2,
     "sleep": 7,
     "freeze_candidates": 9
@@ -117,6 +117,24 @@
         "com.yuma.sns-reply-watch",
         "com.yuma.llm-model-review"
       ]
+    },
+    {
+      "name": "trading-bot",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-07-13",
+      "tier": "HOT",
+      "now": "**KILLED（2026-06-17）**。launchd 全停止（plist を _disabled_trading_bot/ に退避）。コードは保持。",
+      "last": "2ヶ月 dry-run 稼働。劣化し続けたため停止判断。Aikeruネタとして完結。",
+      "next": "なし。実験終了。",
+      "blockers": [
+        "Yuma台北滞在中（4/17-4/19）、インヴァスト証券サイトがCloudflare WAFで海外IP遮断 → 口座開設は4/20帰国後",
+        "bitbank API key 発行は live 移行時のみ必要"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
     },
     {
       "name": "wealth-strategy",
@@ -265,24 +283,6 @@
         "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
         "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
       ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "trading-bot",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 5,
-      "last_commit": "2026-07-08",
-      "tier": "WARM",
-      "now": "**KILLED（2026-06-17）**。launchd 全停止（plist を _disabled_trading_bot/ に退避）。コードは保持。",
-      "last": "2ヶ月 dry-run 稼働。劣化し続けたため停止判断。Aikeruネタとして完結。",
-      "next": "なし。実験終了。",
-      "blockers": [
-        "Yuma台北滞在中（4/17-4/19）、インヴァスト証券サイトがCloudflare WAFで海外IP遮断 → 口座開設は4/20帰国後",
-        "bitbank API key 発行は live 移行時のみ必要"
-      ],
-      "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
     },
