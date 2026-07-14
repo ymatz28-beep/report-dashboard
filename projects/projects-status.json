@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-14 08:30",
+  "generated_at": "2026-07-14 18:46",
   "summary": {
-    "total": 22,
-    "hot": 10,
+    "total": 21,
+    "hot": 9,
     "warm": 3,
     "cold": 0,
     "sleep": 9,
@@ -142,24 +142,6 @@
         "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
         "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
       ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "trading-bot",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-07-13",
-      "tier": "HOT",
-      "now": "**KILLED（2026-06-17）**。launchd 全停止（plist を _disabled_trading_bot/ に退避）。コードは保持。",
-      "last": "2ヶ月 dry-run 稼働。劣化し続けたため停止判断。Aikeruネタとして完結。",
-      "next": "なし。実験終了。",
-      "blockers": [
-        "Yuma台北滞在中（4/17-4/19）、インヴァスト証券サイトがCloudflare WAFで海外IP遮断 → 口座開設は4/20帰国後",
-        "bitbank API key 発行は live 移行時のみ必要"
-      ],
-      "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
     },
