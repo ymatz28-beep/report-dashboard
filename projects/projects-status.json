@@ -1,14 +1,31 @@
 {
-  "generated_at": "2026-07-19 22:06",
+  "generated_at": "2026-07-19 22:35",
   "summary": {
     "total": 21,
-    "hot": 5,
-    "warm": 7,
+    "hot": 6,
+    "warm": 6,
     "cold": 0,
     "sleep": 9,
     "freeze_candidates": 9
   },
   "projects": [
+    {
+      "name": "aikeru",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-07-19",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "なし"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
     {
       "name": "inbox-zero",
       "layer": "l1",
@@ -228,23 +245,6 @@
         "チサン博多返済計画表: 未確定(≒¥100k/月の推定値使用中)",
         "Drive MCP: 壊れたまま。OAuth curl直接API or Drive Desktopで迂回",
         "daily-digest plist: ユーザーがStandardOutPathを~/Documents/に戻しRunAtLoad削除。TCC再発の可能性"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "aikeru",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 7,
-      "last_commit": "2026-07-12",
-      "tier": "WARM",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "なし"
       ],
       "next_actions": [],
       "automation_count": 0,
