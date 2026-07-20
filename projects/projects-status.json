@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20 14:16",
+  "generated_at": "2026-07-20 15:24",
   "summary": {
     "total": 21,
     "hot": 6,
@@ -9,6 +9,60 @@
     "freeze_candidates": 9
   },
   "projects": [
+    {
+      "name": "self-insight",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-07-20",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "generate_dashboard.py 3,500+ 行で肥大化（ファイル分割が必要。現在 [WARN]）",
+        "相性診断機能 generate_compatibility.py は作成済みだが未実行・未デプロイ",
+        "母・妹が iuma-private を見るなら Access 設定確認が必要"
+      ],
+      "next_actions": [
+        "renderer.js動作テスト: Tier 1即時体験（生年月日のみ→リッチ結果表示）の本番品質化は完了。ブラウザ実機テストで全辞書・ナラティブ・チャートが正常表示されるか確認",
+        "相性診断の動作テスト+バイラル機能強化: compatibility.htmlのconst重複修正済み → 動作確認 + シェアカード→招待リンク→友達流入のバイラルループ検証",
+        "E2Eフロー完成: フォーム送信→Google Sheets蓄積が未確認（no-cors修正済み、再テスト必要）",
+        "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
+        "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
+      ],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "sns-auto",
+      "layer": "l1",
+      "layer_label": "Layer 1 / 毎日自動",
+      "days_inactive": 0,
+      "last_commit": "2026-07-20",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "Gemini Flash 503 が終日多発。interview/analyze pipeline は全て Ollama fallback で動作。時間により変動する",
+        "別セッションが qwen3:14b 段階ロールアウト中(env var SNS_AUTO_LLM_MODEL)。interview_topic.py と analyze_hit_patterns.py はこれを明示指定済み、互換"
+      ],
+      "next_actions": [
+        "朝メール目視: 今朝の9a26d53 commit の target_persona 注入が実投稿に効いているか確認。topic-008(D=Cペア) の194字業務ペイン共感",
+        "Yuma 別ターミナルで interview 対話体験: `cd ~/Documents/Projects/sns-auto && .venv/bin/python scripts/interview_topic.py",
+        "hit_patterns 本採用判定: Yuma 対話で `SNS_AUTO_HIT_PATTERNS=1 python scripts/interview_topic.py ...` で ON 実行",
+        "scripts/enrich_topics_with_persona.py の処遇: interview 型で完全置換済み。deprecated リネーム or 削除判定",
+        "残り pending topic への interview 段階拡大: 高優先 10件目標、毎朝1-3件ペースで 1-2週間"
+      ],
+      "automation_count": 4,
+      "automation_jobs": [
+        "com.yuma.sns-enrich",
+        "com.yuma.sns-draft-and-send",
+        "com.yuma.sns-reply-watch",
+        "com.yuma.llm-model-review"
+      ]
+    },
     {
       "name": "aikeru",
       "layer": "l3",
@@ -55,60 +109,6 @@
         "com.yuma.cleanup-sent-auto-replies",
         "com.yuma.archive-digests",
         "com.yuma.inbox-watchdog"
-      ]
-    },
-    {
-      "name": "self-insight",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 1,
-      "last_commit": "2026-07-19",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "generate_dashboard.py 3,500+ 行で肥大化（ファイル分割が必要。現在 [WARN]）",
-        "相性診断機能 generate_compatibility.py は作成済みだが未実行・未デプロイ",
-        "母・妹が iuma-private を見るなら Access 設定確認が必要"
-      ],
-      "next_actions": [
-        "renderer.js動作テスト: Tier 1即時体験（生年月日のみ→リッチ結果表示）の本番品質化は完了。ブラウザ実機テストで全辞書・ナラティブ・チャートが正常表示されるか確認",
-        "相性診断の動作テスト+バイラル機能強化: compatibility.htmlのconst重複修正済み → 動作確認 + シェアカード→招待リンク→友達流入のバイラルループ検証",
-        "E2Eフロー完成: フォーム送信→Google Sheets蓄積が未確認（no-cors修正済み、再テスト必要）",
-        "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
-        "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
-      ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "sns-auto",
-      "layer": "l1",
-      "layer_label": "Layer 1 / 毎日自動",
-      "days_inactive": 1,
-      "last_commit": "2026-07-19",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "Gemini Flash 503 が終日多発。interview/analyze pipeline は全て Ollama fallback で動作。時間により変動する",
-        "別セッションが qwen3:14b 段階ロールアウト中(env var SNS_AUTO_LLM_MODEL)。interview_topic.py と analyze_hit_patterns.py はこれを明示指定済み、互換"
-      ],
-      "next_actions": [
-        "朝メール目視: 今朝の9a26d53 commit の target_persona 注入が実投稿に効いているか確認。topic-008(D=Cペア) の194字業務ペイン共感",
-        "Yuma 別ターミナルで interview 対話体験: `cd ~/Documents/Projects/sns-auto && .venv/bin/python scripts/interview_topic.py",
-        "hit_patterns 本採用判定: Yuma 対話で `SNS_AUTO_HIT_PATTERNS=1 python scripts/interview_topic.py ...` で ON 実行",
-        "scripts/enrich_topics_with_persona.py の処遇: interview 型で完全置換済み。deprecated リネーム or 削除判定",
-        "残り pending topic への interview 段階拡大: 高優先 10件目標、毎朝1-3件ペースで 1-2週間"
-      ],
-      "automation_count": 4,
-      "automation_jobs": [
-        "com.yuma.sns-enrich",
-        "com.yuma.sns-draft-and-send",
-        "com.yuma.sns-reply-watch",
-        "com.yuma.llm-model-review"
       ]
     },
     {
