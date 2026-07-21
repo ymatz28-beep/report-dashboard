@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21 11:08",
+  "generated_at": "2026-07-21 15:17",
   "summary": {
     "total": 21,
     "hot": 6,
@@ -9,6 +9,54 @@
     "freeze_candidates": 9
   },
   "projects": [
+    {
+      "name": "aikeru",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-07-21",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "なし"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "inbox-zero",
+      "layer": "l1",
+      "layer_label": "Layer 1 / 毎日自動",
+      "days_inactive": 0,
+      "last_commit": "2026-07-21",
+      "tier": "HOT",
+      "now": "返信下書きをクラウド(GitHub Actions)へ移行完了・明朝7時から30分おき(日中のみ)で稼働・従量課金なし(Claude定額CLIはローカルのみ/クラウドはGemini自動切替)",
+      "last": "不完全だったcutoverを完全化（launchd停止だけだと auto_recovery が蘇生→manifest 3箇所 enabled:false）・誤警報の根本除去・古いテスト9件修正(36 passed)・kaizen lib鏡像同期＋メール色の誤変更revert",
+      "next": "安定運用の見守り（明朝7時の初回クラウド実行が緑か / agent_memory が commit-back で鮮度維持されるか）。問題なければ追加作業なし",
+      "blockers": [
+        "OAuth token: GitHub Secret GMAIL_TOKEN にrefresh_token格納。Google側でrevoke時は再認証必要",
+        "ANTHROPIC_API_KEY: GitHub Secret",
+        "GHA上ではLINE通知不可（lib/line_notify.pyが存在しない）→ Gmail下書きのみ"
+      ],
+      "next_actions": [
+        "[ブロッキング／Yuma 手動] Gmail UI で手動フィルタ1本作成: label:auto/promotional → 受信トレイをスキップ（下記手順参照）。これやらないと Step 2 の効果ゼロ",
+        "[任意] .venv/bin/python cleanup_archive_filters.py で過去 migrate_to_gmail_filters.py が作った Gmail 側 archive フィルタを削除（STAR_PROTECT 系は温存）",
+        "[2026-05-02 ≈ 2週間後] auto/* の誤分類件数レビュー（Yuma が inbox で目視サンプリング）。特に auto/promotional 事例は何だったか確認",
+        "[2026-05-02] 2週間問題なければ clean_inbox.py.disabled / patrol_inbox.py.disabled / migrate_to_gmail_filters.py.disabled / auto_whitelist.json / rescue_tracker.json を削除",
+        "[資産移植] config.py の NOISE_DOMAINS / AD_PATTERNS / NOISE_SENDERS を classify-inbox のラベル判定に移植（現状未使用で残存）"
+      ],
+      "automation_count": 5,
+      "automation_jobs": [
+        "com.yuma.classify-inbox",
+        "com.yuma.rescue-otp",
+        "com.yuma.cleanup-sent-auto-replies",
+        "com.yuma.archive-digests",
+        "com.yuma.inbox-watchdog"
+      ]
+    },
     {
       "name": "self-insight",
       "layer": "l3",
@@ -95,54 +143,6 @@
         "com.yuma.sns-draft-and-send",
         "com.yuma.sns-reply-watch",
         "com.yuma.llm-model-review"
-      ]
-    },
-    {
-      "name": "aikeru",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 2,
-      "last_commit": "2026-07-19",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "なし"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "inbox-zero",
-      "layer": "l1",
-      "layer_label": "Layer 1 / 毎日自動",
-      "days_inactive": 2,
-      "last_commit": "2026-07-19",
-      "tier": "HOT",
-      "now": "返信下書きをクラウド(GitHub Actions)へ移行完了・明朝7時から30分おき(日中のみ)で稼働・従量課金なし(Claude定額CLIはローカルのみ/クラウドはGemini自動切替)",
-      "last": "不完全だったcutoverを完全化（launchd停止だけだと auto_recovery が蘇生→manifest 3箇所 enabled:false）・誤警報の根本除去・古いテスト9件修正(36 passed)・kaizen lib鏡像同期＋メール色の誤変更revert",
-      "next": "安定運用の見守り（明朝7時の初回クラウド実行が緑か / agent_memory が commit-back で鮮度維持されるか）。問題なければ追加作業なし",
-      "blockers": [
-        "OAuth token: GitHub Secret GMAIL_TOKEN にrefresh_token格納。Google側でrevoke時は再認証必要",
-        "ANTHROPIC_API_KEY: GitHub Secret",
-        "GHA上ではLINE通知不可（lib/line_notify.pyが存在しない）→ Gmail下書きのみ"
-      ],
-      "next_actions": [
-        "[ブロッキング／Yuma 手動] Gmail UI で手動フィルタ1本作成: label:auto/promotional → 受信トレイをスキップ（下記手順参照）。これやらないと Step 2 の効果ゼロ",
-        "[任意] .venv/bin/python cleanup_archive_filters.py で過去 migrate_to_gmail_filters.py が作った Gmail 側 archive フィルタを削除（STAR_PROTECT 系は温存）",
-        "[2026-05-02 ≈ 2週間後] auto/* の誤分類件数レビュー（Yuma が inbox で目視サンプリング）。特に auto/promotional 事例は何だったか確認",
-        "[2026-05-02] 2週間問題なければ clean_inbox.py.disabled / patrol_inbox.py.disabled / migrate_to_gmail_filters.py.disabled / auto_whitelist.json / rescue_tracker.json を削除",
-        "[資産移植] config.py の NOISE_DOMAINS / AD_PATTERNS / NOISE_SENDERS を classify-inbox のラベル判定に移植（現状未使用で残存）"
-      ],
-      "automation_count": 5,
-      "automation_jobs": [
-        "com.yuma.classify-inbox",
-        "com.yuma.rescue-otp",
-        "com.yuma.cleanup-sent-auto-replies",
-        "com.yuma.archive-digests",
-        "com.yuma.inbox-watchdog"
       ]
     },
     {
