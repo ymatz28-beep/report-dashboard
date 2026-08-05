@@ -2,13 +2,47 @@
   "generated_at": "2026-08-05 20:02",
   "summary": {
     "total": 21,
-    "hot": 5,
-    "warm": 7,
+    "hot": 7,
+    "warm": 5,
     "cold": 0,
     "sleep": 9,
     "freeze_candidates": 9
   },
   "projects": [
+    {
+      "name": "aikeru",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-08-05",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "なし"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "cisco-os",
+      "layer": "l2",
+      "layer_label": "Layer 2 / Cisco業務",
+      "days_inactive": 0,
+      "last_commit": "2026-08-05",
+      "tier": "HOT",
+      "now": "Cisco 業務 PJ（内容非公開）",
+      "last": "",
+      "next": "",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 1,
+      "automation_jobs": [
+        "com.yuma.leader-digest"
+      ]
+    },
     {
       "name": "inbox-zero",
       "layer": "l1",
@@ -153,40 +187,6 @@
         "com.yuma.xbookmarks",
         "com.yuma.xbookmarks-weekly",
         "com.yuma.sns-style-refresh"
-      ]
-    },
-    {
-      "name": "aikeru",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 5,
-      "last_commit": "2026-07-31",
-      "tier": "WARM",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "なし"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "cisco-os",
-      "layer": "l2",
-      "layer_label": "Layer 2 / Cisco業務",
-      "days_inactive": 5,
-      "last_commit": "2026-07-31",
-      "tier": "WARM",
-      "now": "Cisco 業務 PJ（内容非公開）",
-      "last": "",
-      "next": "",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 1,
-      "automation_jobs": [
-        "com.yuma.leader-digest"
       ]
     },
     {
