@@ -1,72 +1,20 @@
 {
-  "generated_at": "2026-07-31 12:38",
+  "generated_at": "2026-08-05 20:02",
   "summary": {
     "total": 21,
-    "hot": 12,
-    "warm": 0,
+    "hot": 5,
+    "warm": 7,
     "cold": 0,
     "sleep": 9,
     "freeze_candidates": 9
   },
   "projects": [
     {
-      "name": "aikeru",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "なし"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "cisco-os",
-      "layer": "l2",
-      "layer_label": "Layer 2 / Cisco業務",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "Cisco 業務 PJ（内容非公開）",
-      "last": "",
-      "next": "",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 1,
-      "automation_jobs": [
-        "com.yuma.leader-digest"
-      ]
-    },
-    {
-      "name": "health-tracker",
-      "layer": "l1",
-      "layer_label": "Layer 1 / 毎日自動",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "Apple Shortcuts側の構築が未着手（iPhone操作必要）",
-        "NFCタグ未購入（Amazon、約1000円）"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "inbox-zero",
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
       "days_inactive": 0,
-      "last_commit": "2026-07-31",
+      "last_commit": "2026-08-05",
       "tier": "HOT",
       "now": "返信下書きをクラウド(GitHub Actions)へ移行完了・明朝7時から30分おき(日中のみ)で稼働・従量課金なし(Claude定額CLIはローカルのみ/クラウドはGemini自動切替)",
       "last": "不完全だったcutoverを完全化（launchd停止だけだと auto_recovery が蘇生→manifest 3箇所 enabled:false）・誤警報の根本除去・古いテスト9件修正(36 passed)・kaizen lib鏡像同期＋メール色の誤変更revert",
@@ -97,11 +45,11 @@
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
       "days_inactive": 0,
-      "last_commit": "2026-07-31",
+      "last_commit": "2026-08-05",
       "tier": "HOT",
-      "now": "家族カルテ v14（2026-07-17）を iuma-family.pages.dev に deploy 完了・実機確認済み。確定診断（頸椎・胸椎多発骨転移 C1・C2・C5・C6・T11・T12、2026-04-28）+ 現行治療（キイトルーダ+ランマーク）が「管理できる慢性病」として安定運用中",
-      "last": "妹ヒアリングメモ（引っ越し中の背部痛「グネった」、背骨5・6番目/12番目の「白い膜」、腰椎の「黒い」所見）を Fable（claude-fable-5）文献レビュー付きで統合。**作業中に発見**: ケースファイル（data/cases/tejima_shizuka.md）が§6.7（35-55%確率、2026-04-23時点）で3ヶ月止まっており、index.htmlには既に反映済みの確定診断が未記載だった → §6.7bとして確定診断・経過をケースファイルに backfill し SSoT ギャップを解消。妹メモの「12番目」は確定病変(T12)と一致、「5・6番目」「腰椎の黒」は確定病変リストに無く要確認と整理",
-      "next": "(1) 母の次回受診（山下先生 or 牛丸先生）で index.html #ask-doctor の新規3問（T5/T6・T12照合、腰椎所見、引っ越し中の負荷）を確認、(2) 回答が出たら v15 で反映、(3) HANDOFF.md 過去分の Next Actions 棚卸し（archive参照、大半は2026-04-28確定診断で完了済のはず）",
+      "now": "家族カルテ v15（2026-08-05）を iuma-family.pages.dev に deploy 完了、ブラウザのタブタイトル一致で反映確認済み（get_page_textはページ側の常時通信でタイムアウトするツール制約あり、タイトル照合で代替）。確定診断（頸椎・胸椎多発骨転移 C1・C2・C5・C6・T11・T12、2026-04-28）+ 現行治療（キイトルーダ+ランマーク）が「管理できる慢性病」として安定運用中",
+      "last": "Yumaから新規症状報告を3段階で受領・都度反映——(1) 疼痛部位が背中上部→中央〜腰の手前(確定病変T11・T12より尾側)へ移動、強度が波打つ、(2) 歩行程度はむしろ調子が良く荷造り等の前かがみ・ひねり・持ち上げ動作でのみ誘発、(3) 2026-08-04夜、テレビ鑑賞中に畳に座っている(床座り)時にも強い痛みが出た＝運動負荷でなく屈曲位という姿勢そのものが誘発因子の可能性。Fable（claude-fable-5）文献レビューで「機械的疼痛/incident pain」「SINS（脊椎不安定性スコア）」「胸腰椎移行部の関連痛」「椎体の荷重/強度比」を整理（ケースファイル§6.10新設、§9.1・§10.4追記）。index.htmlに反映しv15を3回再deploy",
+      "next": "(1) 2026-08-06 山下先生受診で §10.4 の6問（痛みの場所の説明、機械的疼痛パターンの評価=歩行可・屈曲位で誘発、SINS等での安定度、避けるべき動作・座り方=床座り/椅子、予防的鎮痛、危険サイン）を確認、(2) 回答が出たら v16 で反映、(3) v14以前に積み残した確認事項（T5/T6・T12照合、腰椎所見の正式表記、リハビリ紹介）も同じ受診でまとめて確認",
       "blockers": [
         "なし"
       ],
@@ -110,59 +58,11 @@
       "automation_jobs": []
     },
     {
-      "name": "obsidian",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "claude-obsidianプラグイン(v1.9.2)インストール済み。/wiki ingest query: /save /autoresearch の5スキルが全CCセッションで使える",
-      "last": "WIKI.mdをiuma-vaultに配置、transport.json(filesystem優先)設定。次回セッションで /wiki を実行するとwiki構造（wiki/index.md, hot.md, log.md等）がiuma-vaultにスキャフォールドされる",
-      "next": "Macに Obsidian アプリを入れる（任意）→ /wiki を打って第二の脳を初期化する（1コマンドで完了）",
-      "blockers": [
-        "なし（MacアプリのインストールはYumaの1アクションのみ）"
-      ],
-      "next_actions": [
-        "第二の脳を初期化: 任意のCCセッションで `/wiki` と打つ → \"What is this vault for?\" と聞かれるので答えるだけ → wiki構造が自動生成され",
-        "MacにObsidianアプリを入れる（任意・後回しOK）: https://obsidian.md 、無料",
-        "iPhoneのObsidianを開いて iuma-vault が出てくるか確認（出れば同期成功の確定）",
-        "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
-        "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
-      ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "self-insight",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "generate_dashboard.py 3,500+ 行で肥大化（ファイル分割が必要。現在 [WARN]）",
-        "相性診断機能 generate_compatibility.py は作成済みだが未実行・未デプロイ",
-        "母・妹が iuma-private を見るなら Access 設定確認が必要"
-      ],
-      "next_actions": [
-        "renderer.js動作テスト: Tier 1即時体験（生年月日のみ→リッチ結果表示）の本番品質化は完了。ブラウザ実機テストで全辞書・ナラティブ・チャートが正常表示されるか確認",
-        "相性診断の動作テスト+バイラル機能強化: compatibility.htmlのconst重複修正済み → 動作確認 + シェアカード→招待リンク→友達流入のバイラルループ検証",
-        "E2Eフロー完成: フォーム送信→Google Sheets蓄積が未確認（no-cors修正済み、再テスト必要）",
-        "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
-        "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
-      ],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "slide-creator",
       "layer": "l2",
       "layer_label": "Layer 2 / Cisco業務",
       "days_inactive": 0,
-      "last_commit": "2026-07-31",
+      "last_commit": "2026-08-05",
       "tier": "HOT",
       "now": "Step 3 完了。データ自動検出 + enabled guard + new-quarter.js が動いている",
       "last": "enabled guard テスト（12枚確認）→ Step 3 実装（FY**Q**.json 自動検出・new-quarter.js）→ コミット済み",
@@ -173,12 +73,46 @@
       "automation_jobs": []
     },
     {
+      "name": "stock-autotrader",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-08-05",
+      "tier": "HOT",
+      "now": "",
+      "last": "2026-07-09 第9戦略実装: src/mention_universe.py（≥3チャンネル/30日窓の純関数、LLM非依存・stock-analyzer import なし）、src/fundamental_screen.py に IS2 移植（insider_net_value/insider_gate_failures、as_of超過取引不可視のpoint-in-time設計。IS1ショート率は日付付きデータ源が無いため意図的に不採用）、src/mention_quality_strategy.py（screen+hold-onlyリバランス計画）、scripts 3本（build_mention_universe.py = stock-analyzer の market_intel.json を読取専用ingest / snapshot_strategy9_fundamentals.py = yfinance凍結・insider分類はText列読み ← **yfinance現行はTransaction列が空で説明文はText列にある。stock-analyzer 側 _fetch_insider_net は Transaction のみ読むため現在サイレントにnet 0を返す潜在バグ（読取専用のため未修正・要横展開）** / run_strategy9_paper.py = dry-runデフォルト+--execute、独自台帳 data/strategy9_positions.json で他戦略のpaperポジションと分離）。第7戦略のログ: src/backtest.py に run_quality_holdonly_backtest/run_quality_holdonly_walk_forwardを追加（第6戦略と同じ fundamental_screen.py ゲート・同じ26銘柄ユニバース・同じ年次5月リフレッシュ/90日filing-lagだが、SMA/月次チェックポイント/min hold/stop-lossを完全排除 — リフレッシュ時に適格を失った銘柄のみ全売却、新規適格銘柄のみequal-weightで新規購入、継続適格銘柄は一切触らない=真のbuy&hold）、scripts/run_quality_holdonly_backtest.py（第6戦略のscriptパターンを踏襲、config quality_trend セクションを再利用）。tests 13件追加（tests/test_quality_holdonly.py、計195 green、既存182温存）。config/LIVE_TRADING/live コードパスは無変更。**未commit（Yumaレビュー待ち）**",
+      "next": "1. **第9戦略の開始判断（Yuma）**: 新ルールで候補がCOHR/MP/NVDAに変化（旧6銘柄から様変わり）。fundamentals/insiderゲート適用後の適格数を確認してからpython scripts/run_strategy9_paper.py --executeの要否を判断 2. 英語2チャンネル（Sven Carlin, Ticker Symbol: YOU）はstock-analyzer側に追加済みだが実クロールはまだ未実行 — 次回stock-analyzerパイプライン稼働時に反映される想定、動画5件スモークテストで疎通確認を推奨 3. 運用ルーチン: stock-analyzer のpipeline実行後に build_mention_universe.py を回す（回さない日は観測されないだけ。市場intel自体2026-07-02から止まっている — stock-analyzer側パイプラインの稼働確認が必要） 4. stock-analyzer _fetch_insider_net の Transaction空列バグを横展開修正（別セッション） 5. 第7戦略の意思決定（前回Next、未消化）: paper候補に乗せるか SPY単独buy&holdに振り切るか + Rollout Gate基準案の確認 6. scripts/_scratch_alloc_audit.py 削除可（Tier 3、Yuma判断）",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "wealth-strategy",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-08-05",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "チサン博多返済計画表: 未確定(≒¥100k/月の推定値使用中)",
+        "Drive MCP: 壊れたまま。OAuth curl直接API or Drive Desktopで迂回",
+        "daily-digest plist: ユーザーがStandardOutPathを~/Documents/に戻しRunAtLoad削除。TCC再発の可能性"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "sns-auto",
       "layer": "l1",
       "layer_label": "Layer 1 / 毎日自動",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
+      "days_inactive": 4,
+      "last_commit": "2026-08-01",
+      "tier": "WARM",
       "now": "",
       "last": "",
       "next": "",
@@ -202,61 +136,17 @@
       ]
     },
     {
-      "name": "stock-autotrader",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "",
-      "last": "2026-07-09 第9戦略実装: src/mention_universe.py（≥3チャンネル/30日窓の純関数、LLM非依存・stock-analyzer import なし）、src/fundamental_screen.py に IS2 移植（insider_net_value/insider_gate_failures、as_of超過取引不可視のpoint-in-time設計。IS1ショート率は日付付きデータ源が無いため意図的に不採用）、src/mention_quality_strategy.py（screen+hold-onlyリバランス計画）、scripts 3本（build_mention_universe.py = stock-analyzer の market_intel.json を読取専用ingest / snapshot_strategy9_fundamentals.py = yfinance凍結・insider分類はText列読み ← **yfinance現行はTransaction列が空で説明文はText列にある。stock-analyzer 側 _fetch_insider_net は Transaction のみ読むため現在サイレントにnet 0を返す潜在バグ（読取専用のため未修正・要横展開）** / run_strategy9_paper.py = dry-runデフォルト+--execute、独自台帳 data/strategy9_positions.json で他戦略のpaperポジションと分離）。第7戦略のログ: src/backtest.py に run_quality_holdonly_backtest/run_quality_holdonly_walk_forwardを追加（第6戦略と同じ fundamental_screen.py ゲート・同じ26銘柄ユニバース・同じ年次5月リフレッシュ/90日filing-lagだが、SMA/月次チェックポイント/min hold/stop-lossを完全排除 — リフレッシュ時に適格を失った銘柄のみ全売却、新規適格銘柄のみequal-weightで新規購入、継続適格銘柄は一切触らない=真のbuy&hold）、scripts/run_quality_holdonly_backtest.py（第6戦略のscriptパターンを踏襲、config quality_trend セクションを再利用）。tests 13件追加（tests/test_quality_holdonly.py、計195 green、既存182温存）。config/LIVE_TRADING/live コードパスは無変更。**未commit（Yumaレビュー待ち）**",
-      "next": "1. **第9戦略の開始判断（Yuma）**: 新ルールで候補がCOHR/MP/NVDAに変化（旧6銘柄から様変わり）。fundamentals/insiderゲート適用後の適格数を確認してからpython scripts/run_strategy9_paper.py --executeの要否を判断 2. 英語2チャンネル（Sven Carlin, Ticker Symbol: YOU）はstock-analyzer側に追加済みだが実クロールはまだ未実行 — 次回stock-analyzerパイプライン稼働時に反映される想定、動画5件スモークテストで疎通確認を推奨 3. 運用ルーチン: stock-analyzer のpipeline実行後に build_mention_universe.py を回す（回さない日は観測されないだけ。市場intel自体2026-07-02から止まっている — stock-analyzer側パイプラインの稼働確認が必要） 4. stock-analyzer _fetch_insider_net の Transaction空列バグを横展開修正（別セッション） 5. 第7戦略の意思決定（前回Next、未消化）: paper候補に乗せるか SPY単独buy&holdに振り切るか + Rollout Gate基準案の確認 6. scripts/_scratch_alloc_audit.py 削除可（Tier 3、Yuma判断）",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "wealth-strategy",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [
-        "チサン博多返済計画表: 未確定(≒¥100k/月の推定値使用中)",
-        "Drive MCP: 壊れたまま。OAuth curl直接API or Drive Desktopで迂回",
-        "daily-digest plist: ユーザーがStandardOutPathを~/Documents/に戻しRunAtLoad削除。TCC再発の可能性"
-      ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
       "name": "x-bookmarks",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 0,
-      "last_commit": "2026-07-31",
-      "tier": "HOT",
-      "now": "dashboard.html がパイプライン全体を正確に表示（採用41/却下560/評価待ち71/未実装41）",
-      "last": "daily_digest.py を修正 — rejected.jsonl(550件)・delta_queue.json(71件)を統計に統合、bookmarks.json JOIN でカード表示修正、implemented.yaml 読み込み修正、4列グリッド化",
-      "next": "別セッションでの実装判断作業に引き継ぎ。(任意) 未実装41件の action_id→スラッグ照合改善",
-      "blockers": [
-        "Haiku返答が valid JSON だが what_is_it/what_it_does 未出力ケース有 → _enrich_missingで原文抽出フォールバック済",
-        "Chinese/Spanish 投稿で Haiku が日本語要約を生成しない場合あり (fallback化)",
-        "MDM配布 (JAMF/Intune) は Cisco IT依頼待ち"
-      ],
-      "next_actions": [
-        "Yuma: PAT再rotate（新PATも会話履歴に残ったため24h以内に regenerate 推奨、https://github.com/settings/personal-access-tokens）",
-        "Yuma: 朝 Daily Brief で AI評価6件レビュー（stock-analyzer×2 / lib×3 / kaizen-agent×1）。target_project 妥当性・scope 妥当性を目視確認",
-        "⑧ Self-healing launchd supervisor（別セッション設計議論）: 今回の fetch 海外VPN問題を全 pipeline（digest / newsletter / x-bookmarks）へ横展開する根本対策",
-        "評価品質モニタリング（1週間後 retro）: LLM判定の精度・target_project 的中率を手動確認、プロンプト微調整",
-        "Claude Code 再起動（GitHub MCP 新PAT反映）"
-      ],
+      "days_inactive": 4,
+      "last_commit": "2026-08-01",
+      "tier": "WARM",
+      "now": "全プロジェクト横断のX Bookmark採用済みエントリ、triage完了(505/505、pending 0、整合性問題0 — python3 verify_adoption.pyで確認済み 2026-08-01)",
+      "last": "sns-auto/x-bookmarks本体/slide-creator の全pending採用候補(計154件)に検討結果を付与。恒久対策として過去セッション履歴(2026-07以前)を handoff-archive-2026-07.md へ分離",
+      "next": "**新規triageセッション開始前に必ず python3 x-bookmarks/verify_adoption.py を実行し、pending件数を確認してから着手する**（0件ならこのセッションでの再精査は不要）。過去の履歴詳細は handoff-archive-2026-07.md 参照",
+      "blockers": [],
+      "next_actions": [],
       "automation_count": 4,
       "automation_jobs": [
         "com.yuma.xbookmarks-daily",
@@ -266,10 +156,110 @@
       ]
     },
     {
+      "name": "aikeru",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 5,
+      "last_commit": "2026-07-31",
+      "tier": "WARM",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "なし"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "cisco-os",
+      "layer": "l2",
+      "layer_label": "Layer 2 / Cisco業務",
+      "days_inactive": 5,
+      "last_commit": "2026-07-31",
+      "tier": "WARM",
+      "now": "Cisco 業務 PJ（内容非公開）",
+      "last": "",
+      "next": "",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 1,
+      "automation_jobs": [
+        "com.yuma.leader-digest"
+      ]
+    },
+    {
+      "name": "health-tracker",
+      "layer": "l1",
+      "layer_label": "Layer 1 / 毎日自動",
+      "days_inactive": 5,
+      "last_commit": "2026-07-31",
+      "tier": "WARM",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "Apple Shortcuts側の構築が未着手（iPhone操作必要）",
+        "NFCタグ未購入（Amazon、約1000円）"
+      ],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "obsidian",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 5,
+      "last_commit": "2026-07-31",
+      "tier": "WARM",
+      "now": "claude-obsidianプラグイン(v1.9.2)インストール済み。/wiki ingest query: /save /autoresearch の5スキルが全CCセッションで使える",
+      "last": "WIKI.mdをiuma-vaultに配置、transport.json(filesystem優先)設定。次回セッションで /wiki を実行するとwiki構造（wiki/index.md, hot.md, log.md等）がiuma-vaultにスキャフォールドされる",
+      "next": "Macに Obsidian アプリを入れる（任意）→ /wiki を打って第二の脳を初期化する（1コマンドで完了）",
+      "blockers": [
+        "なし（MacアプリのインストールはYumaの1アクションのみ）"
+      ],
+      "next_actions": [
+        "第二の脳を初期化: 任意のCCセッションで `/wiki` と打つ → \"What is this vault for?\" と聞かれるので答えるだけ → wiki構造が自動生成され",
+        "MacにObsidianアプリを入れる（任意・後回しOK）: https://obsidian.md 、無料",
+        "iPhoneのObsidianを開いて iuma-vault が出てくるか確認（出れば同期成功の確定）",
+        "日次メモを習慣化（毎朝/夜 _scripts/new_daily.sh で当日メモを開く）",
+        "（後日・任意）セッションの決定を日次メモへ自動追記する仕掛けをStop hookで組む = Phase 2"
+      ],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
+      "name": "self-insight",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 5,
+      "last_commit": "2026-07-31",
+      "tier": "WARM",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [
+        "generate_dashboard.py 3,500+ 行で肥大化（ファイル分割が必要。現在 [WARN]）",
+        "相性診断機能 generate_compatibility.py は作成済みだが未実行・未デプロイ",
+        "母・妹が iuma-private を見るなら Access 設定確認が必要"
+      ],
+      "next_actions": [
+        "renderer.js動作テスト: Tier 1即時体験（生年月日のみ→リッチ結果表示）の本番品質化は完了。ブラウザ実機テストで全辞書・ナラティブ・チャートが正常表示されるか確認",
+        "相性診断の動作テスト+バイラル機能強化: compatibility.htmlのconst重複修正済み → 動作確認 + シェアカード→招待リンク→友達流入のバイラルループ検証",
+        "E2Eフロー完成: フォーム送信→Google Sheets蓄積が未確認（no-cors修正済み、再テスト必要）",
+        "engine.js検証: Yumaプロファイルで計算結果をPython版と照合（差異がないか）",
+        "SIPS実装: Big Five 40問→16 Archetypes+24 Strengths導出ロジック、アーキタイプ/強みテーマ名称設計"
+      ],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "maply",
       "layer": "infra",
       "layer_label": "Infra",
-      "days_inactive": 108,
+      "days_inactive": 113,
       "last_commit": "2026-04-14",
       "tier": "SLEEP",
       "now": "",
@@ -293,7 +283,7 @@
       "name": "sns-monetize",
       "layer": "infra",
       "layer_label": "Infra",
-      "days_inactive": 108,
+      "days_inactive": 113,
       "last_commit": "2026-04-14",
       "tier": "SLEEP",
       "now": "",
@@ -311,7 +301,7 @@
       "name": "stock-analyzer",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 133,
+      "days_inactive": 138,
       "last_commit": "2026-03-20",
       "tier": "SLEEP",
       "now": "",
