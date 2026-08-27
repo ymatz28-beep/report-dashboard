@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27 12:13",
+  "generated_at": "2026-08-27 14:46",
   "summary": {
     "total": 21,
     "hot": 1,
@@ -16,9 +16,9 @@
       "days_inactive": 0,
       "last_commit": "2026-08-27",
       "tier": "HOT",
-      "now": "クラウド返信下書き(GitHub Actions)が2週間以上「緑だが実質空振り」だった障害を解消・実際にGmail下書きが生成されることを確認済み",
-      "last": "原因はGEMINI_API_KEY(GitHub Secret)がKeychain値と乖離し失効していたこと。加えて放置されていた未pushコミット2件(810a934/3fe84e4)を今回push→symlink方式(lib/llm_client.py等)がGitHub Actionsの単独checkoutで解決不能と判明→repo内実体コピーに変更、依存先lib/api_usage_logger.pyも同様に不足していたため追加。GEMINI_API_KEYはKeychainの値でSecret再設定。commit: 810a934→3fe84e4→9d24787→71fb863。live実行で\"完了: 1/1 件のドラフト作成\"を確認",
-      "next": "未着手・任意 = 全プロバイダ失敗時にexit non-zeroで失敗を可視化する改修（現状はLLM全滅でも exit 0 で成功扱いになり今回の障害が2週間検知されなかった）。着手判断はYuma待ち",
+      "now": "GMOサイン等のnoreply@重要メールがGmailネイティブフィルタで無条件archiveされていたインシデントを恒久修正。migrate_to_gmail_filters.py/config.py/classify_inbox.py修正+テスト4件追加+誤archive済み71件をINBOX復元、全て完了・検証済み",
+      "last": "根本原因は2026-06-06 commit f40505cが2026-04-18に廃止したはずのAD_PATTERNS(noreply@等17パターン、ドメイン不問)即archiveアーキテクチャを意図せず復活させていたこと。config.pyにPROMO_ONLY_PATTERNS(マーケ専用8パターンのみ)を新設しSSoT化、migrate_to_gmail_filters.py/classify_inbox.pyの両方をこれに統一。Gmailフィルタ再生成dry-run→live適用済み、tests/test_config_safety.py新設(SSoT+危険パターン混入ガード)、rescue_critical_senders_2026_08.pyで71件復元(gmosign.com/nenkin.go.jp/metro.tokyo.lg.jp/digital.go.jp/wealthnavi.jp/google payments)。pytest 40/40 green",
+      "next": "未着手・任意 = 全プロバイダ失敗時にexit non-zeroで失敗を可視化する改修（現状はLLM全滅でも exit 0 で成功扱いになり2026-06時点の返信下書き障害が2週間検知されなかった）。着手判断はYuma待ち",
       "blockers": [
         "OAuth token: GitHub Secret GMAIL_TOKEN にrefresh_token格納。Google側でrevoke時は再認証必要",
         "ANTHROPIC_API_KEY: GitHub Secret",
