@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-27 14:46",
+  "generated_at": "2026-08-27 15:04",
   "summary": {
     "total": 21,
-    "hot": 1,
-    "warm": 11,
+    "hot": 2,
+    "warm": 10,
     "cold": 0,
     "sleep": 9,
     "freeze_candidates": 9
@@ -38,6 +38,26 @@
         "com.yuma.cleanup-sent-auto-replies",
         "com.yuma.archive-digests",
         "com.yuma.inbox-watchdog"
+      ]
+    },
+    {
+      "name": "x-bookmarks",
+      "layer": "l3",
+      "layer_label": "Layer 3 / 資産・知識",
+      "days_inactive": 0,
+      "last_commit": "2026-08-27",
+      "tier": "HOT",
+      "now": "全プロジェクト横断のX Bookmark採用済みエントリ、triage完了(505/505、pending 0、整合性問題0 — python3 verify_adoption.pyで確認済み 2026-08-01)",
+      "last": "sns-auto/x-bookmarks本体/slide-creator の全pending採用候補(計154件)に検討結果を付与。恒久対策として過去セッション履歴(2026-07以前)を handoff-archive-2026-07.md へ分離",
+      "next": "**新規triageセッション開始前に必ず python3 x-bookmarks/verify_adoption.py を実行し、pending件数を確認してから着手する**（0件ならこのセッションでの再精査は不要）。過去の履歴詳細は handoff-archive-2026-07.md 参照",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 4,
+      "automation_jobs": [
+        "com.yuma.xbookmarks-daily",
+        "com.yuma.xbookmarks",
+        "com.yuma.xbookmarks-weekly",
+        "com.yuma.sns-style-refresh"
       ]
     },
     {
@@ -234,26 +254,6 @@
       "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
-    },
-    {
-      "name": "x-bookmarks",
-      "layer": "l3",
-      "layer_label": "Layer 3 / 資産・知識",
-      "days_inactive": 3,
-      "last_commit": "2026-08-24",
-      "tier": "WARM",
-      "now": "全プロジェクト横断のX Bookmark採用済みエントリ、triage完了(505/505、pending 0、整合性問題0 — python3 verify_adoption.pyで確認済み 2026-08-01)",
-      "last": "sns-auto/x-bookmarks本体/slide-creator の全pending採用候補(計154件)に検討結果を付与。恒久対策として過去セッション履歴(2026-07以前)を handoff-archive-2026-07.md へ分離",
-      "next": "**新規triageセッション開始前に必ず python3 x-bookmarks/verify_adoption.py を実行し、pending件数を確認してから着手する**（0件ならこのセッションでの再精査は不要）。過去の履歴詳細は handoff-archive-2026-07.md 参照",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 4,
-      "automation_jobs": [
-        "com.yuma.xbookmarks-daily",
-        "com.yuma.xbookmarks",
-        "com.yuma.xbookmarks-weekly",
-        "com.yuma.sns-style-refresh"
-      ]
     },
     {
       "name": "maply",
