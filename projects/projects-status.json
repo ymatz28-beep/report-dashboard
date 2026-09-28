@@ -10,6 +10,21 @@
   },
   "projects": [
     {
+      "name": "report-dashboard-deploy",
+      "layer": "infra",
+      "layer_label": "Infra",
+      "days_inactive": 0,
+      "last_commit": "2026-09-28",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "cisco-os",
       "layer": "l2",
       "layer_label": "Layer 2 / Cisco業務",
@@ -40,21 +55,6 @@
         "Apple Shortcuts側の構築が未着手（iPhone操作必要）",
         "NFCタグ未購入（Amazon、約1000円）"
       ],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
-    },
-    {
-      "name": "report-dashboard-deploy",
-      "layer": "infra",
-      "layer_label": "Infra",
-      "days_inactive": 1,
-      "last_commit": "2026-09-27",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [],
       "next_actions": [],
       "automation_count": 0,
       "automation_jobs": []
