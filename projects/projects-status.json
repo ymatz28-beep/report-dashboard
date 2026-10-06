@@ -10,6 +10,21 @@
   },
   "projects": [
     {
+      "name": "report-dashboard-deploy",
+      "layer": "infra",
+      "layer_label": "Infra",
+      "days_inactive": 0,
+      "last_commit": "2026-10-06",
+      "tier": "HOT",
+      "now": "",
+      "last": "",
+      "next": "",
+      "blockers": [],
+      "next_actions": [],
+      "automation_count": 0,
+      "automation_jobs": []
+    },
+    {
       "name": "aikeru",
       "layer": "l3",
       "layer_label": "Layer 3 / 資産・知識",
@@ -42,21 +57,6 @@
       "automation_jobs": [
         "com.yuma.leader-digest"
       ]
-    },
-    {
-      "name": "report-dashboard-deploy",
-      "layer": "infra",
-      "layer_label": "Infra",
-      "days_inactive": 1,
-      "last_commit": "2026-10-05",
-      "tier": "HOT",
-      "now": "",
-      "last": "",
-      "next": "",
-      "blockers": [],
-      "next_actions": [],
-      "automation_count": 0,
-      "automation_jobs": []
     },
     {
       "name": "sns-auto",
